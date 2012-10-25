@@ -27,13 +27,12 @@ public class DummyController {
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String home(Model model){
+    public String home(Model model) {
 
         model.addAttribute("user", "John Doe");
 
         return "home";
     }
-
 
 
 }
