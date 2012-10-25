@@ -3,7 +3,7 @@ version = '1.0'
 apply plugin: 'jetty'
 apply plugin: 'idea'
 
-defaultTasks 'clean', 'idea', 'build'
+defaultTasks 'clean', 'build'
 
 repositories {
     mavenCentral()
@@ -35,7 +35,7 @@ jettyRun.contextPath = ''
 
 task compile(dependsOn: compileJava)
 
-task getJars(type:Copy, dependsOn: compile) { into 'lib' from configurations.compile }
+task getJars(type:Copy, dependsOn:[compile, test]) { into 'lib' from configurations.compile }
 
 task intellijLibs(dependsOn: getJars) {
     description = 'get jar to lib for intelliJ to recreate'
