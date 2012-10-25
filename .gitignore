@@ -1,5 +1,5 @@
+# Compiled files and IntelliJ specific files #
 *.class
-*.ipr
 *.iml
 *.iws
 
@@ -7,8 +7,9 @@
 *.jar
 *.war
 *.ear
-.idea
-build/
-*.iml
+
+# Directories that we don't want to track #
+.idea/
 .gradle/
 out/
+build/
