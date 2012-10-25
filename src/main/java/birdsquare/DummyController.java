@@ -13,7 +13,7 @@ public class DummyController {
 
         model.addAttribute("message", "Hello world!");
 
-        return "index";
+        return "/WEB-INF/index.ftl";
     }
 
     @RequestMapping(value = "/dummypage", method = RequestMethod.POST)
@@ -24,6 +24,14 @@ public class DummyController {
         model.addAttribute("message", "Hello bird world!");
 
         return "dummypage";
+    }
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home(Model model){
+
+        model.addAttribute("user", "John Doe");
+
+        return "home";
     }
 
 
