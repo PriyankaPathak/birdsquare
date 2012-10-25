@@ -1,6 +1,5 @@
 package birdsquare;
 
-import main.java.birdsquare.DummyController;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
