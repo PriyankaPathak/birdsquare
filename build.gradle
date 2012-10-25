@@ -1,0 +1,30 @@
+version = '1.0'
+
+apply plugin: 'jetty'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.6
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework:spring-core:+"
+    compile "org.springframework:spring-webmvc:+"
+    compile "javax.servlet:javax.servlet-api:+"
+    compile "org.springframework:spring-context:+"
+    compile "org.freemarker:freemarker:2.3.19"
+}
+
+
+jettyRun.contextPath = ''
+
+task compile(dependsOn: compileJava)
+
+task getJars(type:Copy, dependsOn: compile) { into 'lib' from configurations.compile }
+
+task intellijLibs(dependsOn: getJars) {
+    description = 'get jar to lib for intelliJ to recreate'
+    outputs.dir 'lib'
+}
