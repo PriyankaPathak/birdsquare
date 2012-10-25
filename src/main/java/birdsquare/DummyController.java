@@ -13,7 +13,7 @@ public class DummyController {
 
         model.addAttribute("message", "Hello world!");
 
-        return "/WEB-INF/index.ftl";
+        return "index";
     }
 
     @RequestMapping(value = "/dummypage", method = RequestMethod.POST)
