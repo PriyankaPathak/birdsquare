@@ -1,4 +1,4 @@
-package main.java.birdsquare;
+package birdsquare;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,8 +9,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 public class BirdSessionFactory {
     private static SessionFactory ourSessionFactory;
 
-    static
-    {
+    static {
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
                 .applySettings(new Configuration().addResource("hibernate.cfg.xml").configure().getProperties())
                 .buildServiceRegistry();
@@ -18,11 +17,7 @@ public class BirdSessionFactory {
         ourSessionFactory = new Configuration().configure().buildSessionFactory(serviceRegistry);
     }
 
-    public static Session createSession()
-    {
-       return ourSessionFactory.openSession();
+    public static Session createSession() {
+        return ourSessionFactory.openSession();
     }
-
-
-
 }

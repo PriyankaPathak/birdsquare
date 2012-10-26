@@ -1,6 +1,7 @@
 package birdsquare;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -9,7 +10,7 @@ import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAda
 
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
-public class DummyControllerTest {
+public class DummyControllerIT {
 
     private MockHttpServletRequest request;
     private MockHttpServletResponse response;
@@ -25,11 +26,12 @@ public class DummyControllerTest {
     }
 
     @Test
-    public void shouldRenderIndex() throws Exception {
-        request.setRequestURI("/");
-        request.setMethod("GET");
+    @Ignore
+    public void testDummyPage() throws Exception {
+        request.setRequestURI("/dummypage.html");
+        request.setMethod("POST");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "index");
+        assertViewName(mav, "dummypage");
     }
 }

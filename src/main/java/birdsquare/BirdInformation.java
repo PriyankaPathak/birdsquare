@@ -1,4 +1,4 @@
-package main.java.birdsquare;
+package birdsquare;
 
 
 import javax.persistence.Entity;
@@ -11,7 +11,8 @@ public class BirdInformation {
     private String weight;
     private String message;
 
-    public BirdInformation(){}
+    public BirdInformation() {
+    }
 
     public BirdInformation(String birdName, String weight, String message) {
         this.birdName = birdName;
@@ -42,7 +43,8 @@ public class BirdInformation {
     public void setMessage(String message) {
         this.message = message;
     }
-    public String toString(){
-        return birdName+" "+weight+" "+message;
+
+    public String toString() {
+        return birdName + " " + weight + " " + message;
     }
 }
