@@ -12,7 +12,7 @@
         <property name="hbm2ddl.auto">update</property>
 
 
-        <mapping class="birdsquare.BirdInformation"/>
+        <mapping class="birdsquare.model.BirdInformation"/>
     </session-factory>
 
 </hibernate-configuration>

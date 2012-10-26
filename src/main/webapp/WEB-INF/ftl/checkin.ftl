@@ -9,7 +9,7 @@
 <#include "header.ftl">
     <div id="main-content">
         <p>
-        This is a blank check in page where user can enter bird name.
+            This is a blank check in page where user can enter bird name.
         </p>
     </div>
 <#include "footer.ftl">

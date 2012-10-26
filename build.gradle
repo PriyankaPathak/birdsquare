@@ -3,7 +3,7 @@ version = '1.0'
 apply plugin: 'jetty'
 apply plugin: 'idea'
 
-defaultTasks 'clean', 'build'
+defaultTasks 'clean', 'idea', 'build'
 
 repositories {
     mavenCentral()

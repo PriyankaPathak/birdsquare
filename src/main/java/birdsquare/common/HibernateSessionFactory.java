@@ -1,4 +1,4 @@
-package birdsquare;
+package birdsquare.common;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-public class BirdSessionFactory {
+public class HibernateSessionFactory {
     private static SessionFactory ourSessionFactory;
 
     static {

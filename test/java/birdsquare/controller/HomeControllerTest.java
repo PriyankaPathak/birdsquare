@@ -1,5 +1,6 @@
-package birdsquare;
+package birdsquare.controller;
 
+import birdsquare.controller.HomeController;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -9,19 +10,19 @@ import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAda
 
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
-public class DummyControllerTest {
+public class HomeControllerTest {
 
     private MockHttpServletRequest request;
     private MockHttpServletResponse response;
     private AnnotationMethodHandlerAdapter handlerAdapter;
-    private DummyController controller;
+    private HomeController controller;
 
     @Before
     public void setUp() {
         request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
         handlerAdapter = new AnnotationMethodHandlerAdapter();
-        controller = new DummyController();
+        controller = new HomeController();
     }
 
     @Test

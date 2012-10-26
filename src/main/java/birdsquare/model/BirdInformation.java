@@ -1,4 +1,4 @@
-package birdsquare;
+package birdsquare.model;
 
 
 import javax.persistence.Entity;
