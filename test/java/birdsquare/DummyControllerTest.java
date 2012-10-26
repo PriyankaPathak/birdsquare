@@ -25,11 +25,27 @@ public class DummyControllerTest {
     }
 
     @Test
-    public void shouldRenderIndex() throws Exception {
+    public void shouldRenderIndexAsLandingPage() throws Exception {
         request.setRequestURI("/");
         request.setMethod("GET");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "index");
+        assertViewName(mav, "home");
+    }
+
+    @Test
+    public void shouldRenderCheckInPageAfterClickingCheckInButton() throws Exception {
+        request.setRequestURI("/checkin.html");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "checkin");
+    }
+
+    @Test
+    public void shouldRenderHomePageAfterClickingHomeButton() throws Exception {
+        request.setRequestURI("/home.html");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "home");
     }
 }

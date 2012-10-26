@@ -1,0 +1,52 @@
+.header-left{
+    border: 2px solid black;
+    float: left;
+    width: 49%;
+    color: green;
+    text-align: center;
+    background-image:url('../img/temp_birdsquare_logo.jpeg');
+}
+.header-right{
+    border: 2px solid black;
+    float: right;
+    width: 50%;
+    color: black;
+    text-align: center;
+    background: #9acd32;
+}
+
+
+
+#footer-container{
+    color: blue;
+    text-align: center;
+}
+
+.footer-left {
+    border: 2px solid black;
+    float: left;
+    width: 33%;
+    background: yellow;
+}
+
+
+.footer-center {
+    border: 2px solid black;
+    float: left;
+    width: 33%;
+    background: yellow;
+}
+
+
+.footer-right {
+    border: 2px solid black;
+    float: left;
+    width: 33%;
+    background: yellow;
+}
+
+#main-content {
+    height: 80%;
+    font-family: sans-serif;
+}
+

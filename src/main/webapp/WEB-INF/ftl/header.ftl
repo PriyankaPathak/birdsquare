@@ -1,8 +1,7 @@
-<div id="header-container">
-    <div style="float: left;">
-        <h2>Logo</h2>
-    </div>
-    <div style="clear:both;">
-        <h2>Check In</h2>
-    </div>
+<div class="header-left">
+    <h2>BirdSquare Logo</h2>
+</div>
+
+<div class="header-right">
+    <h2><a href="checkin.html">Check In</a></h2>
 </div>

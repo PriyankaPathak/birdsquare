@@ -1,11 +1,12 @@
+
 <div id="footer-container">
-    <div style="float: left;">
-        <h2>Button1</h2>
+    <div class="footer-left">
+        <h2>Profile</h2>
     </div>
-    <div style="float: left;">
-        <h2>Button2</h2>
+    <div class="footer-center">
+        <h2><a href="home.html">home</a></h2>
     </div>
-    <div style="clear:both;">
-        <h2>Button3</h2>
+    <div class="footer-right" >
+        <h2>Search</h2>
     </div>
 </div>

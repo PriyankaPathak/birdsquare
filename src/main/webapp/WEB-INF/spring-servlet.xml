@@ -24,6 +24,6 @@
 
 
     <context:component-scan
-            base-package="main.java.birdsquare"/>
+            base-package="birdsquare"/>
 
 </beans>
