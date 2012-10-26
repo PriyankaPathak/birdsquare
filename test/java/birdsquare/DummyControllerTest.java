@@ -33,7 +33,7 @@ public class DummyControllerTest {
     @Test
     public void shouldRenderIndex() throws Exception {
 
-        request.setRequestURI("/index.html");
+        request.setRequestURI("/");
         request.setMethod("GET");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);

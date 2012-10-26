@@ -1,5 +1,8 @@
 package birdsquare;
 
+import main.java.birdsquare.BirdInformation;
+import main.java.birdsquare.BirdSessionFactory;
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class DummyController {
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
 
         model.addAttribute("message", "Hello world!");
@@ -19,9 +22,17 @@ public class DummyController {
     @RequestMapping(value = "/dummypage", method = RequestMethod.POST)
     public String dummypage(Model model) {
 
-        model.addAttribute("birdname", "Pigeon");
-        model.addAttribute("weight", "2 lbs");
-        model.addAttribute("message", "Hello bird world!");
+        BirdInformation birdInformation = new BirdInformation("ashwin","2 lbs","Hello bird ashwin!");
+        model.addAttribute("bird", birdInformation);
+
+        final Session session = BirdSessionFactory.createSession();
+        session.beginTransaction();
+
+        session.saveOrUpdate(birdInformation);
+
+        session.getTransaction().commit();
+        session.close();
+
 
         return "dummypage";
     }
