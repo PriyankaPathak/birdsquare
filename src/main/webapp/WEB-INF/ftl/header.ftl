@@ -3,5 +3,5 @@
 </div>
 
 <div class="header-right">
-    <h2><a href="checkin.html">Check In</a></h2>
+    <button type="submit"><img src="img/temp_birdsquare_logo.jpeg"></button>
 </div>
