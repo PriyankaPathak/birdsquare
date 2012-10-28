@@ -9,6 +9,9 @@ a:link {
     text-decoration: none;
 }
 
+a:visited{
+    color: #556b2f;
+}
 
 .header-left{
     float: left;
@@ -16,19 +19,22 @@ a:link {
     color: green;
     text-align: center;
     background-image:url('../img/temp_birdsquare_logo.jpeg');
+    margin-bottom: 10px;
 }
+
 .header-right{
     float: right;
     width: 50%;
     color: black;
     text-align: center;
     background: #9acd32;
+
+    margin-bottom: 10px;
 }
 
 #footer-container{
     color: #556b2f;
     text-align: center;
-
 }
 
 .footer-left {
@@ -52,8 +58,9 @@ a:link {
 }
 
 #main-content {
-    height: 90%;
+    height: 85%;
     font-family: "Arial";
+    padding: 10px;
 }
 
 

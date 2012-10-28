@@ -7,7 +7,6 @@
 
 <body>
 <div id="main-container">
-<#--<form action="checkin.html" method="POST" name="checkin">-->
 <#include "../header.ftl">
    <div id="main-content">
         <p>
@@ -18,7 +17,6 @@
         </p>
     </div>
 <#include "../footer.ftl">
-    </form>
 </div>
 </body>
 </html>
