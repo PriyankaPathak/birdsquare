@@ -1,5 +1,5 @@
 <div class="header-left">
-    <h3><a href=home.html>BirdSquare Logo</a></h3>
+    <h3><a href=home>BirdSquare Logo</a></h3>
 </div>
 
 <div class="header-right">
