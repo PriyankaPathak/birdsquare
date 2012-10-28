@@ -11,6 +11,7 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("checkinurl", "checkin.html");
+
         return "home/home";
     }
 
@@ -46,3 +47,4 @@ public class HomeController {
     }
 
 }
+

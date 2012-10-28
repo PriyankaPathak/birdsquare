@@ -9,7 +9,7 @@
 <div id="main-container">
 <#--<form action="checkin.html" method="POST" name="checkin">-->
 <#include "../header.ftl">
-    <div id="main-content">
+   <div id="main-content">
         <p>
             This is where the main content goes.
             Welcome user.
