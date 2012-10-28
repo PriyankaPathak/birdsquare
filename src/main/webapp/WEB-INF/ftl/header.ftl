@@ -1,7 +1,8 @@
 <div class="header-left">
-    <h2><a href="home.html">BirdSquare Logo</a></h2>
+    <h3><a href=home.html>BirdSquare Logo</a></h3>
 </div>
 
 <div class="header-right">
-    <button type="submit"><img src="img/temp_birdsquare_logo.jpeg"></button>
+    <h3><a href=${checkinurl}>Check In</a></h3>
+
 </div>

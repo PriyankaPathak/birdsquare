@@ -1,12 +1,12 @@
 
 <div id="footer-container">
     <div class="footer-left">
-        <h2>Profile</h2>
+        <h3>Profile</h3>
     </div>
     <div class="footer-center">
-        <h2><a href="home.html">home</a></h2>
+        <h3><a href="home.html">Home</a></h3>
     </div>
     <div class="footer-right" >
-        <h2>Search</h2>
+        <h3>Search</h3>
     </div>
 </div>
