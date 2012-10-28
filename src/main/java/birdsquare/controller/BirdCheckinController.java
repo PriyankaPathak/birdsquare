@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Date;
 
 @Controller
-public class BirdCheckinController implements Validator {
+public class BirdCheckinController {
 
     @RequestMapping(value = "/status", method = RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("birdinformation") BirdInformation birdinformation,Model model) {
@@ -24,7 +24,7 @@ public class BirdCheckinController implements Validator {
                 null != birdinformation.getBirdname()) {
             model.addAttribute("message", birdinformation.birdname+" check in success!");
             birdinformation.setDate(new Date());
-            putObjectToTable(birdinformation);
+            //putObjectToTable(birdinformation);
         }
         else
             model.addAttribute("message", "Wrong input");
@@ -44,13 +44,5 @@ public class BirdCheckinController implements Validator {
 
     }
 
-    @Override
-    public boolean supports(Class<?> aClass) {
-        return false;
-    }
 
-    @Override
-    public void validate(Object o, Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"birdname","Field incorrect");
-    }
 }
