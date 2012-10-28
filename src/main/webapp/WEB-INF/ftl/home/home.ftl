@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title> BirdSquare: Home Page </title>
+    <title> BirdSquare: Home</title>
     <link rel="stylesheet" type="text/css" href="css/header.css">
 
 </head>
@@ -8,7 +8,7 @@
 <body>
 <div id="main-container">
 <#--<form action="checkin.html" method="POST" name="checkin">-->
-<#include "header.ftl">
+<#include "../header.ftl">
     <div id="main-content">
         <p>
             This is where the main content goes.
@@ -17,7 +17,7 @@
             This is the url: ${checkinurl}
         </p>
     </div>
-<#include "footer.ftl">
+<#include "../footer.ftl">
     </form>
 </div>
 </body>

@@ -11,21 +11,38 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("checkinurl", "checkin.html");
-        return "home";
+        return "home/home";
     }
+
+    @RequestMapping(value = "/home")
+    public String home(Model model){
+        model.addAttribute("checkinurl", "checkin.html");
+        return "home/home";
+    }
+
 
     @RequestMapping(value = "/checkin")
     public String checkin(Model model){
 
         model.addAttribute("checkinurl", "birdcheckin.html");
 
-        return "checkin";
+        return "checkin/checkin";
     }
 
-    @RequestMapping(value = "/home")
-    public String home(Model model){
-        model.addAttribute("checkinurl", "checkin.html");
-        return "home";
+    @RequestMapping(value = "/birdcheckin")
+    public String birdcheckin(Model model){
+
+        model.addAttribute("checkinurl", "checkinsuccess.html");
+
+        return "checkin/birdcheckin";
+    }
+
+    @RequestMapping(value = "/checkinsuccess")
+    public String checkinsuccess(Model model){
+
+        model.addAttribute("checkinurl", "checkinsuccess.html");
+
+        return "checkin/checkinsuccess";
     }
 
 }

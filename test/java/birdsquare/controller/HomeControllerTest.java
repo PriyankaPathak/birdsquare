@@ -1,6 +1,5 @@
 package birdsquare.controller;
 
-import birdsquare.controller.HomeController;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -26,27 +25,36 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void shouldRenderIndexAsLandingPage() throws Exception {
+    public void shouldRenderHomePageAsLandingPage() throws Exception {
         request.setRequestURI("/");
         request.setMethod("GET");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "home");
-    }
-
-    @Test
-    public void shouldRenderCheckInPageAfterClickingCheckInButton() throws Exception {
-        request.setRequestURI("/checkin.html");
-
-        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "checkin");
+        assertViewName(mav, "home/home");
     }
 
     @Test
     public void shouldRenderHomePageAfterClickingHomeButton() throws Exception {
-        request.setRequestURI("/home.html");
+        request.setRequestURI("/home");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "home");
+        assertViewName(mav, "home/home");
     }
+
+    @Test
+    public void shouldRenderCheckInPageAfterClickingCheckInButtonFromHomePage() throws Exception {
+        request.setRequestURI("/checkin");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "checkin/checkin");
+    }
+
+    @Test
+    public void shouldRenderBirdCheckInPageAfterClickingCheckInButtonFromFirstCheckInPage() throws Exception {
+        request.setRequestURI("/birdcheckin");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "checkin/birdcheckin");
+    }
+
 }

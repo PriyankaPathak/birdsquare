@@ -1,50 +1,102 @@
 package birdsquare.model;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
+@Table(name = "birdinformation")
 public class BirdInformation {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @GenericGenerator(name = "generator", strategy = "increment")
     @Id
-    private String birdName;
-    private String weight;
-    private String message;
+    @GeneratedValue(generator = "generator")
+
+    public long id;
+    public String birdname;
+    public String comments;
+    public String location;
+    public int number;
+    public Date date;
+    public double longitude;
+    public double latitude;
+
+    public BirdInformation(String birdname,int number, String location, String comments) {
+        this.birdname = birdname;
+        this.location = location;
+        this.number = number;
+        this.comments = comments;
+
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
 
     public BirdInformation() {
     }
 
-    public BirdInformation(String birdName, String weight, String message) {
-        this.birdName = birdName;
-        this.weight = weight;
-        this.message = message;
+    public String getComments() {
+        return comments;
     }
 
-    public String getBirdName() {
-        return birdName;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
-    public void setBirdName(String birdName) {
-        this.birdName = birdName;
+    public String getLocation() {
+        return location;
     }
 
-    public String getWeight() {
-        return weight;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public void setWeight(String weight) {
-        this.weight = weight;
+    public int getNumber() {
+        return number;
     }
 
-    public String getMessage() {
-        return message;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public Date getDate() {
+        return date;
     }
 
-    public String toString() {
-        return birdName + " " + weight + " " + message;
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getBirdname() {
+        return birdname;
+    }
+
+    public void setBirdname(String birdname) {
+        this.birdname = birdname;
     }
 }
