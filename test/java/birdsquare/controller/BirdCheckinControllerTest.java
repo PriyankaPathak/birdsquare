@@ -9,43 +9,26 @@ import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAda
 
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
-public class HomeControllerTest {
-
+public class BirdCheckinControllerTest {
     private MockHttpServletRequest request;
     private MockHttpServletResponse response;
     private AnnotationMethodHandlerAdapter handlerAdapter;
-    private HomeController controller;
+    private BirdCheckinController controller;
 
     @Before
     public void setUp() {
         request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
         handlerAdapter = new AnnotationMethodHandlerAdapter();
-        controller = new HomeController();
+        controller = new BirdCheckinController();
     }
 
     @Test
-    public void shouldRenderIndexAsLandingPage() throws Exception {
-        request.setRequestURI("/");
-        request.setMethod("GET");
+    public void shouldRenderIndex() throws Exception {
+        request.setRequestURI("/status");
+        request.setMethod("POST");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "home/home");
-    }
-
-    @Test
-    public void shouldRenderCheckInPageAfterClickingCheckInButton() throws Exception {
-        request.setRequestURI("/birdcheckin");
-
-        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "checkin/birdcheckin");
-    }
-
-    @Test
-    public void shouldRenderHomePageAfterClickingHomeButton() throws Exception {
-        request.setRequestURI("/home");
-
-        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "home/home");
+        assertViewName(mav, "checkin/status");
     }
 }

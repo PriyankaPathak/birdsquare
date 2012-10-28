@@ -9,16 +9,16 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-        return "home";
+        return "home/home";
     }
 
-    @RequestMapping(value = "/checkin")
+    @RequestMapping(value = "/birdcheckin")
     public String checkin(){
-        return "checkin";
+        return "checkin/birdcheckin";
     }
 
     @RequestMapping(value = "/home")
     public String home(){
-        return "home";
+        return "home/home";
     }
 }
