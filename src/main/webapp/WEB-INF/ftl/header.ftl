@@ -4,5 +4,4 @@
 
 <div class="header-right">
     <h3><a href=${checkinurl}>Check In</a></h3>
-
 </div>

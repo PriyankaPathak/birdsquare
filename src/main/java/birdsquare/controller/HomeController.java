@@ -44,6 +44,7 @@ public class HomeController {
         model.addAttribute("checkinurl", "checkinsuccess.html");
 
         return "checkin/checkinsuccess";
+
     }
 
 }
