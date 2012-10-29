@@ -9,13 +9,6 @@ repositories {
     mavenCentral()
 }
 
-sourceSets {
-    test {
-        java {
-            srcDirs = ['test/java']
-        }
-    }
-}
 dependencies {
     compile "org.springframework:spring-core:+"
     compile "org.springframework:spring-webmvc:+"
@@ -31,7 +24,6 @@ dependencies {
     testCompile "junit:junit:+"
     testCompile "javax.inject:javax.inject-tck:+"
 }
-
 
 jettyRun.contextPath = ''
 
