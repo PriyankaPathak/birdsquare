@@ -1,25 +1,26 @@
 @import url(http://fonts.googleapis.com/css?family=Arvo);
 
-h3 {
+h1 {
     font-family: "Arvo", sans-serif;
 }
 
 a:link {
-    color: #556b2f;
+    color: yellow;
     text-decoration: none;
 }
 
 a:visited{
-    color: #556b2f;
+    color: yellow;
 }
 
 .header-left{
     float: left;
     width: 50%;
-    color: green;
     text-align: center;
-    background-image:url('../img/temp_birdsquare_logo.jpeg');
+    /*background-image:url('../img/temp_birdsquare_logo.jpeg');*/
     margin-bottom: 10px;
+    background: #15401A;
+
 }
 
 .header-right{
@@ -27,40 +28,47 @@ a:visited{
     width: 50%;
     color: black;
     text-align: center;
-    background: #9acd32;
-
+    background: #CC6633;
     margin-bottom: 10px;
+
 }
 
 #footer-container{
-    color: #556b2f;
+    color: yellow;
     text-align: center;
 }
 
 .footer-left {
     float: left;
     width: 33%;
-    background: yellow;
+    background: #3B1808;
 }
 
 
 .footer-center {
     float: left;
     width: 33%;
-    background: yellow;
+    background: #3B1808;
 }
 
 
 .footer-right {
     float: left;
     width: 33%;
-    background: yellow;
+    background: #3B1808;
 }
 
 #main-content {
     height: 85%;
     font-family: "Arial";
+    font-size: 30;
     padding: 10px;
+    background-color: #E3F6CE;
 }
+.TextBox{
+    height: 30px;
+    font-size: 18;
+}
+
 
 

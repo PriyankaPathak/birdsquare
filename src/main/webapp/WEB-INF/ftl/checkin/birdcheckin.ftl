@@ -24,17 +24,17 @@
 
     <div id="main-content">
 
-        <br>BirdName *<br>
-        <input type ="text" name="birdname" size="20"/>
+        <br>Bird Name *<br>
+        <input class="TextBox" type ="text" name="birdname" size="50" />
 
-        <br>Bird Number *<br>
-        <input type ="text" name="number" value="1" size="20"/>
+        <br>Number of Birds *<br>
+        <input class="TextBox" type ="text" name="number" value="1" size="50" />
 
         <br>Bird Location *<br>
         <p id="location"></p>
 
         <br>Comments <br>
-        <textarea name="comments"></textarea>
+        <textarea name="comments" rows=5 cols=70></textarea>
         <input type="submit" value="submit"/>
     </div>
 <#include "../footer.ftl">

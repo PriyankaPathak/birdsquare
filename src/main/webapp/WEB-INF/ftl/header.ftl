@@ -1,7 +1,7 @@
 <div class="header-left">
-    <h3><a href=home>BirdSquare Logo</a></h3>
+    <h1><a href=home>BirdSquare Logo</a></h1>
 </div>
 
 <div class="header-right">
-    <h3><a href=${checkinurl}>Check In</a></h3>
+    <h1><a href=${checkinurl}>Check In</a></h1>
 </div>

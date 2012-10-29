@@ -20,9 +20,9 @@ function showPosition(position){
             }
         } else {
             alert("Geocoder failed due to: " + status);
-            document.getElementById("location").innerHTML="<input value=\" "  +
+            document.getElementById("location").innerHTML="<input class = \"TextBox\" value=\" "  +
                 "Enter location" +
-                "\" size=\"35\" type =\"text\" name=\"location\"  >";
+                "\" size=\"50\" type =\"text\" name=\"location\"  >";
 
         }
     });
