@@ -28,7 +28,8 @@
 
         <br>Comments <br>
         <textarea name="comments" rows=5 cols=50></textarea>
-        <input type="submit" value="submit"/>
+        <p></p>
+        <input type="submit" value="submit" />
     </div>
 <#include "../footer.ftl">
 </form>

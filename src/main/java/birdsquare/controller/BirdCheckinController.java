@@ -17,7 +17,7 @@ import java.util.Date;
 @Controller
 public class BirdCheckinController {
 
-    @RequestMapping(value = "/status", method = RequestMethod.POST)
+    @RequestMapping(value = "/status")
     public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("birdinformation") BirdInformation birdinformation,Model model) {
 
         model.addAttribute("checkinurl", "birdcheckin");
