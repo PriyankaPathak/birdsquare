@@ -15,8 +15,10 @@ function showPosition(position){
     geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
-                document.getElementById("location").innerHTML="<textarea rows=\"2\" "+
-                "cols=\"30\" name=\"location\">" + results[1].formatted_address + "</textarea>";
+                document.getElementById("location").innerHTML="<input class = \"TextBox\" value=\" "  +
+                    results[1].formatted_address +
+                    "\" size=\"50\" type =\"text\" name=\"location\"  >";
+
             }
         } else {
             alert("Geocoder failed due to: " + status);
