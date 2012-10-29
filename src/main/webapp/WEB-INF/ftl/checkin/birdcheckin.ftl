@@ -3,9 +3,13 @@
     <title>BirdSquare: Check In</title>
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <script type="text/javascript" src="js/validation.js"></script>
+    <script
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+    </script>
+    <script type="text/javascript" src="js/location.js"></script>
 </head>
 
-<body>
+<body onload= getLocation()>
 <div id="main-container">
 <form action="status" name="birdinformation" method="POST" action="status.html" onsubmit="return validateForm()">
 <#include "../header.ftl">
@@ -19,7 +23,7 @@
         <input type ="text" name="number" value="1"/>
 
         <br>Bird Location *<br>
-        <input type ="text" name="location" value="Bangalore"/>
+        <p id="location"></p>
 
         <br>Comments <br>
         <input type ="text" name="comments"/>

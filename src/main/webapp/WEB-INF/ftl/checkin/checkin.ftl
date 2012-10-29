@@ -9,8 +9,9 @@
 <#include "../header.ftl">
     <div id="main-content">
         <p>
-            This is a blank check in page where user can enter bird name.
+           Clickable list of nearby places to current location as pointed out by GPS.
         </p>
+        <h1>STILL A MESS!!</h1>
     </div>
 <#include "../footer.ftl">
 </div>
