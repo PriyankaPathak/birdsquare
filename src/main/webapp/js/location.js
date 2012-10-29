@@ -13,15 +13,15 @@ function showPosition(position){
     geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
-                document.getElementById("location").innerHTML="<input value=\" "  +
+                document.getElementById("location").innerHTML="<input class = \"TextBox\" value=\" "  +
                     results[1].formatted_address +
-                    "\" size=\"35\" type =\"text\" name=\"location\"  >";
+                    "\" size=\"50\" type =\"text\" name=\"location\"  >";
             }
         } else {
             alert("Geocoder failed due to: " + status);
-            document.getElementById("location").innerHTML="<input value=\" "  +
+            document.getElementById("location").innerHTML="<input class = \"TextBox\" value=\" "  +
                 "Enter location" +
-                "\" size=\"35\" type =\"text\" name=\"location\"  >";
+                "\" size=\"50\" type =\"text\" name=\"location\"  >";
 
         }
     });

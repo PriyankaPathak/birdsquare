@@ -19,7 +19,7 @@ a:visited{
     text-align: center;
     /*background-image:url('../img/temp_birdsquare_logo.jpeg');*/
     margin-bottom: 10px;
-    background: #CC6633;
+    background: #15401A;
 
 }
 
@@ -63,6 +63,11 @@ a:visited{
     font-family: "Arial";
     font-size: 30;
     padding: 10px;
+    background-color: #E3F6CE;
+}
+.TextBox{
+    height: 30px;
+    font-size: 18;
 }
 
 
