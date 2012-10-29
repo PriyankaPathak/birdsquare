@@ -17,17 +17,20 @@ import java.util.Date;
 @Controller
 public class BirdCheckinController {
 
-    @RequestMapping(value = "/status", method = RequestMethod.POST)
+    @RequestMapping(value = "/status", method = RequestMethod.GET)
     public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("birdinformation") BirdInformation birdinformation,Model model) {
+
+        model.addAttribute("checkinurl", "home");
 
         if (null != birdinformation &&
                 null != birdinformation.getBirdname()) {
             model.addAttribute("message", birdinformation.birdname+" check in success!");
             birdinformation.setDate(new Date());
-            //putObjectToTable(birdinformation);
+            putObjectToTable(birdinformation);
         }
         else
             model.addAttribute("message", "Wrong input");
+
         return "checkin/status";
     }
 
@@ -42,6 +45,14 @@ public class BirdCheckinController {
         session.getTransaction().commit();
         session.close();
 
+    }
+
+    @RequestMapping(value = "/birdcheckin")
+    public String birdcheckin(Model model){
+
+        model.addAttribute("checkinurl", "status");
+
+        return "checkin/birdcheckin";
     }
 
 

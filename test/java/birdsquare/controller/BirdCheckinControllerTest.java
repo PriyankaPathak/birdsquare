@@ -24,12 +24,22 @@ public class BirdCheckinControllerTest {
     }
 
     @Test
-    public void shouldRenderIndex() throws Exception {
+    public void shouldRenderStatusPage() throws Exception {
         request.setRequestURI("/status");
-        request.setMethod("POST");
+        request.setMethod("GET");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "checkin/status");
     }
+
+    @Test
+    public void shouldRenderBirdCheckinPage() throws Exception {
+        request.setRequestURI("/birdcheckin");
+        request.setMethod("GET");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "checkin/birdcheckin");
+    }
+
 
 }

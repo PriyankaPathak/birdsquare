@@ -26,9 +26,15 @@ describe("bird name validation", function() {
   });
 
   it("should not accept name with special characters", function (){
-        var result=does_not_contain_special_characters("Pigeon#$");
+        var result=does_not_contain_special_characters("Pigeon&**");
         expect(result).not.toBe(true);
     });
+
+
+  it("should accept a number and no text as number of birds",function(){
+     var result=does_not_contain_numbers("1");
+     expect(result).not.toBe(true);
+  });
 
 
   

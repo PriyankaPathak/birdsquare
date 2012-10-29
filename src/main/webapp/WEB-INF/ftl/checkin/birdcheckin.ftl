@@ -11,24 +11,30 @@
 
 <body onload= getLocation()>
 <div id="main-container">
-<form action="status" name="birdinformation" method="POST" action="status.html" onsubmit="return validateForm()">
+<form name="birdinformation" onsubmit="return validateForm()" action="status.html">
 <#include "../header.ftl">
+    <#--<div class="header-left">-->
+        <#--<h3><a href=home>BirdSquare Logo</a></h3>-->
+    <#--</div>-->
+
+    <#--<div class="header-right">-->
+        <#--<h3><button><img src="../../img/checkin.png"></button></h3>-->
+    <#--</div>-->
+
 
     <div id="main-content">
 
         <br>BirdName *<br>
-        <input type ="text" name="birdname"/>
+        <input type ="text" name="birdname" size="20"/>
 
         <br>Bird Number *<br>
-        <input type ="text" name="number" value="1"/>
+        <input type ="text" name="number" value="1" size="20"/>
 
         <br>Bird Location *<br>
         <p id="location"></p>
 
         <br>Comments <br>
-        <input type ="text" name="comments"/>
-
-
+        <textarea name="comments"></textarea>
         <input type="submit" value="submit"/>
     </div>
 <#include "../footer.ftl">

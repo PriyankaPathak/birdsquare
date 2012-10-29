@@ -30,13 +30,7 @@ public class HomeController {
         return "checkin/checkin";
     }
 
-    @RequestMapping(value = "/birdcheckin")
-    public String birdcheckin(Model model){
 
-        model.addAttribute("checkinurl", "checkinsuccess");
-
-        return "checkin/birdcheckin";
-    }
 
     @RequestMapping(value = "/checkinsuccess")
     public String checkinsuccess(){

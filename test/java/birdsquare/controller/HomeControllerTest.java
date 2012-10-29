@@ -49,12 +49,6 @@ public class HomeControllerTest {
         assertViewName(mav, "checkin/checkin");
     }
 
-    @Test
-    public void shouldRenderBirdCheckInPageAfterClickingCheckInButtonFromFirstCheckInPage() throws Exception {
-        request.setRequestURI("/birdcheckin");
 
-        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "checkin/birdcheckin");
-    }
 
 }
