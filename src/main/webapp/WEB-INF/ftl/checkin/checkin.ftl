@@ -11,7 +11,7 @@
         <p>
            Clickable list of nearby places to current location as pointed out by GPS.
         </p>
-        <h1>STILL A MESS!!</h1>
+        <h1>Under Construction!!</h1>
     </div>
 <#include "../footer.ftl">
 </div>
