@@ -2,11 +2,11 @@
 <head>
     <title>BirdSquare: Check In</title>
     <link rel="stylesheet" type="text/css" href="css/header.css">
-    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="javascript/validation.js"></script>
     <script
         src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
     </script>
-    <script type="text/javascript" src="js/location.js"></script>
+    <script type="text/javascript" src="javascript/location.js"></script>
     <script type="text/javascript">window.onload=getLocation;</script>
 </head>
 
@@ -14,14 +14,6 @@
 <div id="main-container">
 <form name="birdinformation" onsubmit="return validateForm()" action="status" method="post">
 <#include "../header.ftl">
-    <#--<div class="header-left">-->
-        <#--<h3><a href=home>BirdSquare Logo</a></h3>-->
-    <#--</div>-->
-
-    <#--<div class="header-right">-->
-        <#--<h3><button><img src="../../img/checkin.png"></button></h3>-->
-    <#--</div>-->
-
 
     <div id="main-content">
 
