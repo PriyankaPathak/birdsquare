@@ -17,7 +17,7 @@ import java.util.Date;
 @Controller
 public class BirdCheckinController {
 
-    @RequestMapping(value = "/status", method = RequestMethod.GET)
+    @RequestMapping(value = "/status", method = RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("birdinformation") BirdInformation birdinformation,Model model) {
 
         model.addAttribute("checkinurl", "birdcheckin");
@@ -48,7 +48,7 @@ public class BirdCheckinController {
 
     }
 
-    @RequestMapping(value = "/birdcheckin")
+    @RequestMapping(value = "/birdcheckin" )
     public String birdcheckin(Model model){
 
         model.addAttribute("checkinurl", "status");

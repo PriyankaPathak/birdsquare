@@ -1,6 +1,9 @@
 validateForm=function()
 {
     var birdname=document.forms["birdinformation"]["birdname"].value;
+
+    birdname = birdname.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    //alert("1."+birdname+".");
     var number=document.forms["birdinformation"]["number"].value;
     if (!is_not_an_empty_field(birdname))
     {
@@ -24,6 +27,10 @@ validateForm=function()
         return false;
 
     }
+    else if(!contains_number_atleast_greater_than_zero(number)){
+        alert("Invalid Number");
+        return false;
+    }
     else if(!is_not_an_empty_field(number))
     {
         alert("Number of birds must be filled out");
@@ -35,7 +42,9 @@ validateForm=function()
 
 
 does_not_contain_numbers = function(input){
+
     return !(/\d/.test(input));
+
 
 };
 
@@ -59,5 +68,12 @@ does_not_contain_special_characters=function(input){
     return true;
 
 };
+contains_number_atleast_greater_than_zero = function(input){
+
+    if(input <= 0) {
+        return false;
+    }
+    return true;
+}
 
 

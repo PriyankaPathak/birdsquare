@@ -36,6 +36,16 @@ describe("bird name validation", function() {
      expect(result).not.toBe(true);
   });
 
+  it("should not accept zero as number of birds",function(){
+     var result= contains_number_atleast_greater_than_zero("0");
+     expect(result).not.toBe(true);
+  });
+
+  it("should not accept negative value as number of birds",function(){
+     var result= contains_number_atleast_greater_than_zero("-2");
+     expect(result).not.toBe(true);
+  });
+
 
   
 });

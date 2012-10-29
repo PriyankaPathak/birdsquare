@@ -12,7 +12,7 @@
 
 <body>
 <div id="main-container">
-<form name="birdinformation" onsubmit="return validateForm()" action="status">
+<form name="birdinformation" onsubmit="return validateForm()" action="status" method="post">
 <#include "../header.ftl">
     <#--<div class="header-left">-->
         <#--<h3><a href=home>BirdSquare Logo</a></h3>-->

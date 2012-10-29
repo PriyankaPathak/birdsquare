@@ -26,7 +26,7 @@ public class BirdCheckinControllerTest {
     @Test
     public void shouldRenderStatusPage() throws Exception {
         request.setRequestURI("/status");
-        request.setMethod("GET");
+        request.setMethod("POST");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "checkin/status");
