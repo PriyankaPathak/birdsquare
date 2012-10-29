@@ -7,7 +7,6 @@ function getLocation(){
 
 
 function showPosition(position){
-    alert("in here");
 
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -47,13 +46,4 @@ function showError(error)
             alert("An unknown error occurred.");
             break;
     }
-}
-
-
-function errorGeoSupport(){
-    alert("GooGle map failure: No Internet Connection. Please, enter location manually");
-    document.getElementById("location").innerHTML="<input value=\" "  +
-        "Enter location" +
-        "\" size=\"35\" type =\"text\" name=\"location\"  >";
-
 }
