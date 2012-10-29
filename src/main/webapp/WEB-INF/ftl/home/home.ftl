@@ -2,8 +2,6 @@
 <head>
     <title> BirdSquare: Home</title>
     <link rel="stylesheet" type="text/css" href="css/header.css">
-
-
 </head>
 
 <body>

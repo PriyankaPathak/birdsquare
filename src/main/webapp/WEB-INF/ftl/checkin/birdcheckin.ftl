@@ -11,7 +11,7 @@
 
 <body onload= getLocation()>
 <div id="main-container">
-<form name="birdinformation" onsubmit="return validateForm()" action="status.html">
+<form name="birdinformation" onsubmit="return validateForm()" action="status">
 <#include "../header.ftl">
     <#--<div class="header-left">-->
         <#--<h3><a href=home>BirdSquare Logo</a></h3>-->
@@ -34,7 +34,7 @@
         <p id="location"></p>
 
         <br>Comments <br>
-        <textarea name="comments" rows=5 cols=70></textarea>
+        <textarea name="comments" rows=5 cols=50></textarea>
         <input type="submit" value="submit"/>
     </div>
 <#include "../footer.ftl">
