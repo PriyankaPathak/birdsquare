@@ -1,8 +1,5 @@
 package birdsquare.controller;
 
-import birdsquare.model.BirdInformation;
-import birdsquare.model.BirdInformationDAO;
-import birdsquare.model.BirdInformationDAOImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -10,7 +7,6 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 
-import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
 public class BirdCheckinControllerTest {
@@ -18,8 +14,6 @@ public class BirdCheckinControllerTest {
     private MockHttpServletResponse response;
     private AnnotationMethodHandlerAdapter handlerAdapter;
     private BirdCheckinController controller;
-    private BirdInformation dummyBirdInformation;
-    private BirdInformationDAO mockBirdInformationDAO;
 
     @Before
     public void setUp() {
@@ -27,8 +21,6 @@ public class BirdCheckinControllerTest {
         response = new MockHttpServletResponse();
         handlerAdapter = new AnnotationMethodHandlerAdapter();
         controller = new BirdCheckinController();
-        mockBirdInformationDAO = mock(BirdInformationDAOImpl.class);
-        controller.setDao(mockBirdInformationDAO);
     }
 
     @Test
@@ -38,7 +30,6 @@ public class BirdCheckinControllerTest {
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "checkin/status");
-
     }
 
     @Test
@@ -49,5 +40,6 @@ public class BirdCheckinControllerTest {
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "checkin/birdcheckin");
     }
+
 
 }

@@ -2,10 +2,7 @@ package birdsquare.controller;
 
 import birdsquare.helper.BirdSessionFactory;
 import birdsquare.model.BirdInformation;
-import birdsquare.model.BirdInformationDAO;
 import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -20,12 +17,7 @@ import java.util.Date;
 @Controller
 public class BirdCheckinController {
 
-
-    @Autowired
-    @Qualifier("birdInformationDAO")
-    private BirdInformationDAO dao;
-
-    @RequestMapping(value = "/status", method = RequestMethod.GET)
+    @RequestMapping(value = "/status")
     public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("birdinformation") BirdInformation birdinformation,Model model) {
 
         model.addAttribute("checkinurl", "birdcheckin");
@@ -34,8 +26,8 @@ public class BirdCheckinController {
                 null != birdinformation.getBirdname()) {
             model.addAttribute("message", birdinformation.birdname+" check in success!");
             birdinformation.setDate(new Date());
-        //    putObjectToTable(birdinformation);
-            dao.save(birdinformation);
+            putObjectToTable(birdinformation);
+
         }
         else
             model.addAttribute("message", "Wrong input");
@@ -43,12 +35,9 @@ public class BirdCheckinController {
         return "checkin/status";
     }
 
-    public void setDao(BirdInformationDAO dao){
-        this.dao=dao;
-    }
-
     private void putObjectToTable(Object object)
     {
+
         final Session session = BirdSessionFactory.getInstance().createSession();
         session.beginTransaction();
 
@@ -56,6 +45,7 @@ public class BirdCheckinController {
 
         session.getTransaction().commit();
         session.close();
+
     }
 
     @RequestMapping(value = "/birdcheckin" )
