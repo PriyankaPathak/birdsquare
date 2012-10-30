@@ -1,6 +1,5 @@
 package birdsquare.dao;
 
-import birdsquare.dao.BirdInformationDAOImpl;
 import birdsquare.model.BirdInformation;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,5 +35,4 @@ public class BirdInformationDAOImplTest {
         birdInformationDao.save(birdInformation);
         verify(mockEntityManager).close();
     }
-
 }
