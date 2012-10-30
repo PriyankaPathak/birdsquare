@@ -1,1 +1,1 @@
-scp -r build/libs/BirdSquare-1.0.war root@qa.birdsquare.in:/usr/local/jetty/webapps/birdsquare.war
+scp -r birdsquare.war root@qa.birdsquare.in:/usr/local/jetty/webapps
