@@ -9,7 +9,7 @@
 <#include "../header.ftl">
    <div id="main-content">
         <p>
-            !!! Welcome to BirdSquare !!!
+            Welcome to BirdSquare
         </p>
     </div>
 <#include "../footer.ftl">
