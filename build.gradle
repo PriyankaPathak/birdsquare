@@ -29,10 +29,16 @@ dependencies {
     compile "org.hibernate:hibernate-core:+"
     compile "org.slf4j:slf4j-api:1.5.8"
     compile "mysql:mysql-connector-java:5.1.16"
+    compile "org.springframework:spring-tx:3.0.1.RELEASE"
+    compile "org.springframework:spring-jdbc:3.1.2.RELEASE"
+    compile "org.springframework:spring-beans:3.1.2.RELEASE"
+    compile "org.hibernate:hibernate-entitymanager:4.1.7.Final"
+    compile "org.springframework:spring-orm:3.1.2.RELEASE"
 
     testCompile "org.springframework:spring-test:+"
     testCompile "junit:junit:+"
     testCompile "javax.inject:javax.inject-tck:+"
+    testCompile "org.mockito:mockito-core:1.9.0-rc1"
 }
 
 jettyRun.contextPath = ''

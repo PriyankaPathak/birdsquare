@@ -1,15 +1,14 @@
-package birdsquare.model;
+package birdsquare.dao;
 
+import birdsquare.dao.BirdInformationDAOImpl;
+import birdsquare.model.BirdInformation;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import static org.mockito.Matchers.same;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class BirdInformationDAOImplTest {
     private EntityManagerFactory mockEntityManagerFactory;
@@ -18,12 +17,12 @@ public class BirdInformationDAOImplTest {
     private BirdInformationDAOImpl birdInformationDao;
 
     @Before
-    public void setUp(){
-        birdInformation=new BirdInformation("Kingfisher",2,"Aleppy","Blue Bird");
+    public void setUp() {
+        birdInformation = new BirdInformation("Kingfisher", 2, "Aleppy", "Blue Bird");
         mockEntityManagerFactory = mock(EntityManagerFactory.class);
-        mockEntityManager=mock(EntityManager.class);
+        mockEntityManager = mock(EntityManager.class);
         when(mockEntityManagerFactory.createEntityManager()).thenReturn(mockEntityManager);
-        birdInformationDao=new BirdInformationDAOImpl(mockEntityManagerFactory);
+        birdInformationDao = new BirdInformationDAOImpl(mockEntityManagerFactory);
     }
 
     @Test
@@ -31,8 +30,9 @@ public class BirdInformationDAOImplTest {
         birdInformationDao.save(birdInformation);
         verify(mockEntityManager).persist(birdInformation);
     }
+
     @Test
-    public void shouldCallCloseOnEntityManager(){
+    public void shouldCallCloseOnEntityManager() {
         birdInformationDao.save(birdInformation);
         verify(mockEntityManager).close();
     }

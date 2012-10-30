@@ -1,3 +1,5 @@
+create database birdsquare;
+
 create table bird (
     id int not null,
     name varchar(80) null,

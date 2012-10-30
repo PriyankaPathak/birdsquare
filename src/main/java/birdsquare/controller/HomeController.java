@@ -11,7 +11,6 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("checkinurl", "checkin");
-
         return "home/home";
     }
 
@@ -21,23 +20,15 @@ public class HomeController {
         return "home/home";
     }
 
-
     @RequestMapping(value = "/checkin")
     public String checkin(Model model){
-
         model.addAttribute("checkinurl", "birdcheckin");
-
         return "checkin/checkin";
     }
 
-
-
     @RequestMapping(value = "/checkinsuccess")
     public String checkinsuccess(){
-
         return "checkin/checkinsuccess";
-
     }
-
 }
 

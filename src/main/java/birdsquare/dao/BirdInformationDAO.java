@@ -1,6 +1,7 @@
-package birdsquare.model;
+package birdsquare.dao;
+
+import birdsquare.model.BirdInformation;
 
 public interface BirdInformationDAO {
     void save(BirdInformation birdInformation);
-    BirdInformation fetch(long id);
 }

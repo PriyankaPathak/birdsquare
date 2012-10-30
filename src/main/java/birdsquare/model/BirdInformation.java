@@ -12,18 +12,10 @@ import java.util.Date;
 @Entity
 @Table(name = "birdinformation")
 public class BirdInformation {
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @GenericGenerator(name = "generator", strategy = "increment")
     @Id
     @GeneratedValue(generator = "generator")
-
     public long id;
     public String birdname;
     public String comments;
@@ -33,12 +25,22 @@ public class BirdInformation {
     public double longitude;
     public double latitude;
 
+    public BirdInformation() {
+    }
+
     public BirdInformation(String birdname,int number, String location, String comments) {
         this.birdname = birdname;
         this.location = location;
         this.number = number;
         this.comments = comments;
+    }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public double getLongitude() {
@@ -55,9 +57,6 @@ public class BirdInformation {
 
     public void setLatitude(double latitude) {
         this.latitude = latitude;
-    }
-
-    public BirdInformation() {
     }
 
     public String getComments() {
