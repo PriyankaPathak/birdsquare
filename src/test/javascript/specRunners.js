@@ -1,2 +1,0 @@
-jasmineGradle.add( "../SpecRunner.html" );
-
