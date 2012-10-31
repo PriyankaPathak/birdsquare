@@ -1,38 +1,36 @@
-function getLocation(){
-    if(navigator.geolocation)
+function getLocation() {
+    if (navigator.geolocation)
         navigator.geolocation.watchPosition(showPosition, showError);
     else
         alert("your browser does not support Geolocation");
 }
 
 
-function showPosition(position){
+function showPosition(position) {
+    var foursquareAPIURL = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&oauth_token=XQZOS4SH3WHZ32EKFAUX3YU45CFEJGYZTFR2C5F0KMB1EHCX&v=20121030"
+    $.getJSON(foursquareAPIURL, function (data) {
+        for (var i = 0; i < data.response.venues.length; i++) {
 
-    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'latLng': latlng}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            if (results[1]) {
-                document.getElementById("location").innerHTML="<input class = \"TextBox\" value=\" "  +
-                    results[1].formatted_address +
-                    "\" size=\"50\" type =\"text\" name=\"location\"  >";
-
-            }
-        } else {
-            alert("Geocoder failed due to: " + status);
-            document.getElementById("location").innerHTML="<input class = \"TextBox\" value=\" "  +
-                "Enter location" +
-                "\" size=\"50\" type =\"text\" name=\"location\"  >";
-
+            var location = showLocations(data.response.venues[i]);
+            document.getElementById("locations").innerHTML += "<br/><li><a style='color: black;' href='birdcheckin.html'> " + location.name +"</a></li>";
         }
     });
 }
 
-function showError(error)
-{
-    switch(error.code)
-    {
+function showLocations(data) {
+    console.log(data);
+    var locationList = new Array();
+
+    var location = {
+        "name":data.name,
+        "lat":data.location.lat,
+        "lng":data.location.lng
+    };
+    return location;
+}
+
+function showError(error) {
+    switch (error.code) {
         case error.PERMISSION_DENIED:
             alert("User denied the request for Geolocation.");
             break;

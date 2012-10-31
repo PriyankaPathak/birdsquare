@@ -51,6 +51,4 @@ public class BirdCheckinController {
 
         return "checkin/birdcheckin";
     }
-
-
 }
