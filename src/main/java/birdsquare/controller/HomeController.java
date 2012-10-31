@@ -24,28 +24,10 @@ public class HomeController {
         return "home/home";
     }
 
-    @RequestMapping(value = "/status")
-    public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("Checkin") Checkin checkin,Model model) {
-
-        model.addAttribute("checkinurl", "birdcheckin");
-
-        if (null != checkin &&
-                null != checkin.getBirdname()) {
-            model.addAttribute("message", checkin.birdname+" check in success!");
-            checkin.setDate(new Date());
-            putObjectToTable(checkin);
-
-        }
-        else
-            model.addAttribute("message", "Wrong input");
-
-        return "checkin/status";
-    }
-
     @RequestMapping(value = "/checkin")
     public String checkin(@ModelAttribute("Checkin") Checkin checkin ,Model model){
         model.addAttribute("checkinurl", "birdcheckin");
-        model.attribute(checkin)
+        model.addAttribute(checkin);
         return "checkin/checkin";
     }
 
