@@ -12,7 +12,7 @@
 
 <body>
 <div id="main-container">
-<form name="birdinformation" onsubmit="return validateForm()" action="status" method="post">
+<form name="checkin" onsubmit="return validateForm()" action="status" method="post">
 <#include "../header.ftl">
 
     <div id="main-content">

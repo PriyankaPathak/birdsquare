@@ -1,17 +1,13 @@
 package birdsquare.model;
 
-
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "birdinformation")
-public class BirdInformation {
+@Table(name = "checkin")
+public class Checkin {
 
     @GenericGenerator(name = "generator", strategy = "increment")
     @Id
@@ -25,10 +21,10 @@ public class BirdInformation {
     public double longitude;
     public double latitude;
 
-    public BirdInformation() {
+    public Checkin() {
     }
 
-    public BirdInformation(String birdname,int number, String location, String comments) {
+    public Checkin(String birdname, int number, String location, String comments) {
         this.birdname = birdname;
         this.location = location;
         this.number = number;
@@ -50,7 +46,6 @@ public class BirdInformation {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-
     public double getLatitude() {
         return latitude;
     }
@@ -58,7 +53,6 @@ public class BirdInformation {
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
-
     public String getComments() {
         return comments;
     }
@@ -66,7 +60,6 @@ public class BirdInformation {
     public void setComments(String comments) {
         this.comments = comments;
     }
-
     public String getLocation() {
         return location;
     }
@@ -82,7 +75,6 @@ public class BirdInformation {
     public void setNumber(int number) {
         this.number = number;
     }
-
     public Date getDate() {
         return date;
     }

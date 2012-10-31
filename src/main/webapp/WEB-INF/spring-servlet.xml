@@ -22,4 +22,7 @@
         <property name="suffix" value=".ftl"/>
     </bean>
 
+    <!--Do not delete the line below. Everything will break.-->
+    <context:component-scan base-package="birdsquare"/>
+
 </beans>

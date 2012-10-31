@@ -1,16 +1,12 @@
 package birdsquare.controller;
 
-import birdsquare.dao.BirdInformationDAO;
-import birdsquare.dao.BirdInformationDAOImpl;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 
-import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
 public class BirdCheckinControllerTest {
@@ -18,19 +14,16 @@ public class BirdCheckinControllerTest {
     private MockHttpServletResponse response;
     private AnnotationMethodHandlerAdapter handlerAdapter;
     private BirdCheckinController controller;
-    private BirdInformationDAO mockBirdInformationDAO;
 
     @Before
     public void setUp() {
         request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
         handlerAdapter = new AnnotationMethodHandlerAdapter();
-        controller = new BirdCheckinController(mockBirdInformationDAO);
-        mockBirdInformationDAO = mock(BirdInformationDAOImpl.class);
+        controller = new BirdCheckinController();
     }
 
     @Test
-    @Ignore
     public void shouldRenderStatusPage() throws Exception {
         request.setRequestURI("/status");
         request.setMethod("POST");
