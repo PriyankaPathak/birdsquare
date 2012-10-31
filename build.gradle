@@ -44,8 +44,9 @@ dependencies {
 jettyRun.contextPath = ''
 
 task compile(dependsOn: compileJava)
+task testCompile(dependsOn: compileTestJava)
 
-task getJars(type:Copy, dependsOn:[compile, test]) { into 'lib' from configurations.compile }
+task getJars(type:Copy, dependsOn:[compile, compileTestJava]) { into 'lib' from configurations.compile, configurations.testCompile }
 
 task intellijLibs(dependsOn: getJars) {
     description = 'get jar to lib for intelliJ to recreate'
