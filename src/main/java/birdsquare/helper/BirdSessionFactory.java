@@ -10,7 +10,7 @@ public class BirdSessionFactory {
     private SessionFactory ourSessionFactory ;
 
     private static BirdSessionFactory birdSessionFactory = new BirdSessionFactory();
-    private BirdSessionFactory() {
+    protected BirdSessionFactory() {
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
                 .applySettings(new Configuration().addResource("hibernate.cfg.xml").configure().getProperties())
                 .buildServiceRegistry();
