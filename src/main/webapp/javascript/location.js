@@ -12,7 +12,7 @@ function showPosition(position) {
         for (var i = 0; i < data.response.venues.length; i++) {
 
             var location = showLocations(data.response.venues[i]);
-            document.getElementById("locations").innerHTML += "<br/><li><a style='color: black;' href='birdcheckin.html'> " + location.name +"</a></li>";
+            document.getElementById("locations").innerHTML += "<br/><li><a id="+location.name+" style='color: black;' href='birdcheckin.html'> " + location.name +"</a></li>";
         }
     });
 }

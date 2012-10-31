@@ -73,4 +73,18 @@ a:visited{
     size: 35;
 }
 
+#locations {
+
+    height: 67%;
+    min-width: 300px;
+    margin-left: 100px;
+    margin-right: 100px;
+    overflow:auto;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
 
