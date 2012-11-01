@@ -13,14 +13,17 @@ function showPosition(position) {
 
             var location = showLocations(data.response.venues[i]);
            // console.log(location);
-            document.getElementById("main-content").innerHTML += "<br/><li><a class='nearBy' id="+location.name+" style='color: black;' href='birdcheckin.html'> " + location.name +"</a></li>";
+            document.getElementById("main-content").innerHTML += "<br/><li><a class='nearBy' onclick='bookmark(this);'  id="+location.name+" style='color: black;' href='birdcheckin.html'> " + location.name +"</a></li>";
         }
     });
 }
 
-//function bookmark(lnk){
-//    alert(lnk.getAttribute('value'));
-//}​
+
+
+function bookmark(lnk){
+    alert(lnk.getAttribute('value'));
+
+}
 
 $('#main-content a').click(function(event) {
     alert($(this).attr("id"));
@@ -28,7 +31,7 @@ $('#main-content a').click(function(event) {
 
 function setLocationDetails(location){
     console.log(location);
-    this.getAttribute('id')
+    this.getAttribute('id');
     //document.getElementById("locationName").value = location;
 //    document.getElementById("latitude").value = location.lat;
 //    document.getElementById("longitude").value = location.lng;

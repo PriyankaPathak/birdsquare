@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Date;
-
 @Controller
 public class HomeController {
 
@@ -29,8 +27,8 @@ public class HomeController {
     @RequestMapping(value = "/checkin")
     public String checkin(@ModelAttribute("Checkin") Checkin checkin ,Model model){
         model.addAttribute("checkinurl", "birdcheckin");
-        System.out.println(checkin.locationName);
-        model.addAttribute("locationName",checkin.locationName);
+        System.out.println(checkin.location);
+        model.addAttribute("locationName",checkin.location);
 
         return "checkin/checkin";
     }

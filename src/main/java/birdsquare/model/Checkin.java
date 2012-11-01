@@ -15,7 +15,7 @@ public class Checkin {
     public long id;
     public String birdname;
     public String comments;
-    public String locationName;
+    public String location;
     public int number;
     public Date date;
     public double longitude;
@@ -24,9 +24,9 @@ public class Checkin {
     public Checkin() {
     }
 
-    public Checkin(String birdname, int number, String locationName, String comments) {
+    public Checkin(String birdname, int number, String location, String comments) {
         this.birdname = birdname;
-        this.locationName = locationName;
+        this.location = location;
         this.number = number;
         this.comments = comments;
     }
@@ -60,12 +60,12 @@ public class Checkin {
     public void setComments(String comments) {
         this.comments = comments;
     }
-    public String getLocationName() {
-        return locationName;
+    public String getLocation() {
+        return location;
     }
 
-    public void setLocationName(String location) {
-        this.locationName = location;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public int getNumber() {
