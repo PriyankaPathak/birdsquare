@@ -24,12 +24,19 @@ public class HomeController {
         return "home/home";
     }
 
+
+
     @RequestMapping(value = "/checkin")
     public String checkin(@ModelAttribute("Checkin") Checkin checkin ,Model model){
         model.addAttribute("checkinurl", "birdcheckin");
-        model.addAttribute(checkin);
+        System.out.println(checkin.locationName);
+        model.addAttribute("locationName",checkin.locationName);
+
         return "checkin/checkin";
     }
+
+
+
 
     @RequestMapping(value = "/checkinsuccess")
     public String checkinsuccess(){

@@ -57,13 +57,7 @@ a:visited{
     background: #065C6D;
 }
 
-#main-content {
-    height: 85%;
-    font-family: "Arial";
-    font-size: 30;
-    padding: 10px;
-    background-color: #f5f5f5;
-}
+
 .TextBox{
     height: 30px;
     font-size: 18;
@@ -73,9 +67,13 @@ a:visited{
     size: 35;
 }
 
-#locations {
+#main-content {
 
-    height: 67%;
+    height: 85%;
+    font-family: "Arial";
+    font-size: 30;
+    padding: 10px;
+    background-color: #f5f5f5;
     min-width: 300px;
     margin-left: 100px;
     margin-right: 100px;

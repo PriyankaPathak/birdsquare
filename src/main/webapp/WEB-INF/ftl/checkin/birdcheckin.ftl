@@ -1,7 +1,6 @@
 <html>
 <head>
     <title>BirdSquare: Check In</title>
-    <link rel="stylesheet" type="text/css" href="css/header.css">
     <script type="text/javascript" src="javascript/validation.js"></script>
 
 </head>
@@ -20,7 +19,7 @@
             <input class="TextBox" type ="text" name="number" value="1" size="50" />
 
             <br>Bird Location *<br>
-            <p id="location"></p>
+            <p id="location">${locationName}</p>
 
             <br>Comments <br>
             <textarea name="comments" rows=5 cols=50></textarea>

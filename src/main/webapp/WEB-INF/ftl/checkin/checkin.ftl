@@ -1,7 +1,6 @@
 <html>
 <head>
     <title>BirdSquare: Check In</title>
-    <#--<link rel="stylesheet" type="text/css" href="css/header.css">-->
     <script
             src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
     </script>
@@ -13,12 +12,14 @@
 
 <body>
 <div id="main-container">
+
 <#include "../header.ftl">
     <div id="main-content">
-        <div id="locations">
+    <input type="hidden" name="locationName">
+        <input type="hidden" id="latitude" value="">
+        <input type="hidden" id="longitude" value="">
 
 
-        </div>
     </div>
 <#include "../footer.ftl">
 </div>
