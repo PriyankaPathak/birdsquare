@@ -2,7 +2,9 @@
 <head>
     <title> BirdSquare: Home</title>
     <link rel="stylesheet" type="text/css" href="css/header.css">
+    <script src="//connect.facebook.net/en_US/all.js"></script>
     <script type="text/javascript" src="javascript/FBLogin.js"></script>
+    <script type="text/javascript">window.fbAsyncInit = ashwinWish();</script>
 
 </head>
 

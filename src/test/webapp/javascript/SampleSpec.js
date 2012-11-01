@@ -11,7 +11,9 @@
  */
 describe( "Some feature", 
           function() {
-              globalnamedasdfrzqce = function() { return yoo; }; // for jslint to reject in 2 ways
+              var globalnamedasdfrzqce = function () {
+                  return yoo;
+              }; // for jslint to reject in 2 ways
 
               var something;
               beforeEach( function() {

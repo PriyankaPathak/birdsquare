@@ -1,14 +1,7 @@
 function loginUser() {
     FB.login(function(response) { }, {scope:'email'});
 }
-window.fbAsyncInit = function() {
-    FB.init({ appId: '382365808510578',
-        status: true,
-        cookie: true,
-        xfbml: true,
-        oauth: true});
-    FB.Event.subscribe('auth.statusChange', handleStatusChange);
-};
+
 function handleStatusChange(response) {
     document.body.className = response.authResponse ? 'connected' : 'not_connected';
     if (response.authResponse) {
@@ -28,4 +21,13 @@ function updateUserInfo(response) {
         document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name
             +response.location.address.name;
     });
-}
+};
+
+function ashwinWish(){
+    FB.init({ appId: '382365808510578',
+        status: true,
+        cookie: true,
+        xfbml: true,
+        oauth: true});
+    FB.Event.subscribe('auth.statusChange', handleStatusChange);
+};
