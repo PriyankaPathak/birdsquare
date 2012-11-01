@@ -2,7 +2,6 @@
 <head>
     <title> BirdSquare: Home</title>
     <link rel="stylesheet" type="text/css" href="css/header.css">
-    <#--<script src="//connect.facebook.net/en_US/all.js"></script>-->
 </head>
 
 <body>
@@ -13,11 +12,6 @@
         <p>
             Welcome to BirdSquare
         </p>
-       <p>
-           LOGIN haha
-       </p>
-
-
        <!-- Display a login if you're coming to the app from outside of facebook -->
        <div id="login">
            <p><button onClick="loginUser();">Login</button></p>
@@ -74,7 +68,8 @@
        <script>
            function updateUserInfo(response) {
                FB.api('/me', function(response) {
-                   document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name;
+                   document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name
+                   +response.location;
                });
            }
        </script>
@@ -87,7 +82,6 @@ cueing to the login logout buttons which one should be visible -->
            body.not_connected #login { display: block; }
            body.not_connected #logout { display: none; }
        </style>
-
 
 
     </div>
