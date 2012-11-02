@@ -12,39 +12,15 @@ function showPosition(position) {
         for (var i = 0; i < data.response.venues.length; i++) {
 
             var location = showLocations(data.response.venues[i]);
-           // console.log(location);
-            document.getElementById("main-content").innerHTML += "<br/><li><a class='nearBy' onclick='bookmark(this);'  id="+location.name+" style='color: black;' href='birdcheckin.html'> " + location.name +"</a></li>";
+           document.getElementById("location-container").innerHTML += "<a class='nearBy' method='POST' " +
+                " id="+location.name+" style='color: black;' href=\"birdcheckin?name="+location.name+"&lat=" + location.lat + "&lng=" + location.lng + "\" > <li>"+ location.name +" </li></a>";
+
         }
     });
 }
 
-
-
-function bookmark(lnk){
-    alert(lnk.getAttribute('value'));
-
-}
-
-$('#main-content a').click(function(event) {
-    alert($(this).attr("id"));
-});
-
-function setLocationDetails(location){
-    console.log(location);
-    this.getAttribute('id');
-    //document.getElementById("locationName").value = location;
-//    document.getElementById("latitude").value = location.lat;
-//    document.getElementById("longitude").value = location.lng;
-}
-
-$(".nearBy").click(function(event){
-   // $("#locationName").value()=
-   alert($(this).attr("id"));
-});
-
 function showLocations(data) {
     var locationList = new Array();
-
     var location = {
         "name":data.name,
         "lat":data.location.lat,

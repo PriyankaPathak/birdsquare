@@ -85,4 +85,21 @@ a:visited{
     box-sizing:border-box;
 }
 
+#location-container li{
+    list-style-type: none;
+    background:#81DAF5;
+    margin-top:5px;
+}
+
+#location-container li:hover{
+    background:#0101DF;
+    color: white;
+}
+#location-container a:hover{
+    color: white;
+}
+
+
+
+
 
