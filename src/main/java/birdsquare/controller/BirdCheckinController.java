@@ -1,8 +1,7 @@
 package birdsquare.controller;
 
-import birdsquare.helper.BirdSessionFactory;
+import birdsquare.helper.SimpleDAO;
 import birdsquare.model.Checkin;
-import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,7 +19,7 @@ public class BirdCheckinController {
 
         if (null != checkin &&
                 null != checkin.getBirdname()) {
-            model.addAttribute("message", checkin.birdname+" check in success!");
+            model.addAttribute("message", checkin.birdname + " check in success!");
             checkin.setDate(new Date());
             putObjectToTable(checkin);
 
@@ -31,24 +30,18 @@ public class BirdCheckinController {
         return "checkin/status";
     }
 
-    private void putObjectToTable(Object object)
-    {
-
-        final Session session = BirdSessionFactory.getInstance().createSession();
-        session.beginTransaction();
-
-        session.saveOrUpdate(object);
-
-        session.getTransaction().commit();
-        session.close();
-
-    }
-
     @RequestMapping(value = "/birdcheckin" )
     public String birdcheckin(Model model){
 
         model.addAttribute("checkinurl", "status");
 
         return "checkin/birdcheckin";
+    }
+
+    private void putObjectToTable(Object object)
+    {
+        SimpleDAO simpleDAO = new SimpleDAO();
+        simpleDAO.save(object);
+        simpleDAO.close();
     }
 }

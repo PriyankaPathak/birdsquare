@@ -1,3 +1,3 @@
 use birdsquare;
 
-source import_table_bird.sql
+source import_table_bird.sql;

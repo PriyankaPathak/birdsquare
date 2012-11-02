@@ -24,13 +24,6 @@ public class Checkin {
     public Checkin() {
     }
 
-    public Checkin(String birdname, int number, String location, String comments) {
-        this.birdname = birdname;
-        this.location = location;
-        this.number = number;
-        this.comments = comments;
-    }
-
     public long getId() {
         return id;
     }

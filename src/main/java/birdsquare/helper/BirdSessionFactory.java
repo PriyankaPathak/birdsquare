@@ -10,9 +10,11 @@ public class BirdSessionFactory {
     private SessionFactory ourSessionFactory ;
 
     private static BirdSessionFactory birdSessionFactory = new BirdSessionFactory();
-    protected BirdSessionFactory() {
+    private final String hibernateConfigFile = "hibernate.cfg.xml";
+
+    private BirdSessionFactory() {
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
-                .applySettings(new Configuration().addResource("hibernate.cfg.xml").configure().getProperties())
+                .applySettings(new Configuration().addResource(hibernateConfigFile).configure().getProperties())
                 .buildServiceRegistry();
 
         ourSessionFactory = new Configuration().configure().buildSessionFactory(serviceRegistry);

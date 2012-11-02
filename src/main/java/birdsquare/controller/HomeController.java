@@ -27,7 +27,6 @@ public class HomeController {
     @RequestMapping(value = "/checkin")
     public String checkin(@ModelAttribute("Checkin") Checkin checkin ,Model model){
         model.addAttribute("checkinurl", "birdcheckin");
-        System.out.println(checkin.location);
         model.addAttribute("locationName",checkin.location);
 
         return "checkin/checkin";
