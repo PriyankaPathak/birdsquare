@@ -1,6 +1,7 @@
 package birdsquare.model;
 
-import birdsquare.helper.SimpleDAO;
+import birdsquare.helper.BirdSquareSession;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,11 +9,11 @@ import static org.junit.Assert.assertEquals;
 
 public class CheckinIT {
 
-    private SimpleDAO simpleDAO;
+    private BirdSquareSession birdSquareSession;
 
     @Before
     public void setUp() {
-        simpleDAO = new SimpleDAO();
+        birdSquareSession = new BirdSquareSession();
     }
 
     @Test
@@ -20,12 +21,16 @@ public class CheckinIT {
         Checkin persistedCheckin = new Checkin();
         persistedCheckin.setBirdname("foobar");
         persistedCheckin.setNumber(16);
-        simpleDAO.saveOrUpdate(persistedCheckin);
+        birdSquareSession.saveOrUpdate(persistedCheckin);
 
-        Checkin loadedCheckIn = (Checkin) simpleDAO.get(Checkin.class, persistedCheckin.getId());
+        Checkin loadedCheckIn = (Checkin) birdSquareSession.get(Checkin.class, persistedCheckin.getId());
         assertEquals(persistedCheckin.getBirdname(), loadedCheckIn.getBirdname());
         assertEquals(persistedCheckin.getNumber(), loadedCheckIn.getNumber());
-        simpleDAO.delete(persistedCheckin);
-        simpleDAO.close();
+        birdSquareSession.delete(persistedCheckin);
+    }
+
+    @After
+    public void tearDown() {
+        birdSquareSession.close();
     }
 }

@@ -1,13 +1,19 @@
 package birdsquare.helper;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Component;
 
-public class SimpleDAO {
+@Component
+public class BirdSquareSession {
 
     private Session session = null;
 
-    public SimpleDAO() {
+    public BirdSquareSession() {
         initSession();
+    }
+
+    public Object get(Class clazz, long id) {
+        return session.get(clazz, id);
     }
 
     public void save(Object object) {
@@ -16,17 +22,10 @@ public class SimpleDAO {
         commit();
     }
 
-
     public void saveOrUpdate(Object object) {
-
         startTransaction();
         session.saveOrUpdate(object);
         commit();
-    }
-
-    public Object get(Class clazz, long id) {
-        return session.get(clazz, id);
-
     }
 
     public void delete(Object object) {
@@ -40,7 +39,6 @@ public class SimpleDAO {
         session = null;
     }
 
-
     private void startTransaction() {
         if (session == null)
             initSession();
@@ -52,6 +50,6 @@ public class SimpleDAO {
     }
 
     private void initSession() {
-        this.session = BirdSessionFactory.getInstance().createSession();
+        this.session = BirdSquareSessionFactory.getInstance().createSession();
     }
 }

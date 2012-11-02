@@ -19,6 +19,5 @@ public class LoginController {
         model.addAttribute("checkinurl", "checkin");
         return "home/login";
     }
-
 }
 

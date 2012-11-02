@@ -22,18 +22,12 @@ public class HomeController {
         return "home/home";
     }
 
-
-
     @RequestMapping(value = "/checkin")
-    public String checkin(@ModelAttribute("Checkin") Checkin checkin ,Model model){
+    public String checkin(@ModelAttribute("checkin") Checkin checkin, Model model){
         model.addAttribute("checkinurl", "birdcheckin");
         model.addAttribute("locationName",checkin.location);
-
         return "checkin/checkin";
     }
-
-
-
 
     @RequestMapping(value = "/checkinsuccess")
     public String checkinsuccess(){
