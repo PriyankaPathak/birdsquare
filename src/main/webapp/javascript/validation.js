@@ -3,7 +3,7 @@ validateForm=function()
     var birdname=document.forms["birdinformation"]["birdname"].value;
 
     birdname = birdname.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-    //alert("1."+birdname+".");
+
     var number=document.forms["birdinformation"]["number"].value;
     if (!is_not_an_empty_field(birdname))
     {
@@ -37,8 +37,18 @@ validateForm=function()
         return false;
 
     }
+    else if(!is_a_valid_number(number))
+    {
+        alert("Please enter a valid number");
+        return false;
+    }
     return true;
 };
+
+is_a_valid_number = function(input){
+
+    return !isNaN(input);
+}
 
 
 does_not_contain_numbers = function(input){

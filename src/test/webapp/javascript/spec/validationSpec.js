@@ -12,13 +12,6 @@ describe("bird name validation", function() {
         expect(result).toBe(true);
     });
 
-    it("should accept a valid entry",function(){
-
-        var result = does_not_contain_numbers("Pigeon");
-        expect(result).toBe(true);
-    });
-
-
 
     it("should not accept name with numbers",function(){
     var result = does_not_contain_numbers("Pigeon123");  
@@ -44,5 +37,12 @@ describe("bird name validation", function() {
      var result= contains_number_atleast_greater_than_zero("-2");
      expect(result).not.toBe(true);
   });
+
+  it("should accept only digits as number of birds",function(){
+     var result= is_a_valid_number("a1");
+     expect(result).not.toBe(true);
+  });
+
+
 
 });
