@@ -1,2 +1,2 @@
-mysql -uroot < "src/main/resources/database/create_schema.sql"
-mysql -uroot < "src/main/resources/database/populate_data.sql"
+mysql -uroot < "database/create_schema.sql"
+mysql -uroot < "database/populate_data.sql"
