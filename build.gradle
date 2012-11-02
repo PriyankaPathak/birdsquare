@@ -4,7 +4,7 @@ apply plugin: 'jetty'
 apply plugin: 'idea'
 apply plugin: 'jasmineGradle'
 
-defaultTasks 'clean', 'idea', 'build'
+defaultTasks 'clean', 'idea', 'setupDB', 'build'
 
 repositories {
     mavenCentral()
@@ -51,4 +51,8 @@ task getJars(type:Copy, dependsOn:[compile, compileTestJava]) { into 'lib' from 
 task intellijLibs(dependsOn: getJars) {
     description = 'get jar to lib for intelliJ to recreate'
     outputs.dir 'lib'
+}
+
+task setupDB(type:Exec) {
+    commandLine 'sh', 'scripts/setup_db.sh'
 }
