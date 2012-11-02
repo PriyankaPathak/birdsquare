@@ -1,6 +1,7 @@
 package birdsquare.controller;
 
 import birdsquare.model.Checkin;
+import birdsquare.model.Location;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,10 +24,12 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/checkin")
-    public String checkin(@ModelAttribute("checkin") Checkin checkin, Model model){
+    public String checkin(@ModelAttribute("Location") Location location ,Model model){
         model.addAttribute("checkinurl", "birdcheckin");
-        model.addAttribute("locationName",checkin.location);
-        return "checkin/checkin";
+        model.addAttribute("locationname",location.getLocationname());
+        model.addAttribute("latitude",location.getLatitude());
+        model.addAttribute("longitude",location.getLongitude());
+       return "checkin/checkin";
     }
 
     @RequestMapping(value = "/checkinsuccess")

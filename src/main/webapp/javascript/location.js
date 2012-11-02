@@ -12,9 +12,13 @@ function showPosition(position) {
         for (var i = 0; i < data.response.venues.length; i++) {
 
             var location = showLocations(data.response.venues[i]);
-           document.getElementById("location-container").innerHTML += "<a class='nearBy' method='POST' " +
-                " id="+location.name+" style='color: black;' href=\"birdcheckin?name="+location.name+"&lat=" + location.lat + "&lng=" + location.lng + "\" > <li>"+ location.name +" </li></a>";
-
+           document.getElementById("location-container").innerHTML +=
+               "<form id='form-"+ i + "' method='post' action='birdcheckin'> " +
+               " <input type='hidden' name='locationname' value=\"" + location.name +"\" /> " +
+                   " <input type='hidden' name='latitude' value=" + location.lat +" /> " +
+                   " <input type='hidden' name='longitude' value=" + location.lng +" /> " +
+               " <a onclick=\"document.getElementById('form-"+ i + "').submit();\">  <li>"+ location.name +" </li></a> " +
+                "</form>";
         }
     });
 }

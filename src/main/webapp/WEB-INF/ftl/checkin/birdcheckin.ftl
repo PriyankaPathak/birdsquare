@@ -19,10 +19,10 @@
             <input class="TextBox" type ="text" name="number" value="1" size="50" />
 
             <br>Bird Location *<br>
-            <input class="TextBox" type ="text" name="location" value="${locationName}" size="50" />
+            <input class="TextBox" type ="text" name="location" value="${locationname}" size="50" />
 
-            <input type="hidden" name="lat" value="${lat}"/>
-            <input type="hidden" name="lng" value="${lng}"/>
+            <input type="hidden" name="latitude" value="${latitude}"/>
+            <input type="hidden" name="longitude" value="${longitude}"/>
 
             <br>Comments <br>
             <textarea name="comments" rows=5 cols=50></textarea>
