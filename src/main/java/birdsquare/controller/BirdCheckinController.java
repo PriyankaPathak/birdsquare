@@ -34,7 +34,8 @@ public class BirdCheckinController {
 
     @RequestMapping(value = "/birdcheckin", method = RequestMethod.GET)
     public String birdcheckin(Model model, @RequestParam(value ="name") String locationName, @RequestParam(value = "lat") Double lat, @RequestParam(value = "lng") String lng){
-                model.addAttribute("checkinurl", "status");
+
+        model.addAttribute("checkinurl", "status");
         model.addAttribute("locationName", locationName);
         model.addAttribute("lng", lng);
         model.addAttribute("lat", lat);
@@ -42,10 +43,10 @@ public class BirdCheckinController {
         return "checkin/birdcheckin";
     }
 
-    private void putObjectToTable(Object object)
-    {
+    private void putObjectToTable(Object object){
         SimpleDAO simpleDAO = new SimpleDAO();
         simpleDAO.save(object);
         simpleDAO.close();
     }
+
 }
