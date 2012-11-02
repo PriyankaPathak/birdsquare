@@ -12,22 +12,31 @@ function showPosition(position) {
         for (var i = 0; i < data.response.venues.length; i++) {
 
             var location = showLocations(data.response.venues[i]);
-            console.log(location);
-            document.getElementById("main-content").innerHTML += "<br/><li><a class='nearBy' onclick='setLocationDetails(" + location + ");' id="+location.name+" style='color: black;' href='birdcheckin.html'> " + location.name +"</a></li>";
+           // console.log(location);
+            document.getElementById("main-content").innerHTML += "<br/><li><a class='nearBy' id="+location.name+" style='color: black;' href='birdcheckin.html'> " + location.name +"</a></li>";
         }
     });
 }
 
+//function bookmark(lnk){
+//    alert(lnk.getAttribute('value'));
+//}​
+
+$('#main-content a').click(function(event) {
+    alert($(this).attr("id"));
+});
+
 function setLocationDetails(location){
     console.log(location);
-
-    document.getElementById("locationName").value = location;
+    this.getAttribute('id')
+    //document.getElementById("locationName").value = location;
 //    document.getElementById("latitude").value = location.lat;
 //    document.getElementById("longitude").value = location.lng;
 }
 
 $(".nearBy").click(function(event){
-    $("#locationName").value()
+   // $("#locationName").value()=
+   alert($(this).attr("id"));
 });
 
 function showLocations(data) {

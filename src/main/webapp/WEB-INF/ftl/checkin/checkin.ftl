@@ -15,7 +15,7 @@
 
 <#include "../header.ftl">
     <div id="main-content">
-    <input type="hidden" name="locationName">
+        <input type="hidden" name="locationName">
         <input type="hidden" id="latitude" value="">
         <input type="hidden" id="longitude" value="">
 
