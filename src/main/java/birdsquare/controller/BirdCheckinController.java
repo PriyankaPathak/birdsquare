@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
@@ -44,10 +46,13 @@ public class BirdCheckinController {
 
     }
 
-    @RequestMapping(value = "/birdcheckin" )
-    public String birdcheckin(Model model){
+    @RequestMapping(value = "/birdcheckin", method = RequestMethod.GET)
+    public String birdcheckin(Model model, @RequestParam(value ="name") String locationName, @RequestParam(value = "lat") Double lat, @RequestParam(value = "lng") String lng){
 
         model.addAttribute("checkinurl", "status");
+        model.addAttribute("locationName", locationName);
+        model.addAttribute("lng", lng);
+        model.addAttribute("lat", lat);
 
         return "checkin/birdcheckin";
     }

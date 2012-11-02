@@ -14,13 +14,12 @@
 <div id="main-container">
 
 <#include "../header.ftl">
-    <div id="main-content">
-        <input type="hidden" name="location">
-        <input type="hidden" id="latitude" value="">
-        <input type="hidden" id="longitude" value="">
+        <div id="main-content">
+            <div id="location-container">
 
+            </div>
 
-    </div>
+        </div>
 <#include "../footer.ftl">
 </div>
 
