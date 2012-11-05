@@ -84,11 +84,8 @@ a:visited{
     height: 85%;
     font-family: "Calibri", "sans-serif";;
     font-size: 60;
-    padding: 10px;
     background-color: white;
     min-width: 300px;
-    margin-left: 50px;
-    margin-right: 50px;
     overflow:auto;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
