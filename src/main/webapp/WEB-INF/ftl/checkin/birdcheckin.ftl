@@ -7,7 +7,7 @@
 
 <body>
 <div id="main-container">
-    <form name="checkin" onsubmit="return validateForm()" action="status" method="post">
+    <form name="birdinformation" onsubmit="return validateForm()" action="status" method="post">
     <#include "../header.ftl">
 
         <div id="main-content">
@@ -15,8 +15,9 @@
 
             <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdname" size="50"/>
 
-            <p></p><input class="TextBox" placeholder="Number Of Birds(Min 1)" type="text" name="number" size="50"/>
-            <p></p><input class="TextBox" type ="text" name="location" value="${locationname}" size="50" />
+            <p></p><input class="TextBox" placeholder="Number of birds seen"   type="text" name="number" size="50"/>
+            <p></p>
+            <input class="TextBox" type ="text" name="location" value="${locationname}" size="50" />
 
             <input type="hidden" name="latitude" value="${latitude}"/>
             <input type="hidden" name="longitude" value="${longitude}"/>
