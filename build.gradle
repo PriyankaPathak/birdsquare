@@ -59,3 +59,16 @@ task intellijLibs(dependsOn: getJars) {
 task setupDB(type:Exec) {
     commandLine 'sh', 'scripts/setup_db.sh'
 }
+
+test.doFirst {
+    [jettyRun, jettyRunWar]*.daemon = true
+    tasks.jettyRun.execute()
+}
+
+test.doLast {
+    jettyStop.stopPort = 8080
+    jettyStop.stopKey = 'stopKey'
+    tasks.jettyStop.execute()
+}
+
+
