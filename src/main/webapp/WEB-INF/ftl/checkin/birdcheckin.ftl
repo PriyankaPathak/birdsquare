@@ -16,7 +16,7 @@
             <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdname" size="50"/>
 
             <p></p><input class="TextBox" placeholder="Number Of Birds(Min 1)" type="text" name="number" size="50"/>
-            <input class="TextBox" type ="text" name="location" value="${locationname}" size="50" />
+            <p></p><input class="TextBox" type ="text" name="location" value="${locationname}" size="50" />
 
             <input type="hidden" name="latitude" value="${latitude}"/>
             <input type="hidden" name="longitude" value="${longitude}"/>
