@@ -22,7 +22,7 @@ public class BirdCheckinController {
         this.birdSquareSession = birdSquareSession;
     }
 
-    @RequestMapping(value = "/status")
+    @RequestMapping(value = "/status", method=RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("checkin") Checkin checkin, Model model) {
 
         model.addAttribute("checkinurl", "checkin");

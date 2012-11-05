@@ -31,7 +31,7 @@ public class HomeController {
 
     @RequestMapping(value = "/search")
     public String search(Model model){
-        model.addAttribute("checkinurl", "birdcheckin");
+        model.addAttribute("checkinurl", "checkin");
         return "search/search";
     }
 
