@@ -25,15 +25,6 @@ public class HomeControllerTest {
     }
 
     @Test
-    public void shouldRenderHomePageAsLandingPage() throws Exception {
-        request.setRequestURI("/");
-        request.setMethod("GET");
-
-        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "home/home");
-    }
-
-    @Test
     public void shouldRenderHomePageAfterClickingHomeButton() throws Exception {
         request.setRequestURI("/home");
 
@@ -48,6 +39,23 @@ public class HomeControllerTest {
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "checkin/checkin");
     }
+
+    @Test
+    public void shouldRenderSearchPageAfterClickingSearchButton() throws Exception {
+        request.setRequestURI("/search");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "search/search");
+    }
+
+    @Test
+    public void shouldRenderProfilePageAfterClickingProfileButton() throws Exception {
+        request.setRequestURI("/profile");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "profile/profile");
+    }
+
 
 
 }

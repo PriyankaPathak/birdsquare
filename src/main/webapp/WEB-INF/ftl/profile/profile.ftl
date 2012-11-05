@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title> BirdSquare: Home</title>
+    <title> Birdsquare:profile</title>
     <link rel="stylesheet" type="text/css" href="css/header.css">
 
 
@@ -14,7 +14,7 @@
 
     <div id="main-content">
         <p>
-            Welcome to BirdSquare
+            Page is under construction
         </p>
 
     </div>
