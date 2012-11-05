@@ -12,12 +12,15 @@
 
         <div id="main-content">
 
+            <h2>You are at</h2>
+            <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="50" />
+            <p></p>
+            <h2>Please enter bird details:</h2>
 
             <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdname" size="50"/>
 
             <p></p><input class="TextBox" placeholder="Number of birds seen"   type="text" name="number" size="50"/>
             <p></p>
-            <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="50" />
 
             <input type="hidden" name="latitude" value="${latitude}"/>
             <input type="hidden" name="longitude" value="${longitude}"/>

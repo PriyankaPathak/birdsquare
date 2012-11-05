@@ -90,10 +90,10 @@ a:visited{
     font-family: "calibri";
     font-size: 60;
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: white;
     min-width: 300px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
     overflow:auto;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
