@@ -1,14 +1,20 @@
 function getLocation() {
-    if (navigator.geolocation)
-        navigator.geolocation.watchPosition(showPosition, showError);
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        console.log("getloca");
+        }
+
     else
         alert("your browser does not support Geolocation");
 }
 
 
 function showPosition(position) {
+    console.log("inside")
     var foursquareAPIURL = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&oauth_token=XQZOS4SH3WHZ32EKFAUX3YU45CFEJGYZTFR2C5F0KMB1EHCX&v=20121030"
+
     $.getJSON(foursquareAPIURL, function (data) {
+        console.log(data);
         for (var i = 0; i < data.response.venues.length; i++) {
 
             var location = showLocations(data.response.venues[i]);
@@ -20,6 +26,16 @@ function showPosition(position) {
                " <a onclick=\"document.getElementById('form-"+ i + "').submit();\">  <li>"+ location.name +" </li></a> " +
                 "</form>";
         }
+
+        document.getElementById("location-container").innerHTML +=
+            "<form id='form-"+ i + "' method='post' action='birdcheckin'> " +
+                " <input type='hidden' name='locationname' /> " +
+                " <input type='hidden' name='latitude' value=" + position.coords.latitude +" /> " +
+                " <input type='hidden' name='longitude' value=" + position.coords.longitude +" /> " +
+                " <a onclick=\"document.getElementById('form-"+ i + "').submit();\">  <li> Create New Location  </li></a> " +
+                "</form>";
+
+
     });
 }
 

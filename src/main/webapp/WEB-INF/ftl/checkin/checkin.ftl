@@ -6,7 +6,7 @@
     </script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="javascript/location.js"></script>
-    <script type="text/javascript">window.onload=getLocation;</script>
+
 
 </head>
 
@@ -15,6 +15,8 @@
 
 <#include "../header.ftl">
         <div id="main-content">
+            <h1>Select Location:</h1>
+
             <div id="location-container">
 
             </div>
@@ -24,5 +26,5 @@
 </div>
 
 </body>
-
+<script type="text/javascript">getLocation(); </script>
 </html>

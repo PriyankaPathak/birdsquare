@@ -2,7 +2,6 @@ package birdsquare.controller;
 
 import birdsquare.helper.BirdSquareSession;
 import birdsquare.model.Checkin;
-
 import birdsquare.model.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,23 +25,26 @@ public class BirdCheckinController {
     @RequestMapping(value = "/status")
     public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("checkin") Checkin checkin, Model model) {
 
-        model.addAttribute("checkinurl", "birdcheckin");
+        model.addAttribute("checkinurl", "checkin");
+
         if (null != checkin && null != checkin.getBirdname()) {
-            model.addAttribute("message", checkin.birdname + " check in success!");
+            model.addAttribute("message", "You have checked in " + checkin.number + " " + checkin.birdname + "(s) successfully!");
             checkin.setDate(new Date());
             birdSquareSession.save(checkin);
-        } else
+
+        } else {
             model.addAttribute("message", "Wrong input");
+        }
 
         return "checkin/status";
     }
 
 
     @RequestMapping(value = "/birdcheckin", method = RequestMethod.POST)
-    public String birdcheckin( @ModelAttribute("Location") Location location, Model model){
+    public String birdcheckin(@ModelAttribute("Location") Location location, Model model) {
 
         model.addAttribute("checkinurl", "status");
-        model.addAttribute("locationname", location.getLocationname() );
+        model.addAttribute("locationname", location.getLocationname());
         model.addAttribute("longitude", location.getLongitude());
         model.addAttribute("latitude", location.getLatitude());
 

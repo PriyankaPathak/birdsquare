@@ -17,16 +17,16 @@
 
             <p></p><input class="TextBox" placeholder="Number of birds seen"   type="text" name="number" size="50"/>
             <p></p>
-            <input class="TextBox" type ="text" name="location" value="${locationname}" size="50" />
+            <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="50" />
 
             <input type="hidden" name="latitude" value="${latitude}"/>
             <input type="hidden" name="longitude" value="${longitude}"/>
 
 
-            <p></p><textarea name="comments" rows=5 cols=50 placeholder="Comments"></textarea>
+            <p></p><textarea class="CommentBox" name="comments" rows=5 cols=37 placeholder="Comments"></textarea>
 
             <p></p>
-            <input type="submit" value="submit"/>
+            <input id="submitbutton" type="submit" value="Submit"/>
         </div>
     <#include "../footer.ftl">
     </form>

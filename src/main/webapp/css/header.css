@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-    font-family: "Arvo", sans-serif;
+    font-family: "Arial", sans-serif;
 }
 
 a:link {
@@ -69,8 +69,15 @@ a:visited{
     font-size: 18;
 }
 
-#btn_submit{
-    size: 35;
+.CommentBox{
+    font-size:18;
+}
+
+
+#submitbutton{
+    width: 100px;
+    height: 50px;
+    font-size: 100pt;
 }
 
 #main-content {
@@ -110,8 +117,6 @@ a:visited{
 #location-container a:hover{
     color: white;
 }
-
-
 
 
 
