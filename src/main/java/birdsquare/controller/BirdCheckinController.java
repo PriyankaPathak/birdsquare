@@ -33,7 +33,7 @@ public class BirdCheckinController {
             birdSquareSession.save(checkin);
 
         } else {
-            model.addAttribute("message", "Wrong input");
+            model.addAttribute("message", "Please fill in all fields");
         }
 
         return "checkin/status";

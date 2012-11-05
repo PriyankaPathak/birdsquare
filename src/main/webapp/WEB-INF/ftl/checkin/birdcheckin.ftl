@@ -15,11 +15,11 @@
             <p class="instructions">You are at</p>
             <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="20" />
             <p></p>
-            <p class="instructions">Enter bird details:</p>
+            <p class="instructions">Enter bird details</p>
 
             <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdname" size="20"/>
 
-            <p></p><input class="TextBox" placeholder="Number of birds seen"   type="text" name="number" size="20"/>
+            <p></p><input class="TextBox" placeholder="Number of birds seen"   type="text" name="number" size="20.5"/>
             <p></p>
 
             <input type="hidden" name="latitude" value="${latitude}"/>
