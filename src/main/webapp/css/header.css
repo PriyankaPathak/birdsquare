@@ -11,6 +11,7 @@ h1 {
 
     font-family: "calibri", sans-serif;
     font-size: 70px;
+}
 
 
 a:link {
@@ -43,7 +44,7 @@ a:visited{
 #footer-container{
     color: white;
     text-align: center;
-    padding-bottom: 0;
+    /*padding-bottom: 0;*/
 
 }
 
