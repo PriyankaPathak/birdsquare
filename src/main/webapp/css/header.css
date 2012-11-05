@@ -44,8 +44,6 @@ a:visited{
 #footer-container{
     color: white;
     text-align: center;
-
-
 }
 
 .footer-left {
@@ -70,24 +68,21 @@ a:visited{
 
 
 .TextBox{
-    height: 30px;
-    font-size: 18;
-}
+    font-size: 60;
+ }
 
 .CommentBox{
-    font-size:18;
+    font-size:60;
 }
 
 
 #submitbutton{
-    width: 100px;
-    height: 50px;
-    font-size: 100pt;
+      font-size: 60;
 }
 
 #main-content {
     height: 85%;
-    font-family: "calibri";
+    font-family: "Calibri", "sans-serif";;
     font-size: 60;
     padding: 10px;
     background-color: white;
@@ -103,9 +98,13 @@ a:visited{
 
 }
 
-#location-container{
+.instructions{
     font-size: 70px;
-    padding-top:20px;
+    font-family: "Calibri", "sans-serif";
+}
+
+#location-container{
+     padding-top:20px;
 }
 
 

@@ -15,7 +15,7 @@
 
 <#include "../header.ftl">
         <div id="main-content">
-            Select Location:
+            <p class="instructions">Select Location:</p>
 
             <div id="location-container">
 

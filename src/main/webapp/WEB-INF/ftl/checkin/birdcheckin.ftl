@@ -12,24 +12,25 @@
 
         <div id="main-content">
 
-            <h2>You are at</h2>
-            <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="50" />
+            <p class="instructions">You are at</p>
+            <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="20" />
             <p></p>
-            <h2>Please enter bird details:</h2>
+            <p class="instructions">Enter bird details:</p>
 
-            <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdname" size="50"/>
+            <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdname" size="20"/>
 
-            <p></p><input class="TextBox" placeholder="Number of birds seen"   type="text" name="number" size="50"/>
+            <p></p><input class="TextBox" placeholder="Number of birds seen"   type="text" name="number" size="20"/>
             <p></p>
 
             <input type="hidden" name="latitude" value="${latitude}"/>
             <input type="hidden" name="longitude" value="${longitude}"/>
 
 
-            <p></p><textarea class="CommentBox" name="comments" rows=5 cols=37 placeholder="Comments"></textarea>
+            <p></p><textarea class="CommentBox" name="comments" rows=5 cols=22 placeholder=" Comments"></textarea>
 
             <p></p>
             <input id="submitbutton" type="submit" value="Submit"/>
+            <p></p>
         </div>
     <#include "../footer.ftl">
     </form>
