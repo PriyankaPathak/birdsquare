@@ -5,6 +5,10 @@ validateForm=function()
     birdname = birdname.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 
     var number=document.forms["birdinformation"]["number"].value;
+
+    var locationName=document.forms["birdinformation"]["location"].value;
+    locationName = locationName.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+
     if (!is_not_an_empty_field(birdname))
     {
         alert("Bird name must be filled out");
@@ -40,6 +44,11 @@ validateForm=function()
     else if(!is_a_valid_number(number))
     {
         alert("Please enter a valid number");
+        return false;
+    }
+    if (!is_not_an_empty_field(locationName))
+    {
+        alert("Location name must be filled out");
         return false;
     }
     return true;

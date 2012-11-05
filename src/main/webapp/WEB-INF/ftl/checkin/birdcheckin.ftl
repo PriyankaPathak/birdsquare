@@ -2,6 +2,9 @@
 <head>
     <title>BirdSquare: Check In</title>
     <script type="text/javascript" src="javascript/validation.js"></script>
+    <script type="text/javascript" src="javascript/location.js"></script>
+
+
 
 </head>
 
@@ -13,7 +16,7 @@
         <div id="main-content">
 
             <p class="instructions">You are at</p>
-            <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="20" />
+            <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="20" id="txt_location"/>
             <p></p>
             <p class="instructions">Enter bird details</p>
 
@@ -36,5 +39,5 @@
     </form>
 </div>
 </body>
-
+<script type="text/javascript">addLocation(); </script>
 </html>

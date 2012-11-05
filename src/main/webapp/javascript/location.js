@@ -27,12 +27,12 @@ function showPosition(position) {
                 "</form>";
         }
 
-        document.getElementById("location-container").innerHTML +=
+        document.getElementById("addLocation").innerHTML +=
             "<form id='form-"+ i + "' method='post' action='birdcheckin'> " +
                 " <input type='hidden' name='locationname' /> " +
                 " <input type='hidden' name='latitude' value=" + position.coords.latitude +" /> " +
                 " <input type='hidden' name='longitude' value=" + position.coords.longitude +" /> " +
-                " <a onclick=\"document.getElementById('form-"+ i + "').submit();\">  <li> Create New Location  </li></a> " +
+                " <a onclick=\"document.getElementById('form-"+ i + "').submit();\"><h1 style='color: white;'> Add Location </h1> </a> " +
                 "</form>";
 
 
@@ -64,4 +64,15 @@ function showError(error) {
             alert("An unknown error occurred.");
             break;
     }
+}
+
+function addLocation(){
+    var locationFromTextBox = document.getElementById('txt_location');
+    console.log("outside" +locationFromTextBox.disabled);
+
+    if(locationFromTextBox.value != ""){
+       console.log(locationFromTextBox.disabled);
+         locationFromTextBox.disabled = "true";
+   }
+
 }
