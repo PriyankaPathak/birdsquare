@@ -56,7 +56,7 @@ public class BirdCheckinControllerTest {
     @Test
     public void verifyThatBirdInformationGetsSavedOnCheckIn() throws Exception {
         Checkin checkin = new Checkin();
-        checkin.setBirdname("foobar");
+        checkin.setBirdName("foobar");
 
         controller.retrieveBirdNameFromUserAndRedirectToStatusPage(checkin, new ExtendedModelMap());
 

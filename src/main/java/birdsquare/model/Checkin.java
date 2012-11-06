@@ -13,7 +13,7 @@ public class Checkin {
     @Id
     @GeneratedValue(generator = "generator")
     public long id;
-    public String birdname;
+    public String birdName;
     public String comments;
     public String location;
     public int number;
@@ -76,11 +76,11 @@ public class Checkin {
         this.date = date;
     }
 
-    public String getBirdname() {
-        return birdname;
+    public String getBirdName() {
+        return birdName;
     }
 
-    public void setBirdname(String birdname) {
-        this.birdname = birdname;
+    public void setBirdName(String birdName) {
+        this.birdName = birdName;
     }
 }

@@ -19,12 +19,12 @@ public class CheckinIT {
     @Test
     public void shouldSaveCheckInModelToTheDB() throws Exception {
         Checkin persistedCheckin = new Checkin();
-        persistedCheckin.setBirdname("foobar");
+        persistedCheckin.setBirdName("foobar");
         persistedCheckin.setNumber(16);
         birdSquareSession.saveOrUpdate(persistedCheckin);
 
         Checkin loadedCheckIn = (Checkin) birdSquareSession.get(Checkin.class, persistedCheckin.getId());
-        assertEquals(persistedCheckin.getBirdname(), loadedCheckIn.getBirdname());
+        assertEquals(persistedCheckin.getBirdName(), loadedCheckIn.getBirdName());
         assertEquals(persistedCheckin.getNumber(), loadedCheckIn.getNumber());
         birdSquareSession.delete(persistedCheckin);
     }

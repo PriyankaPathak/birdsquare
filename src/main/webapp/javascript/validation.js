@@ -1,26 +1,26 @@
 validateForm=function()
 {
-    var birdname=document.forms["birdinformation"]["birdname"].value;
+    var birdName=document.forms["birdinformation"]["birdName"].value;
 
-    birdname = birdname.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    birdName = birdName.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 
     var number=document.forms["birdinformation"]["number"].value;
 
     var locationName=document.forms["birdinformation"]["location"].value;
     locationName = locationName.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 
-    if (!is_not_an_empty_field(birdname))
+    if (!is_not_an_empty_field(birdName))
     {
         alert("Bird name must be filled out");
         return false;
     }
-    else if (!does_not_contain_numbers(birdname))
+    else if (!does_not_contain_numbers(birdName))
     {
         alert("Field must not have numeric characters");
 
         return false;
     }
-    else  if(!does_not_contain_special_characters(birdname)) {
+    else  if(!does_not_contain_special_characters(birdName)) {
         alert('Bird name should not contain special characters');
         return false;
 

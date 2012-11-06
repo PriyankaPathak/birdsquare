@@ -20,7 +20,7 @@
             <p></p>
             <p class="instructions">Enter bird details</p>
 
-            <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdname" size="20"/>
+            <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdName" size="20"/>
 
             <p></p><input class="TextBox" placeholder="Number of birds seen"   type="text" name="number" size="20.5"/>
             <p></p>
