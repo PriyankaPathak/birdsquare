@@ -10,15 +10,20 @@ function getLocation() {
 
 
 function showPosition(position) {
-    console.log("inside")
-    var foursquareAPIURL = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&oauth_token=XQZOS4SH3WHZ32EKFAUX3YU45CFEJGYZTFR2C5F0KMB1EHCX&v=20121030"
+    document.getElementById("addLocation").innerHTML +=
+        "<form id='form-addlocation"  + "' method='post' action='birdcheckin'> " +
+            " <input type='hidden' name='locationname' /> " +
+            " <input type='hidden' name='latitude' value=" + position.coords.latitude +" /> " +
+            " <input type='hidden' name='longitude' value=" + position.coords.longitude +" /> " +
+            " <a onclick=\"document.getElementById('form-addlocation').submit();\"><h1 style='color: white;'> Add Location </h1> </a> " +
+            "</form>";
 
+    var foursquareAPIURL = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&oauth_token=XQZOS4SH3WHZ32EKFAUX3YU45CFEJGYZTFR2C5F0KMB1EHCX&v=20121030"
     $.getJSON(foursquareAPIURL, function (data) {
-        console.log(data);
         for (var i = 0; i < data.response.venues.length; i++) {
 
             var location = showLocations(data.response.venues[i]);
-           document.getElementById("location-container").innerHTML +=
+            document.getElementById("location-container").innerHTML +=
                "<form id='form-"+ i + "' method='post' action='birdcheckin'> " +
                " <input type='hidden' name='locationname' value=\"" + location.name +"\" /> " +
                    " <input type='hidden' name='latitude' value=" + location.lat +" /> " +
@@ -26,14 +31,6 @@ function showPosition(position) {
                " <a onclick=\"document.getElementById('form-"+ i + "').submit();\">  <li>"+ location.name +" </li></a> " +
                 "</form>";
         }
-
-        document.getElementById("addLocation").innerHTML +=
-            "<form id='form-"+ i + "' method='post' action='birdcheckin'> " +
-                " <input type='hidden' name='locationname' /> " +
-                " <input type='hidden' name='latitude' value=" + position.coords.latitude +" /> " +
-                " <input type='hidden' name='longitude' value=" + position.coords.longitude +" /> " +
-                " <a onclick=\"document.getElementById('form-"+ i + "').submit();\"><h1 style='color: white;'> Add Location </h1> </a> " +
-                "</form>";
 
 
     });

@@ -21,6 +21,10 @@ public class HomeController {
         model.addAttribute("locationname",location.getLocationname());
         model.addAttribute("latitude",location.getLatitude());
         model.addAttribute("longitude",location.getLongitude());
+
+        model.addAttribute("addlocationurl", "birdcheckin");
+
+
        return "checkin/checkin";
     }
 
