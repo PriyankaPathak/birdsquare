@@ -62,14 +62,3 @@ function showError(error) {
             break;
     }
 }
-
-function addLocation(){
-    var locationFromTextBox = document.getElementById('txt_location');
-    console.log("outside" +locationFromTextBox.disabled);
-
-    if(locationFromTextBox.value != ""){
-       console.log(locationFromTextBox.disabled);
-         locationFromTextBox.disabled = "true";
-   }
-
-}

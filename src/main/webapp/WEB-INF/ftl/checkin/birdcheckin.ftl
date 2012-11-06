@@ -39,5 +39,4 @@
     </form>
 </div>
 </body>
-<script type="text/javascript">addLocation(); </script>
 </html>
