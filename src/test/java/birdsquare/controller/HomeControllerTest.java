@@ -24,6 +24,16 @@ public class HomeControllerTest {
         controller = new HomeController();
     }
 
+
+    @Test
+    public void shouldRenderHomePageAsLandingPage() throws Exception {
+        request.setRequestURI("/");
+        request.setMethod("GET");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "home/home");
+    }
+
     @Test
     public void shouldRenderHomePageAfterClickingHomeButton() throws Exception {
         request.setRequestURI("/home");
