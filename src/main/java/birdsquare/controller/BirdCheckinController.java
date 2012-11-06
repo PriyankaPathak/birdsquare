@@ -43,7 +43,7 @@ public class BirdCheckinController {
     @RequestMapping(value = "/birdcheckin", method = RequestMethod.POST)
     public String birdcheckin(@ModelAttribute("Location") Location location, Model model) {
 
-        model.addAttribute("checkinurl", "status");
+        model.addAttribute("checkinurl", "checkin");
         model.addAttribute("locationname", location.getLocationname());
         model.addAttribute("longitude", location.getLongitude());
         model.addAttribute("latitude", location.getLatitude());
