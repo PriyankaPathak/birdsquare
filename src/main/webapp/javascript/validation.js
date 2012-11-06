@@ -16,7 +16,7 @@ validateForm=function()
     }
     else if (!does_not_contain_numbers(birdName))
     {
-        alert("Field must not have numeric characters");
+        alert("Bird name must not have numeric characters");
 
         return false;
     }
