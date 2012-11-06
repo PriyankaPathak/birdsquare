@@ -46,9 +46,7 @@ public class BirdCheckinControllerTest {
     public void shouldRenderBirdCheckinPage() throws Exception {
         request.setRequestURI("/birdcheckin");
         request.setMethod("POST");
-//        request.setParameter("name", "Priyanka");
-//        request.setParameter("lat", "12");
-//        request.setParameter("lng", "14");
+
 
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
