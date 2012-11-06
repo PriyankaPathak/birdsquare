@@ -6,7 +6,7 @@ validateForm=function()
 
     var number=document.forms["birdinformation"]["number"].value;
 
-    var locationName=document.forms["birdinformation"]["location"].value;
+    var locationName=document.forms["birdinformation"]["locationName"].value;
     locationName = locationName.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 
     if (!is_not_an_empty_field(birdName))

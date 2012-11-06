@@ -16,7 +16,7 @@
         <div id="main-content">
 
             <p class="instructions">You are at</p>
-            <input class="TextBox" type ="text" name="location" placeholder="Enter location name" value="${locationname}" size="20" id="txt_location"/>
+            <input class="TextBox" type ="text" name="locationName" placeholder="Enter location name" value="${locationName}" size="20" id="txt_location"/>
             <p></p>
             <p class="instructions">Enter bird details</p>
 

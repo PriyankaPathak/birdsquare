@@ -1,9 +1,9 @@
 package birdsquare.model;
 
 public class Location {
-    Double latitude ;
-    Double longitude ;
-    String locationname;
+    Double latitude;
+    Double longitude;
+    String name;
 
     public Double getLatitude() {
         return latitude;
@@ -21,20 +21,11 @@ public class Location {
         this.longitude = longitude;
     }
 
-    public String getLocationname() {
-        return locationname;
+    public String getName() {
+        return name;
     }
 
-    public void setLocationname(String locationname) {
-        this.locationname = locationname;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public Location(Double latitude, Double longitude, String locationname) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.locationname = locationname;
-    }
-
-    public Location(){};
-
 }
