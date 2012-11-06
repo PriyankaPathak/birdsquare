@@ -28,8 +28,7 @@ public class BirdCheckinController {
         model.addAttribute("checkinurl", "checkin");
 
         if (null != checkin && null != checkin.getBirdName()) {
-            model.addAttribute("message", "You have checked in " + checkin.number + " " + checkin.birdName + "(s) successfully!");
-            checkin.setDate(new Date());
+            model.addAttribute("message", "You have checked in " + checkin.getNumber() + " " + checkin.getBirdName() + "(s) successfully!");
             birdSquareSession.save(checkin);
 
         } else {

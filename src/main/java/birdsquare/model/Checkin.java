@@ -2,7 +2,10 @@ package birdsquare.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -12,24 +15,17 @@ public class Checkin {
     @GenericGenerator(name = "generator", strategy = "increment")
     @Id
     @GeneratedValue(generator = "generator")
-    public long id;
-    public String birdName;
-    public String comments;
-    public String locationName;
-    public int number;
-    public Date date;
-    public double longitude;
-    public double latitude;
-
-    public Checkin() {
-    }
+    private long id;
+    private String birdName;
+    private String comments;
+    private String locationName;
+    private int number;
+    private Date date = new Date();
+    private double longitude;
+    private double latitude;
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public double getLongitude() {
@@ -39,6 +35,7 @@ public class Checkin {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
     public double getLatitude() {
         return latitude;
     }
@@ -46,6 +43,7 @@ public class Checkin {
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
+
     public String getComments() {
         return comments;
     }
@@ -53,6 +51,7 @@ public class Checkin {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
     public String getLocationName() {
         return locationName;
     }
@@ -68,12 +67,9 @@ public class Checkin {
     public void setNumber(int number) {
         this.number = number;
     }
+
     public Date getDate() {
         return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public String getBirdName() {

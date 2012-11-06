@@ -5,32 +5,44 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CheckinIT {
 
     private BirdSquareSession birdSquareSession;
+    private Checkin checkin;
 
     @Before
     public void setUp() {
         birdSquareSession = new BirdSquareSession();
-    }
-
-    @Test
-    public void shouldSaveCheckInModelToTheDB() throws Exception {
-        Checkin persistedCheckin = new Checkin();
-        persistedCheckin.setBirdName("foobar");
-        persistedCheckin.setNumber(16);
-        birdSquareSession.saveOrUpdate(persistedCheckin);
-
-        Checkin loadedCheckIn = (Checkin) birdSquareSession.get(Checkin.class, persistedCheckin.getId());
-        assertEquals(persistedCheckin.getBirdName(), loadedCheckIn.getBirdName());
-        assertEquals(persistedCheckin.getNumber(), loadedCheckIn.getNumber());
-        birdSquareSession.delete(persistedCheckin);
+        checkin = createCheckin();
     }
 
     @After
     public void tearDown() {
+        birdSquareSession.delete(checkin);
         birdSquareSession.close();
+    }
+
+    @Test
+    public void shouldSaveCheckInModelToTheDB() throws Exception {
+        birdSquareSession.saveOrUpdate(checkin);
+
+        Checkin loadedCheckIn = (Checkin) birdSquareSession.get(Checkin.class, checkin.getId());
+        assertEquals(checkin.getBirdName(), loadedCheckIn.getBirdName());
+        assertEquals(checkin.getNumber(), loadedCheckIn.getNumber());
+        assertNotNull(loadedCheckIn.getDate());
+    }
+
+    private Checkin createCheckin() {
+        Checkin checkin = new Checkin();
+        checkin.setBirdName("foobar");
+        checkin.setNumber(16);
+        return checkin;
     }
 }

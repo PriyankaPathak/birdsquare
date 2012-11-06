@@ -17,13 +17,12 @@ public class UserIT {
 
     @Test
     public void shouldBeAbleToFetchPointsGivenAUserId() throws Exception {
-
         User persistedUser = new User();
-        persistedUser.setname("Naz");
+        persistedUser.setName("Naz");
         birdSquareSession.saveOrUpdate(persistedUser);
 
         User loadedUser = (User) birdSquareSession.get(User.class, persistedUser.getId());
-        assertEquals(persistedUser.getname(), loadedUser.getname());
+        assertEquals(persistedUser.getName(), loadedUser.getName());
         assertEquals(persistedUser.getPoints(), loadedUser.getPoints());
         birdSquareSession.delete(persistedUser);
     }

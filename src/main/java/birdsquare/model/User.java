@@ -18,36 +18,23 @@ public class User {
     public String name;
     public int points;
 
-    public User(long id, String name, int points) {
-        this.id = id;
-        this.name = name;
-        this.points = points;
-    }
-
-
     public long getId() {
         return id;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPoints() {
         return points;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setname(String name) {
-        this.name = name;
-    }
-
     public void setPoints(int points) {
         this.points = points;
     }
-
-    public User(){}
 }
