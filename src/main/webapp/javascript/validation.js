@@ -61,10 +61,7 @@ is_a_valid_number = function(input){
 
 
 does_not_contain_numbers = function(input){
-
     return !(/\d/.test(input));
-
-
 };
 
 is_not_an_empty_field = function(input){
@@ -73,11 +70,9 @@ is_not_an_empty_field = function(input){
         return false;
     }
     return true;
-
 };
 
 does_not_contain_special_characters=function(input){
-
     var iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
     for (var i = 0; i < input.length; i++) {
         if (iChars.indexOf(input.charAt(i)) != -1) {
@@ -85,10 +80,9 @@ does_not_contain_special_characters=function(input){
         }
     }
     return true;
-
 };
-contains_number_atleast_greater_than_zero = function(input){
 
+contains_number_atleast_greater_than_zero = function(input){
     if(input <= 0) {
         return false;
     }

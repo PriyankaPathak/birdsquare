@@ -1,5 +1,4 @@
-<html>
-<head>
+<#include "../header.ftl">
     <title>BirdSquare: Check In</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="javascript/validation.js"></script>
@@ -8,26 +7,37 @@
 </head>
 
 <body>
-<div id="main-container">
-    <form name="birdinformation" onsubmit="return validateForm()" action="status" method="post">
-    <#include "../header.ftl">
 
-        <div id="main-content">
+<div data-role="page" id="birdcheckin">
 
-            <p class="instructions">You are at</p>
-            <input class="TextBox" type ="text" name="locationName" placeholder="Enter location name" value="${locationName}" size="20" id="txt_location"/>
-            <p></p>
-            <p class="instructions">Enter bird details</p>
+<#include "../checkinLink.ftl">
 
-            <p></p><input class="TextBox" placeholder="Bird Name" type="text" name="birdName" size="20"/>
+<div data-role="content">
 
-            <p></p><input class="TextBox" placeholder="Number of birds seen" type="text" name="number" size="20.5"/>
+    <form name="birdinformation" onsubmit="return validateForm()" action="status" method="post" data-ajax="false">
+
+        <label for="txt_location" class="ui-accessible">You are at</label>
+        <input type ="text" name="locationName" placeholder="Enter location name" value="${locationName}" size="20" id="txt_location"/>
             <p></p>
 
-            <p></p><textarea class="CommentBox" name="comments" rows=5 cols=22 placeholder=" Comments"></textarea>
+            <div class="ui-widget" style="font-family: 'Arial'">
+
+            <label for="BirdName" class="ui-accessible">Enter check in details</label>
+            <input type="text" name="birdName" id="BirdName" placeholder="Bird name"/>
+
+            <p></p><input  placeholder="Number of birds seen"   type="text" name="number"/>
+            <p></p>
+
+            <input type="hidden" name="latitude" value="${latitude}"/>
+            <input type="hidden" name="longitude" value="${longitude}"/>
+
 
             <p></p>
-            <input id="submitbutton" type="submit" value="Submit"/>
+            <label for ="Comments" class="ui-hidden-accessible">Comments:</label>
+            <textarea id="Comments" name="Comments" placeholder="Comments"></textarea>
+
+            <p></p>
+            <input type="submit" value="Submit"/>
             <p></p>
 
             <input type="hidden" name="latitude" value="${latitude}"/>
@@ -35,8 +45,8 @@
             <#--<input type="hidden" id="allbirds" value="${allbirds}"/>-->
 
         </div>
-    <#include "../footer.ftl">
     </form>
 </div>
-</body>
-</html>
+
+<#include "../footer.ftl">
+

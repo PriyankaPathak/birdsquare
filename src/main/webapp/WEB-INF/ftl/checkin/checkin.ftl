@@ -1,38 +1,25 @@
-<html>
-<head>
-    <title>BirdSquare: Check In</title>
-    <link rel="stylesheet" type="text/css" href="css/header.css">
+<#include "../header.ftl">
+    <title>BirdSquare: Locations</title>
     <script
             src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
     </script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="javascript/location.js"></script>
-
-
+    <script type="text/javascript">getLocation(); </script>
 </head>
 
 <body>
-<div id="main-container">
-    <div class="header-left">
-        <h1><a href=home>Logo</a></h1>
+
+<div data-role="page" id="checkin"><#--this div is closed in footer-->
+    <div data-role="header" style="font-size: 15px">
+        <h1 style="margin-left:-100px;">BirdSquare</h1>
+        <a onclick="document.getElementById('form-addlocation').submit();"data-role='button' rel='external' data-theme='e' class='ui-btn-right' id="addLocation">Add Location</a>
     </div>
 
-    <div class="header-right" id="addLocation">
+    <div data-role="content" >
+        <p>Select location:</p>
 
-    </div>
+        <ul id="location-container" data-role='listview' data-inset='true' data-filter='true'></ul>
 
+    </div><!-- /content -->
 
-    <div id="main-content">
-        <p class="instructions">Select Location:</p>
-
-        <div id="location-container">
-
-        </div>
-
-    </div>
 <#include "../footer.ftl">
-</div>
-
-</body>
-<script type="text/javascript">getLocation(); </script>
-</html>

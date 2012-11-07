@@ -1,18 +1,13 @@
-<html>
-<head>
-    <title> Birdsquare:search</title>
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-
+<#include "../header.ftl">
+<title> Birdsquare: search</title>
 
 </head>
 
 <body>
 
-<div id="main_container">
-
-<#include "../header.ftl">
-
-    <div id="main-content">
+<div data-role="page" id="search">
+<#include "../checkinLink.ftl">
+    <div data-role="content">
         <p>
             Page is under construction
         </p>
@@ -20,9 +15,3 @@
     </div>
 
 <#include "../footer.ftl">
-
-</div>
-
-
-</body>
-</html>

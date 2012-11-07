@@ -1,126 +1,36 @@
-@import url(http://fonts.googleapis.com/css?family=Arvo);
-
-body {
-    margin: 0;
-    padding: 0;
-    background: #FFF;
-    font-size: 13px;
-}
-
-h1 {
-
-    font-family: "calibri", sans-serif;
-    font-size: 70px;
-}
-
-
-a:link {
-    color: white;
-    text-decoration: none;
-}
-
-a:visited{
-    color: white;
-}
-.header{
-    width:100%;
-    margin-bottom:0px;
-    background: #B4786D;
-
-}
-
-.header-left{
-    float: left;
-    width: 50%;
-
-    text-align: justify;
-    margin-bottom: 0px;
-    background: #B4786D;
-}
-
-.header-right{
-    float: right;
-    width: 50%;
-    color: #2B3A41;
-    text-align: center;
-    background: #EDCA4A;
-    margin-bottom: 0px;
-}
-
-#footer-container{
-    color: white;
-    text-align: center;
-}
-
-.footer-left {
-    float: left;
-    width: 34%;
-    background: #065C6D;
-}
-
-
-.footer-center {
-    float: left;
-    width: 33%;
-    background: #065C6D;
-}
-
-
-.footer-right {
-    float: right;
-    width: 33%;
-    background: #065C6D;
-}
-
-
-.TextBox{
-    font-size: 60;
- }
-
-.CommentBox{
-    font-size:60;
-}
 
 
 #submitbutton{
       font-size: 60;
 }
 
-#main-content {
-   float:left;
-    height: 73%;
-    font-family: "Calibri", "sans-serif";;
-    font-size: 60;
-    background-color: white;
-    overflow:auto;
-    width:100%;
+.ui-header .ui-title {
+    font-size: 20px;
+}
+
+.ui-header .ui-btn-inner {
+    font-size: 15px;
 
 }
 
-.instructions{
-    font-size: 70px;
-    font-family: "Calibri", "sans-serif";
+.ui-header .ui-btn-right {
+    vertical-align: middle;
 }
 
-#location-container{
-     padding-top:20px;
-}
-
-
-#location-container li{
-    list-style-type: none;
-    background:#F0F0E1;
-    margin-top:-30px;
-
-}
-
-#location-container li:hover{
-    background:#7A6A53;
-    color: white;
-}
-#location-container a:hover{
-    color: white;
+.ui-header{
+    text-align: left;
 }
 
 
+.ui-footer .ui-btn-text{
+    font-size: 20px;
+}
 
+.ui-li .ui-btn-text a.ui-link-inherit{
+    white-space: normal;
+    font-size: 13px;
+}
+
+.ui-content{
+    height:300px;
+}

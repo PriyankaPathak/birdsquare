@@ -1,28 +1,17 @@
-<html>
-<head>
-    <title> BirdSquare: Home</title>
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-
-
+<#include "../header.ftl">
+<title> BirdSquare: Home</title>
 </head>
 
 <body>
 
-<div id="main_container">
+<div data-role="page" id="homepage">
 
-<#include "../header.ftl">
+<#include "../checkinLink.ftl"> <#--adds birdsquare logo and checkin button-->
 
-    <div id="main-content">
+<div data-role="content">
         <p>
             Welcome to BirdSquare
         </p>
-
     </div>
 
 <#include "../footer.ftl">
-
-</div>
-
-
-</body>
-</html>
