@@ -1,33 +1,29 @@
-function loginUser() {
-    FB.login(function(response) { }, {scope:'email'});
-}
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '454719261240892', // App ID from the App Dashboard
+        status     : true, // check the login status upon init?
+        cookie     : true, // set sessions cookies to allow your server to access the session?
+        xfbml      : true  // parse XFBML tags on this page?
+    });
 
-function handleStatusChange(response) {
-    document.body.className = response.authResponse ? 'connected' : 'not_connected';
-    if (response.authResponse) {
-        console.log(response);
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
 
-        updateUserInfo(response);
-    }
-}
+            var uid = response.authResponse.userID;
+//            window.location.href="http://localhost:8080"
+        } else {
+        }
+    });
+    FB.Event.subscribe('auth.login', function(response) {
+//        window.location.href="http://localhost:8080";
+    });
+
+};
+
 (function() {
-    var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    var e = document.createElement('script');
+    e.type = 'text/javascript';
+    e.src =  'http://connect.facebook.net/en_US/all.js';
+    e.async = true;
     document.getElementById('fb-root').appendChild(e);
 }());
-
-function updateUserInfo(response) {
-    FB.api('/me', function(response) {
-        document.getElementById('user-info').innerHTML = '<img src="https://graph.facebook.com/' + response.id + '/picture">' + response.name
-            +response.location.address.name;
-    });
-};
-
-function ashwinWish(){
-    FB.init({ appId: '382365808510578',
-        status: true,
-        cookie: true,
-        xfbml: true,
-        oauth: true});
-    FB.Event.subscribe('auth.statusChange', handleStatusChange);
-};
