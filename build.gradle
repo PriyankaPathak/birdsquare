@@ -2,21 +2,11 @@ version = '1.0'
 
 apply plugin: 'jetty'
 apply plugin: 'idea'
-apply plugin: 'jasmineGradle'
 
 defaultTasks 'clean', 'idea', 'setupDB', 'build'
 
 repositories {
     mavenCentral()
-}
-
-buildscript {
-        repositories {
-            mavenCentral();
-        }
-        dependencies {
-            classpath "com.github.dzhaughnroth:jasmine-gradle-plugin:0.4"
-        }
 }
 
 dependencies {

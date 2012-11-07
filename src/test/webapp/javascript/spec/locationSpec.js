@@ -1,9 +1,6 @@
 
 describe("should show list of nearby location on passing location data", function () {
 
-    beforeEach(function() {
-        document.getElementById('txt_location').disabled = false;
-    });
 
     it("should show names of location", function () {
         var data = {
