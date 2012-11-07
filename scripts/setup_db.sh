@@ -1,2 +1,2 @@
 mysql -uroot < "database/create_schema.sql"
-mysql -uroot < "database/populate_data.sql"
+mysql -uroot --local-infile < "database/populate_data.sql"
