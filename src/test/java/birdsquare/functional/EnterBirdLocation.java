@@ -30,6 +30,9 @@ public class EnterBirdLocation {
     @Before
     public void BeforeMethod()
     {
+        // cannot use FireFoxDriver in Go yet
+        if (runningInGo()) return;
+
         File profileDir = new File(getFirefoxProfile());
         FirefoxProfile profile = new FirefoxProfile(profileDir);
         webDriver = new FirefoxDriver(profile);
@@ -38,11 +41,8 @@ public class EnterBirdLocation {
     @Test
     public void SelectBirdLocationFromList()
     {
-        // TODO make this work in Go
-        if (System.getenv("GO_JOB_NAME") != null) {
-            System.out.println("WARNING: THIS TEST DOES NOT WORK IN CI");
-            return;
-        }
+        // cannot use FireFoxDriver in Go yet
+        if (runningInGo()) return;
 
         webDriver.findElement(By.linkText("Check In")).click();
 
@@ -73,6 +73,11 @@ public class EnterBirdLocation {
         String ActualMessage = webDriver.findElement(By.xpath("//div[@id='main-content']")).getText();
 
         assertEquals(AssertConfirmationMessage, ActualMessage );
+    }
+
+    private boolean runningInGo() {
+        return (System.getenv("GO_JOB_NAME") != null);
+
     }
 
 }
