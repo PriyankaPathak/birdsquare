@@ -10,12 +10,10 @@ window.fbAsyncInit = function() {
         if (response.status === 'connected') {
 
             var uid = response.authResponse.userID;
-//            window.location.href="http://localhost:8080"
         } else {
         }
     });
     FB.Event.subscribe('auth.login', function(response) {
-//        window.location.href="http://localhost:8080";
     });
 
 };
