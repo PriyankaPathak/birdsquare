@@ -4,6 +4,8 @@ import birdsquare.helper.BirdSquareSession;
 import birdsquare.model.Bird;
 import birdsquare.model.Checkin;
 import birdsquare.model.Location;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +13,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class BirdCheckinController {
 
     private BirdSquareSession birdSquareSession;
+
 
     @Autowired
     public BirdCheckinController(BirdSquareSession birdSquareSession) {
@@ -41,16 +45,28 @@ public class BirdCheckinController {
 
 
     @RequestMapping(value = "/birdcheckin", method = RequestMethod.POST)
-    public String birdcheckin(@ModelAttribute("Location") Location location, Model model) {
+    public String birdcheckin(@ModelAttribute("Location") Location location, Model model) throws JSONException {
         model.addAttribute("checkinurl", "checkin");
         model.addAttribute("locationName", location.getName());
         model.addAttribute("longitude", location.getLongitude());
         model.addAttribute("latitude", location.getLatitude());
 
-        List allBirds = birdSquareSession.getAll(Bird.class);
-        model.addAttribute("allbirds", allBirds);
+        List birdNameList = getListOfBirdNames();
+
+        model.addAttribute("allbirds", birdNameList);
 
         return "checkin/birdcheckin";
+    }
+
+    private List getListOfBirdNames() {
+        List birdNameList = new ArrayList();
+        List allBirds = birdSquareSession.getAll(Bird.class);
+        for (Object bird : allBirds) {
+            String name = ((Bird)bird).getCommon_name();
+
+            birdNameList.add(name);
+        }
+        return birdNameList;
     }
 
 }

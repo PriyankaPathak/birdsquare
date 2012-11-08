@@ -24,6 +24,7 @@ dependencies {
     compile "org.springframework:spring-beans:3.1.2.RELEASE"
     compile "org.hibernate:hibernate-entitymanager:4.1.7.Final"
     compile "org.springframework:spring-orm:3.1.2.RELEASE"
+    compile "org.json:json:20090211"
 
     testCompile "org.springframework:spring-test:+"
     testCompile "junit:junit:+"

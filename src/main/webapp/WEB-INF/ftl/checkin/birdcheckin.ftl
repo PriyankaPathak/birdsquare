@@ -42,8 +42,7 @@
 
             <input type="hidden" name="latitude" value="${latitude}"/>
             <input type="hidden" name="longitude" value="${longitude}"/>
-            <#--<input type="hidden" id="allbirds" value="${allbirds}"/>-->
-
+            <#list allbirds as item>${item}</#list>
         </div>
     </form>
 </div>
