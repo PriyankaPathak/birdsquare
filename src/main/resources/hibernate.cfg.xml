@@ -14,6 +14,7 @@
 
         <mapping class="birdsquare.model.Checkin"/>
         <mapping class="birdsquare.model.User"/>
+        <mapping class="birdsquare.model.Bird"/>
 
     </session-factory>
 

@@ -1,6 +1,7 @@
 package birdsquare.controller;
 
 import birdsquare.helper.BirdSquareSession;
+import birdsquare.model.Bird;
 import birdsquare.model.Checkin;
 import birdsquare.model.Location;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Date;
+import java.util.List;
 
 @Controller
 public class BirdCheckinController {
@@ -45,6 +46,11 @@ public class BirdCheckinController {
         model.addAttribute("locationName", location.getName());
         model.addAttribute("longitude", location.getLongitude());
         model.addAttribute("latitude", location.getLatitude());
+
+        List allBirds = birdSquareSession.getAll(Bird.class);
+        model.addAttribute("allbirds", allBirds);
+
         return "checkin/birdcheckin";
     }
+
 }
