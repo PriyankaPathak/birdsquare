@@ -23,10 +23,9 @@ public class HomePageTest {
 
     @Test
     public void shouldShowHomePage() {
-        WebElement mainContentElement = webDriver.findElement(By.id("main-content"));
+        WebElement mainContentElement = webDriver.findElement(By.id("home-content"));
         assertTrue(mainContentElement.getText().contains("Welcome to BirdSquare"));
         assertTrue(webDriver.findElement(By.linkText("Check In")).isDisplayed());
-
     }
 
 }

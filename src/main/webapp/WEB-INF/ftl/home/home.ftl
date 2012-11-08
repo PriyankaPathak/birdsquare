@@ -8,7 +8,7 @@
 
 <#include "../checkinLink.ftl"> <#--adds birdsquare logo and checkin button-->
 
-<div data-role="content">
+<div data-role="content" id ="home-content">
         <p>
             Welcome to BirdSquare
         </p>
