@@ -45,7 +45,7 @@ public class BirdCheckinController {
     }
 
 
-    @RequestMapping(value = "/birdcheckin", method = RequestMethod.POST)
+    @RequestMapping(value = "/checkinform", method = RequestMethod.POST)
     public String birdcheckin(@ModelAttribute("Location") Location location, Model model) throws JSONException {
         model.addAttribute("checkinurl", "checkinlocations");
         model.addAttribute("locationName", location.getName());

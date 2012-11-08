@@ -46,9 +46,6 @@ public class BirdCheckinControllerTest {
     public void shouldRenderBirdCheckinPage() throws Exception {
         request.setRequestURI("/checkinform");
         request.setMethod("POST");
-
-
-
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "checkin/checkinform");
     }
@@ -57,9 +54,7 @@ public class BirdCheckinControllerTest {
     public void verifyThatBirdInformationGetsSavedOnCheckIn() throws Exception {
         Checkin checkin = new Checkin();
         checkin.setBirdName("foobar");
-
         controller.retrieveBirdNameFromUserAndRedirectToStatusPage(checkin, new ExtendedModelMap());
-
         Mockito.verify(birdSquareSession, times(1)).save(checkin);
     }
 }
