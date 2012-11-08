@@ -4,10 +4,12 @@ import birdsquare.helper.BirdSquareSession;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.util.Assert;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -31,5 +33,12 @@ public class CheckinTest {
         checkin.setBirdName("foobar");
         checkin.setNumber(16);
         return checkin;
+    }
+
+    @Test
+    public void shouldReturnANonEmptyListOfBirdDetails()
+    {
+        List<String> listOfBirds = checkin.getBirdNameList(new BirdSquareSession());
+        Assert.notEmpty(listOfBirds);
     }
 }

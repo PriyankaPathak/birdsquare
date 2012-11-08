@@ -1,12 +1,15 @@
 package birdsquare.model;
 
+import birdsquare.helper.BirdSquareSession;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "checkin")
@@ -78,5 +81,20 @@ public class Checkin {
 
     public void setBirdName(String birdName) {
         this.birdName = birdName;
+    }
+
+    public List<String> getBirdNameList(BirdSquareSession birdSquareSession) {
+
+
+            List<String> birdNameList = new ArrayList();
+            List allBirds = birdSquareSession.getAll(Bird.class);
+            for (Object bird : allBirds) {
+                String name = ((Bird)bird).getCommon_name()+" ("+((Bird)bird).getScientific_name()+")";
+
+                birdNameList.add(name);
+            }
+            return birdNameList;
+
+
     }
 }

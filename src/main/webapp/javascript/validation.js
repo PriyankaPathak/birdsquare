@@ -72,8 +72,8 @@ var is_not_an_empty_field = function(input){
     return true;
 };
 
-var does_not_contain_special_characters=function(input){
-    var iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
+does_not_contain_special_characters=function(input){
+    var iChars = "!@#$%^&*+=[]\\;,./{}|\":<>?";
     for (var i = 0; i < input.length; i++) {
         if (iChars.indexOf(input.charAt(i)) != -1) {
             return false;
