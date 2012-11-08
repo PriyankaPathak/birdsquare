@@ -12,7 +12,7 @@
 <div data-role="page" id="checkin"><#--this div is closed in footer-->
     <div data-role="header" style="font-size: 15px">
         <h1 style="margin-left:-100px;">BirdSquare</h1>
-        <a onclick="document.getElementById('form-addlocation').submit();"data-role='button' rel='external' data-theme='e' class='ui-btn-right' id="addLocation">Add Location</a>
+        <a onclick="document.getElementById('form-addlocation').submit();"data-role='button' rel='external' data-theme='e' class='ui-btn-right' id="addLocation">New Location</a>
     </div>
 
     <div data-role="content" >
