@@ -1,6 +1,8 @@
 package birdsquare.functional;
 
+
 public class Environments {
+
 
     public static String getHomePageUrl() {
 
@@ -13,3 +15,4 @@ public class Environments {
         return "http://localhost:8080";
     }
 }
+

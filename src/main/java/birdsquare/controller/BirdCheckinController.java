@@ -18,7 +18,6 @@ public class BirdCheckinController {
 
     private BirdSquareSession birdSquareSession;
 
-
     @Autowired
     public BirdCheckinController(BirdSquareSession birdSquareSession) {
         this.birdSquareSession = birdSquareSession;

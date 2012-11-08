@@ -1,6 +1,7 @@
 package birdsquare.functional;
 
 
+import birdsquare.functional.firefox.profile.CommonVariables;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -20,8 +21,8 @@ import static org.junit.Assert.assertTrue;
 
 public class EnterBirdLocation {
 
-    private WebDriver webDriver;
-    private static String HOME_PAGE_URL = Environments.getHomePageUrl();
+   // private WebDriver webDriver;
+   private static String HOME_PAGE_URL ="http://qa.birdsquare.in/birdsquare";// Environments.getHomePageUrl();
 
     private String getFirefoxProfile() {
         String workingDir = System.getProperty("user.dir");
@@ -36,25 +37,25 @@ public class EnterBirdLocation {
 
         File profileDir = new File(getFirefoxProfile());
         FirefoxProfile profile = new FirefoxProfile(profileDir);
-        webDriver = new FirefoxDriver(profile);
-        webDriver.get(HOME_PAGE_URL);
+        CommonVariables.webDriver = new FirefoxDriver(profile);
+        CommonVariables.webDriver.get(HOME_PAGE_URL);
     }
-    @Ignore
+
     @Test
     public void SelectBirdLocationFromList()
     {
         // cannot use FireFoxDriver in Go yet
         if (runningInGo()) return;
 
-        webDriver.findElement(By.linkText("Check In")).click();
+        CommonVariables.webDriver.findElement(By.linkText("Check In")).click();
 
 
-        WebElement myDynamicElement = (new WebDriverWait(webDriver, 10)).until(new ExpectedCondition<WebElement>()
+        WebElement myDynamicElement = (new WebDriverWait(CommonVariables.webDriver, 10)).until(new ExpectedCondition<WebElement>()
         {
               @Override
               public WebElement apply(WebDriver d)
               {
-                   return d.findElement(By.xpath("//div[@ id='location-container']/form"));
+                   return d.findElement(By.xpath("//ul[@id='location-container']/form[@id='form-0']"));
               }
         });
 
@@ -62,17 +63,17 @@ public class EnterBirdLocation {
         String birdName = "MyBird" ;
         String comment ="This is a very beautiful bird";
 
-        webDriver.findElement(By.xpath("//div[@ id='location-container']/form/a")).click();
+        CommonVariables.webDriver.findElement(By.className("ui-btn-text")).click();
 
-        webDriver.findElement(By.xpath("//input[@name='birdName']")).sendKeys(birdName);
-        webDriver.findElement(By.xpath("//input[@name='number']")).sendKeys(number);
-        webDriver.findElement(By.xpath("//textarea[@class='CommentBox']")).sendKeys(comment);
-        webDriver.findElement(By.xpath("//input[@id='submitbutton']")).click();
-        assertTrue(webDriver.findElement(By.xpath("//div[@id='main-content']")).isDisplayed());
+        CommonVariables.webDriver.findElement(By.id("birdname-field")).sendKeys(birdName);
+        CommonVariables.webDriver.findElement(By.id("numberofbirds-field")).sendKeys(number);
+        CommonVariables.webDriver.findElement(By.id("comments")).sendKeys(comment);
+        CommonVariables.webDriver.findElement(By.className("ui-btn-text")).click();
+        assertTrue(CommonVariables.webDriver.findElement(By.xpath("//div[@id='main-content']")).isDisplayed());
 
         String AssertConfirmationMessage ="You have checked in " + number + " "+ birdName + "(s) successfully!";
 
-        String ActualMessage = webDriver.findElement(By.xpath("//div[@id='main-content']")).getText();
+        String ActualMessage = CommonVariables.webDriver.findElement(By.xpath("//div[@id='main-content']")).getText();
 
         assertEquals(AssertConfirmationMessage, ActualMessage );
     }
