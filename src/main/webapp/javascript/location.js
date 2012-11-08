@@ -11,7 +11,7 @@ function getLocation() {
 
 function showPosition(position) {
     document.getElementById("addLocation").innerHTML +=
-        "<form id='form-addlocation"  + "' method='post' action='birdcheckin'> " +
+        "<form id='form-addlocation"  + "' method='post' action='checkinform'> " +
             " <input type='hidden' name='name' /> " +
             " <input type='hidden' name='latitude' value=" + position.coords.latitude +" /> " +
             " <input type='hidden' name='longitude' value=" + position.coords.longitude +" /> "+
@@ -26,7 +26,7 @@ function showPosition(position) {
 
             document.getElementById("location-container").innerHTML +=
 
-               "<form id='form-"+i+"' method='post' action='birdcheckin'> " +
+               "<form id='form-"+i+"' method='post' action='checkinform'> " +
                " <input type='hidden' name='name' value=\"" + location.name +"\" /> " +
                " <input type='hidden' name='latitude' value=" + location.lat +" /> " +
                " <input type='hidden' name='longitude' value=" + location.lng +" /> " +

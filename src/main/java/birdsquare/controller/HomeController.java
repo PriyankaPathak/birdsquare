@@ -13,32 +13,27 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("checkinurl", "checkin");
+        model.addAttribute("checkinurl", "checkinlocations");
         return "home/home";
     }
 
     @RequestMapping(value = "/home")
     public String home(Model model) {
-        model.addAttribute("checkinurl", "checkin");
+        model.addAttribute("checkinurl", "checkinlocations");
         return "home/home";
     }
 
-    @RequestMapping(value = "/checkin")
+    @RequestMapping(value = "/checkinlocations")
     public String checkin(@ModelAttribute("Location") Location location, Model model) {
         model.addAttribute("locationName", location.getName());
         model.addAttribute("latitude", location.getLatitude());
         model.addAttribute("longitude", location.getLongitude());
-        return "checkin/checkin";
-    }
-
-    @RequestMapping(value = "/checkinsuccess")
-    public String checkinsuccess() {
-        return "checkin/checkinsuccess";
+        return "checkin/checkinlocations";
     }
 
     @RequestMapping(value = "/search")
     public String search(Model model) {
-        model.addAttribute("checkinurl", "checkin");
+        model.addAttribute("checkinurl", "checkinlocations");
         return "search/search";
     }
 

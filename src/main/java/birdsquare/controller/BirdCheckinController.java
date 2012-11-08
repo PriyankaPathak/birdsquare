@@ -30,7 +30,8 @@ public class BirdCheckinController {
     @RequestMapping(value = "/status", method=RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("checkin") Checkin checkin, Model model) {
 
-        model.addAttribute("checkinurl", "checkin");
+        model.addAttribute("checkinurl", "checkinlocations");
+        System.out.println(checkin.getBirdName());
 
         if (null != checkin && null != checkin.getBirdName()) {
             model.addAttribute("message", "You have checked in " + checkin.getNumber() + " " + checkin.getBirdName() + "(s) successfully!");
@@ -46,7 +47,7 @@ public class BirdCheckinController {
 
     @RequestMapping(value = "/birdcheckin", method = RequestMethod.POST)
     public String birdcheckin(@ModelAttribute("Location") Location location, Model model) throws JSONException {
-        model.addAttribute("checkinurl", "checkin");
+        model.addAttribute("checkinurl", "checkinlocations");
         model.addAttribute("locationName", location.getName());
         model.addAttribute("longitude", location.getLongitude());
         model.addAttribute("latitude", location.getLatitude());
@@ -55,7 +56,7 @@ public class BirdCheckinController {
 
         model.addAttribute("allbirds", birdNameList);
 
-        return "checkin/birdcheckin";
+        return "checkin/checkinform";
     }
 
     private List getListOfBirdNames() {

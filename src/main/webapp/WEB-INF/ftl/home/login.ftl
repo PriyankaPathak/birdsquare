@@ -5,7 +5,7 @@
 </head>
 <body>
 <div id="main_container">
-<#include "../header.ftl">
+<#include "../includes.ftl">
     <div id="main-content">
         <div id="fb-root"></div>
         <div class="fb-login-button" autologoutlink="true" data-show-faces="true" data-width="200" data-max-rows="1"></div>

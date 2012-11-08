@@ -44,10 +44,10 @@ public class HomeControllerTest {
 
     @Test
     public void shouldRenderCheckInPageAfterClickingCheckInButtonFromHomePage() throws Exception {
-        request.setRequestURI("/checkin");
+        request.setRequestURI("/checkinlocations");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "checkin/checkin");
+        assertViewName(mav, "checkin/checkinlocations");
     }
 
     @Test

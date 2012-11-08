@@ -44,13 +44,13 @@ public class BirdCheckinControllerTest {
 
     @Test
     public void shouldRenderBirdCheckinPage() throws Exception {
-        request.setRequestURI("/birdcheckin");
+        request.setRequestURI("/checkinform");
         request.setMethod("POST");
 
 
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "checkin/birdcheckin");
+        assertViewName(mav, "checkin/checkinform");
     }
 
     @Test

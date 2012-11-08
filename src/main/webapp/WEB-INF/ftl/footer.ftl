@@ -1,4 +1,4 @@
-<div data-role="footer">
+<div data-role="footer" id="footer">
     <div data-role="navbar" data-iconpos="top">
         <ul>
             <li>
@@ -20,7 +20,5 @@
     </div>
 </div>
 
-</div><!-- /page -->
 
-</body>
-</html>
+
