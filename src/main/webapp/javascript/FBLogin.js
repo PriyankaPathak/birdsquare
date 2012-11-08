@@ -20,7 +20,7 @@ window.fbAsyncInit = function() {
 
 (function() {
     var e = document.createElement('script');
-    e.type = 'text/javascript';
+    e.type = 'text/webapp.webapp.javascript';
     e.src =  'http://connect.facebook.net/en_US/all.js';
     e.async = true;
     document.getElementById('fb-root').appendChild(e);

@@ -41,6 +41,13 @@
                 <input type="hidden" name="longitude" value="${longitude}"/>
             <#--<input type="hidden" id="allbirds" value="${allbirds}"/>-->
 
+            <#--<datalist id="searchresults">-->
+            <#--<#list allbirds as item>-->
+            <#--<option>${item}</option>-->
+            <#--</#list>-->
+            <#--</datalist>-->
+
+
             </div>
         </div>
 
