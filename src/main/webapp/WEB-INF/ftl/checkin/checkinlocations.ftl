@@ -16,9 +16,9 @@
 <#include "../headers/header-with-addlocation.ftl">
 
     <div data-role="content" id="checkinlocations-content">
-        <p>Select location:</p>
-
-        <ul id="location-container" data-role='listview' data-inset='true' data-filter='true'></ul>
+        <p>
+        Select a location </p>
+        <ul id="location-container" data-filter-placeholder="Filter items" data-role='listview' data-inset='true' data-filter='true'></ul>
 
     </div>
 

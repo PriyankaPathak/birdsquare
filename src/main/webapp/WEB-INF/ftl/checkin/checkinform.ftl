@@ -25,21 +25,18 @@
             <p></p>
 
             <div class="ui-widget" style="font-family: 'Arial'">
-
-                <label for="birdname-field" class="ui-accessible">Enter check in details</label>
+                <p>Enter sighting details</p>
+                <label for="birdname-field" class="ui-hidden-accessible"></label>
                 <input type="text" name="birdName" id="birdname-field" placeholder="Bird name"/>
 
-                <label for ="numberofbirds-field" class="ui-hidden-accessible">Number of birds:</label>
+                <label for ="numberofbirds-field" class="ui-hidden-accessible"></label>
                 <input type="text" name="number" id="numberofbirds-field" placeholder="Number of birds seen" />
 
-                <label for ="comments-field" class="ui-hidden-accessible">Comments:</label>
+                <label for ="comments-field" class="ui-hidden-accessible"></label>
                 <textarea id="comments" name="comments" id="comments-field" placeholder="Comments"></textarea>
-
-                <#--<input type="submit" value="Submit"/>-->
 
                 <input type="hidden" name="latitude" value="${latitude}"/>
                 <input type="hidden" name="longitude" value="${longitude}"/>
-            <#--<input type="hidden" id="allbirds" value="${allbirds}"/>-->
 
             <#--<datalist id="searchresults">-->
             <#--<#list allbirds as item>-->

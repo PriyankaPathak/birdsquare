@@ -54,17 +54,17 @@ validateForm=function()
     return true;
 };
 
-is_a_valid_number = function(input){
+var is_a_valid_number = function(input){
 
     return !isNaN(input);
 }
 
 
-does_not_contain_numbers = function(input){
+var does_not_contain_numbers = function(input){
     return !(/\d/.test(input));
 };
 
-is_not_an_empty_field = function(input){
+var is_not_an_empty_field = function(input){
     if(input==null || input=="")
     {
         return false;
@@ -72,7 +72,7 @@ is_not_an_empty_field = function(input){
     return true;
 };
 
-does_not_contain_special_characters=function(input){
+var does_not_contain_special_characters=function(input){
     var iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
     for (var i = 0; i < input.length; i++) {
         if (iChars.indexOf(input.charAt(i)) != -1) {
@@ -82,7 +82,7 @@ does_not_contain_special_characters=function(input){
     return true;
 };
 
-contains_number_atleast_greater_than_zero = function(input){
+var contains_number_atleast_greater_than_zero = function(input){
     if(input <= 0) {
         return false;
     }
