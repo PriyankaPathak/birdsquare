@@ -9,7 +9,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login")
     public String home(Model model){
-        model.addAttribute("checkinurl", "checkin");
+        model.addAttribute("checkinurl", "checkinlocations");
         return "home/login";
     }
 }

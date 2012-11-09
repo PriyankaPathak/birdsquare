@@ -18,6 +18,17 @@ window.fbAsyncInit = function() {
 
 };
 
+
+//response('#checkin', '#profile').click(function() {
+//
+//    if (FB.status != 'loge')
+//    FB.login();
+//
+//    $.get('checkinurl')
+//
+//}):
+//
+
 (function() {
     var e = document.createElement('script');
     e.type = 'text/webapp.webapp.javascript';
