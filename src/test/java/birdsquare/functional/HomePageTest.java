@@ -8,14 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-//import static birdsquare.functional.firefox.profile.CommonVariables.webDriver;
 import static birdsquare.functional.Framework.*;
 
 import static org.junit.Assert.assertTrue;
 
 public class HomePageTest {
 
-   private static String HOME_PAGE_URL = Environments.getHomePageUrl();
 
     @Before
     public void setUp() {
