@@ -2,6 +2,7 @@ package birdsquare.controller;
 
 import birdsquare.helper.BirdSquareSession;
 import birdsquare.model.Checkin;
+import org.hibernate.SQLQuery;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -13,7 +14,13 @@ import org.springframework.ui.ExtendedModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
@@ -22,8 +29,10 @@ public class BirdCheckinControllerTest {
     private MockHttpServletResponse response;
     private AnnotationMethodHandlerAdapter handlerAdapter;
     private BirdCheckinController controller;
+
     @Mock
     private BirdSquareSession birdSquareSession;
+    private SQLQuery sqlQuery;
 
     @Before
     public void setUp() {
@@ -36,12 +45,20 @@ public class BirdCheckinControllerTest {
 
     @Ignore
     @Test
-    public void shouldRenderStatusPage() throws Exception {
+    public void shouldRenderProfilePage() throws Exception {
         request.setRequestURI("/profilesuccess");
         request.setMethod("POST");
         request.setParameter("birdName","Lerwa lerwa");
 
+        List<Object> fakeSQLQueryList = new ArrayList<Object>();
+        fakeSQLQueryList.add(1);
+
+        when(birdSquareSession.createSQLQuery(anyString())).thenReturn(sqlQuery);
+
+        when(sqlQuery.list()).thenReturn(fakeSQLQueryList);
+
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+//        Mockito.verify(birdSquareSession, times(1).retrieveResultFromSQLQuery(sqlQuery));
         assertViewName(mav, "profile/profile");
     }
 
@@ -58,7 +75,7 @@ public class BirdCheckinControllerTest {
     public void verifyThatBirdInformationGetsSavedOnCheckIn() throws Exception {
         Checkin checkin = new Checkin();
 //        checkin.setBirdId(1);
-        controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap(),"Lerwa lerwa");
+        controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap(), "Lerwa lerwa");
         Mockito.verify(birdSquareSession, times(1)).save(checkin);
     }
 }

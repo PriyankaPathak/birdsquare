@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.sound.midi.SysexMessage;
 import java.util.List;
 
 @Controller
@@ -30,16 +31,9 @@ public class BirdCheckinController {
 
         model.addAttribute("checkinurl", "checkinlocations");
 
-        System.out.println(birdName);
         String sql = "select id from bird where scientific_name='"+birdName+"';";
-        System.out.println(sql);
         SQLQuery sqlQuery = birdSquareSession.createSQLQuery(sql);
-        System.out.println(sqlQuery);
-
-        for(Object object: sqlQuery.list())
-        {
-            System.out.println(object);
-        }
+        checkin.setBirdId((Integer) sqlQuery.list().get(0));
 
         if (null != checkin && null != birdName) {
             model.addAttribute("message", "You have checked in " + checkin.getNumber() + " " + birdName + "(s) successfully!");
