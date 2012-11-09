@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<#include "../includes.ftl">
+<#include "../includes.ftl" />
     <title>BirdSquare: Locations</title>
     <script
             src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
@@ -12,8 +12,8 @@
 
 <body>
 
-<div data-role="page" id="checkinlocations"><#--this div is closed in footer-->
-<#include "../headers/header-with-addlocation.ftl">
+<div data-role="page" id="checkinlocations"><!--this div is closed in footer-->
+<#include "../headers/header-with-addlocation.ftl" />
 
     <div data-role="content" id="checkinlocations-content">
         <p>
@@ -25,7 +25,7 @@
         </ul>
     </div>
 
-<#include "../footer.ftl">
+<#include "../footer.ftl" />
 </div>
 
 </body>
