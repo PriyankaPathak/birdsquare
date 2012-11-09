@@ -8,7 +8,6 @@ validateForm=function()
 
     var locationName=document.forms["birdinformation"]["locationName"].value;
     locationName = locationName.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-
     if (!is_not_an_empty_field(birdName))
     {
         alert("Bird name must be filled out");
@@ -53,6 +52,7 @@ validateForm=function()
     }
 
     document.forms["birdinformation"]["birdName"].value = getScientificNameOfBird(birdName);
+
     return true;
 };
 
