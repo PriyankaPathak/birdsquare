@@ -12,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static birdsquare.functional.Framework.*;
 
 import java.io.File;
 
@@ -80,9 +81,6 @@ public class EnterBirdLocation {
        // assertEquals(AssertConfirmationMessage, ActualMessage );
     }
 
-    private boolean runningInGo() {
-        return (System.getenv("GO_JOB_NAME") != null);
 
-    }
 
 }
