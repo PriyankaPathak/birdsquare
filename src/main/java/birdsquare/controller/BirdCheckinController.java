@@ -23,11 +23,10 @@ public class BirdCheckinController {
         this.birdSquareSession = birdSquareSession;
     }
 
-    @RequestMapping(value = "/status", method = RequestMethod.POST)
-    public String retrieveBirdNameFromUserAndRedirectToStatusPage(@ModelAttribute("checkin") Checkin checkin, Model model) {
+    @RequestMapping(value = "/profilesuccess", method=RequestMethod.POST)
+    public String retrieveBirdNameFromUserAndRedirectToProfilePage(@ModelAttribute("checkin") Checkin checkin, Model model) {
 
         model.addAttribute("checkinurl", "checkinlocations");
-        System.out.println(checkin.getBirdName());
 
         if (null != checkin && null != checkin.getBirdName()) {
             model.addAttribute("message", "You have checked in " + checkin.getNumber() + " " + checkin.getBirdName() + "(s) successfully!");
@@ -37,7 +36,7 @@ public class BirdCheckinController {
             model.addAttribute("message", "Please fill in all fields");
         }
 
-        return "checkin/status";
+        return "profile/profile";
     }
 
 

@@ -31,16 +31,12 @@ public class HomeController {
         return "checkin/checkinlocations";
     }
 
-    @RequestMapping(value = "/search")
-    public String search(Model model) {
-        model.addAttribute("checkinurl", "checkinlocations");
-        return "search/search";
-    }
-
     @RequestMapping(value = "/profile")
     public String profile(Model model) {
-        model.addAttribute("checkinurl", "checkin");
+        model.addAttribute("checkinurl", "checkinlocations");
+        model.addAttribute("message", "");
         return "profile/profile";
     }
+
 }
 

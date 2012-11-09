@@ -35,11 +35,11 @@ public class BirdCheckinControllerTest {
 
     @Test
     public void shouldRenderStatusPage() throws Exception {
-        request.setRequestURI("/status");
+        request.setRequestURI("/profilesuccess");
         request.setMethod("POST");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "checkin/status");
+        assertViewName(mav, "profile/profile");
     }
 
     @Test
@@ -54,7 +54,7 @@ public class BirdCheckinControllerTest {
     public void verifyThatBirdInformationGetsSavedOnCheckIn() throws Exception {
         Checkin checkin = new Checkin();
         checkin.setBirdName("foobar");
-        controller.retrieveBirdNameFromUserAndRedirectToStatusPage(checkin, new ExtendedModelMap());
+        controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap());
         Mockito.verify(birdSquareSession, times(1)).save(checkin);
     }
 }

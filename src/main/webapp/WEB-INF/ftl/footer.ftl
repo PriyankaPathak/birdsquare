@@ -1,24 +1,20 @@
 <div data-role="footer" id="footer">
-    <div data-role="navbar" data-iconpos="top">
+    <div data-role="navbar" data-iconpos="right">
         <ul>
             <li>
-            <a href="home" rel="external" data-transition="slide" data-direction="reverse" data-theme="b" data-icon="home">
+            <a href="home" rel="external" data-theme="b" data-icon="home" >
                 Home
             </a>
             </li>
             <li>
-                <a href="profile" rel="external" data-transition="slide" data-theme="b" data-icon="star">
+                <a href="profile" rel="external" data-theme="b" data-icon="star">
                     Profile
                 </a>
             </li>
-        <#--<li>-->
-                <#--<a href="search.html" data-theme="b" data-icon="search" ui-state-persist >-->
-                    <#--Search-->
-                <#--</a>-->
-            <#--</li>-->
         </ul>
     </div>
 </div>
+
 
 
 
