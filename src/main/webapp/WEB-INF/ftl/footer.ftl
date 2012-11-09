@@ -1,4 +1,4 @@
-<div data-role="footer" id="footer">
+<div data-role="footer" data-position="fixed" id="footer">
     <div data-role="navbar" data-iconpos="right">
         <ul>
             <li>
