@@ -33,14 +33,16 @@ public class BirdCheckinController {
 
         String sql = "select id from bird where scientific_name='"+birdName+"';";
         SQLQuery sqlQuery = birdSquareSession.createSQLQuery(sql);
+
         checkin.setBirdId((Integer) sqlQuery.list().get(0));
 
+      //        TODO CHECKIN POINTS GOES HERE
         if (null != checkin && null != birdName) {
-            model.addAttribute("message", "You have checked in " + checkin.getNumber() + " " + birdName + "(s) successfully!");
+
             birdSquareSession.save(checkin);
 
         } else {
-            model.addAttribute("message", "Please fill in all fields");
+
         }
 
         return "profile/profile";

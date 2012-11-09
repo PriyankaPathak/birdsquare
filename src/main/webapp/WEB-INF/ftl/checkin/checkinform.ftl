@@ -19,10 +19,10 @@
 
             <div class="ui-widget" style="font-family: 'Arial'">
 
-            <label for="location-field" class="ui-accessible">You are at</label>
-        <#--here, input name is to be matched up with what's in validation.js and also in the Model file. id is to match with label for-->
-            <input type ="text" name="locationName" id="location-field" placeholder="Enter location name" value="${locationName}"/>
-            <p></p>
+                <label for="location-field" class="ui-accessible">You are at</label>
+            <#--here, input name is to be matched up with what's in validation.js and also in the Model file. id is to match with label for-->
+                <input type ="text" name="locationName" id="location-field" placeholder="Enter location name" value="${locationName}"/>
+                <p></p>
 
                 <p>Enter sighting details</p>
                 <label for="birdname-field" class="ui-hidden-accessible"></label>
@@ -34,7 +34,7 @@
                 <label for ="comments-field" class="ui-hidden-accessible"></label>
                 <textarea id="comments" name="comments" id="comments-field" placeholder="Comments"></textarea>
 
-                <input type="submit" value="Submit"/>
+                <input type="submit" id="submit" value="Submit"/>
 
                 <input type="hidden" name="latitude" value="${latitude}"/>
                 <input type="hidden" name="longitude" value="${longitude}"/>
@@ -44,7 +44,7 @@
         </div>
 
     </form>
-    <#include "../checkin/popup.ftl">
+<#include "../checkin/popup.ftl">
 <#include "../footer.ftl">
 </div><!-- /page -->
 

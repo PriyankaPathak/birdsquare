@@ -24,7 +24,7 @@ describe("bird name validation", function () {
     });
 
     it("should accept name with special character brackets", function () {
-        var result = does_not_contain_special_characters("(Pigeon)");
+        var result = does_not_contain_special_characters("(Pigeon\'s)");
         expect(result).toBe(true);
     });
 

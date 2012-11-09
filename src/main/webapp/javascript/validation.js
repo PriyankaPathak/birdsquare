@@ -22,8 +22,7 @@ validateForm=function()
     else  if(!does_not_contain_special_characters(birdName)) {
         alert('Bird name should not contain special characters');
         return false;
-
-}
+    }
     if(does_not_contain_numbers(number))
     {
         alert("Enter a valid number");
@@ -51,12 +50,30 @@ validateForm=function()
         return false;
     }
 
+//   showPopup(number, birdName, locationName);
+    alert("You have checked in " + number + " " + birdName + "(s) successfully in "+locationName+".");
     document.forms["birdinformation"]["birdName"].value = getScientificNameOfBird(birdName);
-
     return true;
 };
 
 
+////function showPopup(number, birdName, locationName){
+//////    alert('inside popup');
+////
+////}
+//
+//$('#birdinformation').submit(function() {
+//    $('<div>').simpledialog2({
+//        mode: 'blank',
+//        headerText: 'Some Stuff',
+//        headerClose: true,
+//        position : 'absolute',
+//        blankContent :
+//            "<div><p>Hello We Are ine popup</p>" +
+//                "<a rel='close' data-role='button' href='#'>Close</a></div>"
+//    })
+//    return true;
+//});
 function getScientificNameOfBird(birdName) {
     birdName = birdName.substring(birdName.indexOf("(")+1, (birdName.indexOf(")")));
     return birdName;
