@@ -24,7 +24,7 @@ validateForm=function()
         alert('Bird name should not contain special characters');
         return false;
 
-    }
+}
     if(does_not_contain_numbers(number))
     {
         alert("Enter a valid number");
@@ -51,8 +51,16 @@ validateForm=function()
         alert("Location name must be filled out");
         return false;
     }
+
+    document.forms["birdinformation"]["birdName"].value = getScientificNameOfBird(birdName);
     return true;
 };
+
+
+function getScientificNameOfBird(birdName) {
+    birdName = birdName.substring(birdName.indexOf("(")+1, (birdName.indexOf(")")));
+    return birdName;
+}
 
 var is_a_valid_number = function(input){
 

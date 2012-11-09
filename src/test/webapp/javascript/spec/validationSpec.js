@@ -43,5 +43,11 @@ describe("bird name validation", function () {
         expect(result).not.toBe(true);
     });
 
+    it("should split the scientific and common name and store only scientific name", function () {
+        var result = getScientificNameOfBird("Pigeon(SN)");
+        expect(result).toEqual("SN");
+    });
+
+
 
 });

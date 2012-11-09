@@ -3,6 +3,7 @@ package birdsquare.helper;
 import birdsquare.model.Bird;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Restrictions;
@@ -48,6 +49,11 @@ public class BirdSquareSession {
     public void close() {
         session.close();
         session = null;
+    }
+
+    public SQLQuery createSQLQuery(String sql)
+    {
+        return session.createSQLQuery(sql);
     }
 
     private void startTransaction() {

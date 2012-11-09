@@ -1,7 +1,6 @@
 package birdsquare.model;
 
 import birdsquare.helper.BirdSquareSession;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.util.Assert;
@@ -30,7 +29,7 @@ public class CheckinTest {
 
     private Checkin createCheckin() {
         Checkin checkin = new Checkin();
-        checkin.setBirdName("foobar");
+        checkin.setBirdId(1);
         checkin.setNumber(16);
         return checkin;
     }

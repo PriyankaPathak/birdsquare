@@ -19,7 +19,8 @@ public class Checkin {
     @Id
     @GeneratedValue(generator = "generator")
     private long id;
-    private String birdName;
+
+    private long birdID;
     private String comments;
     private String locationName;
     private int number;
@@ -75,17 +76,7 @@ public class Checkin {
         return date;
     }
 
-    public String getBirdName() {
-        return birdName;
-    }
-
-    public void setBirdName(String birdName) {
-        this.birdName = birdName;
-    }
-
     public List<String> getBirdNameList(BirdSquareSession birdSquareSession) {
-
-
             List<String> birdNameList = new ArrayList();
             List allBirds = birdSquareSession.getAll(Bird.class);
             for (Object bird : allBirds) {
@@ -94,7 +85,11 @@ public class Checkin {
                 birdNameList.add(name);
             }
             return birdNameList;
-
-
     }
+
+    public void setBirdId(int birdID) {
+        this.birdID=birdID;
+    }
+
+
 }
