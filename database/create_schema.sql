@@ -15,9 +15,7 @@ PRIMARY KEY ( id )
 );
 
 create table user (
-id int not null auto_increment,
-name varchar(200) not null,
+id varchar(15),
 points int default 0,
-totalCheckins int default 0,
 PRIMARY KEY ( id )
 );

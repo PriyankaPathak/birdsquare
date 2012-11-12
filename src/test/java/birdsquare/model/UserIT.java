@@ -16,7 +16,8 @@ public class UserIT {
     public void setUp() {
         birdSquareSession = new BirdSquareSession();
         persistedUser = new User();
-        persistedUser.setName("Naz");
+        persistedUser.setId("123456");
+        persistedUser.setPoints(7);
         birdSquareSession.saveOrUpdate(persistedUser);
 
 
@@ -26,7 +27,6 @@ public class UserIT {
     public void shouldBeAbleToFetchPointsGivenAUserId() throws Exception {
 
         User loadedUser = (User) birdSquareSession.get(User.class, persistedUser.getId());
-        assertEquals(persistedUser.getName(), loadedUser.getName());
         assertEquals(persistedUser.getPoints(), loadedUser.getPoints());
     }
 
@@ -37,7 +37,7 @@ public class UserIT {
         User loadedUser = (User) birdSquareSession.get(User.class, persistedUser.getId());
         loadedUser.incrementPointsByOne();
         birdSquareSession.save(loadedUser);
-        assertEquals(1,persistedUser.getPoints());
+        assertEquals(8,persistedUser.getPoints());
 
     }
 

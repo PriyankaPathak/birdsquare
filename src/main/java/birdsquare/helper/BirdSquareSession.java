@@ -1,14 +1,10 @@
 package birdsquare.helper;
 
-import birdsquare.model.Bird;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.hibernate.criterion.Expression;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Component
@@ -20,7 +16,7 @@ public class BirdSquareSession {
         initSession();
     }
 
-    public Object get(Class clazz, long id) {
+    public Object get(Class clazz, Serializable id) {
         return session.get(clazz, id);
     }
 

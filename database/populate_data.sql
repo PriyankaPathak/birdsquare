@@ -1,6 +1,5 @@
 use birdsquare;
 
-insert into user (name) values ('abc');
 
 load data local infile 'data.csv'
 into table bird

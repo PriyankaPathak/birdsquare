@@ -32,6 +32,7 @@ public class HomeController {
     @RequestMapping(value = "/profile")
     public String profile(Model model) {
         model.addAttribute("message", "");
+        model.addAttribute("checkinurl", "checkinlocations");
         return "profile/profile";
     }
 

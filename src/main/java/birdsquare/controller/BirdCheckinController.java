@@ -3,6 +3,7 @@ package birdsquare.controller;
 import birdsquare.helper.BirdSquareSession;
 import birdsquare.model.Checkin;
 import birdsquare.model.Location;
+import birdsquare.model.User;
 import org.hibernate.SQLQuery;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +40,18 @@ public class BirdCheckinController {
         }
         checkin.setBirdId((Integer) sqlQuery.list().get(0));
 
-      //        TODO CHECKIN POINTS GOES HERE
+        User user = (User) birdSquareSession.get(User.class,checkin.getFbuid());
         if (null != checkin && null != birdName) {
 
             birdSquareSession.save(checkin);
-
-        } else {
-
+            if( user == null)
+            {
+                user = new User(checkin.getFbuid());
+            }
+            user.incrementPointsByOne();
+            birdSquareSession.saveOrUpdate(user);
         }
+        model.addAttribute("points", user.getPoints());
 
         return "profile/profile";
     }

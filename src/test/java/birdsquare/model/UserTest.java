@@ -1,7 +1,8 @@
 package birdsquare.model;
 
-import junit.framework.Assert;
 import org.junit.Test;
+
+import static junit.framework.Assert.assertEquals;
 
 public class UserTest {
 
@@ -11,6 +12,6 @@ public class UserTest {
         User user=new User();
         user.setPoints(1);
         user.incrementPointsByOne();
-        Assert.assertEquals(2,user.getPoints());
+        assertEquals(2, user.getPoints());
     }
 }
