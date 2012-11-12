@@ -3,10 +3,7 @@ package birdsquare.model;
 import birdsquare.helper.BirdSquareSession;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,12 +18,26 @@ public class Checkin {
     private long id;
 
     private long birdID;
-    private String comments;
+
     private String locationName;
+
     private int number;
     private Date date = new Date();
     private double longitude;
     private double latitude;
+    private String comments;
+    //    @ManyToOne
+//    @JoinColumn(name = "fbuid")
+//
+    public String fbuid;
+
+    public String getFbuid() {
+        return fbuid;
+    }
+
+    public void setFbuid(String fbuid) {
+        this.fbuid = fbuid;
+    }
 
     public long getId() {
         return id;
@@ -89,6 +100,14 @@ public class Checkin {
 
     public void setBirdId(int birdID) {
         this.birdID=birdID;
+    }
+
+    public long getBirdID() {
+        return birdID;
+    }
+
+    public void setBirdID(long birdID) {
+        this.birdID = birdID;
     }
 
 

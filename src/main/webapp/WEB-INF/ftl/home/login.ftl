@@ -3,28 +3,24 @@
 <head>
 <#include "../includes.ftl">
     <title> BirdSquare: Login</title>
+    <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
 </head>
 
 <body>
 
 <div data-role="page" id="loginpage">
 
-<#include "../headers/header-with-checkin.ftl">
-
-    <div data-role="content" id="home-content">
+    <div data-role="content" id="home-content" style="text-align: center; vertical-align:middle;">
+        <p></p>
         <p>
-            Welcome to BirdSquare
+            Please login using your facebook credentials
         </p>
 
-        <div id="fb-root"></div>
-        <div class="fb-login-button" autologoutlink="true" data-show-faces="true" data-width="200" data-max-rows="1"></div>
-        <div id="user-info"></div>
+         <fb:login-button autologoutlink="true" onlogin="OnRequestPermission();"></fb:login-button>
 
     </div>
 
     <script type="text/javascript" src="javascript/FBLogin.js"></script>
-
-<#include "../footer.ftl">
 </div>
 
 </body>

@@ -8,6 +8,7 @@
 <body>
 <div data-role="page" id="homepage">
 <#include "../headers/header-with-checkin.ftl">
+
     <div data-role="content" id="home-content">
         <p>
             Welcome to BirdSquare
@@ -15,6 +16,7 @@
     </div>
 <#include "../footer.ftl">
 </div>
+
 
 </body>
 

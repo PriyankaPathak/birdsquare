@@ -13,7 +13,7 @@
 
 <div data-role="page" id="checkinform">
 
-    <form name="birdinformation" onsubmit="return validateForm()" action="profilesuccess" method="post" data-ajax="false">
+    <form id="checkinform_form" name="birdinformation" onsubmit="return validateForm()" action="profilesuccess" method="post" data-ajax="false">
     <#include "../headers/header-with-submit.ftl">
 
         <div data-role="content" id="checkinform-content">
@@ -39,6 +39,9 @@
 
                 <input type="hidden" name="latitude" value="${latitude}"/>
                 <input type="hidden" name="longitude" value="${longitude}"/>
+                <input type="hidden" name="fbuid" id="fbuid" />
+
+
                 <input type="hidden" id="birdNameList" value="<#list allbirds as item>${item},</#list>"/>
 
             </div>
