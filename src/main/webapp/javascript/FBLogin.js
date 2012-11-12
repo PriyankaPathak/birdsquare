@@ -39,19 +39,19 @@ window.fbAsyncInit = function () {
     });
 
     function redirectToReferrerPage() {
-        if (document.URL === getBaseUrl() + 'login') {
+        if (document.URL === getBaseUrl() + '/login') {
             window.location.href = document.referrer;
         }
     }
 
     function redirectToLogin() {
-        if (document.URL != getBaseUrl() + 'login') {
-            window.location.href = getBaseUrl()+'login';
+        if (document.URL != getBaseUrl() + '/login') {
+            window.location.href = getBaseUrl()+'/login';
         }
     }
 
     function setFbuidInPage(uid) {
-        if (document.URL === getBaseUrl() + 'checkinform') {
+        if (document.URL === getBaseUrl() + '/checkinform') {
             document.getElementById('fbuid').value = uid;
         }
     }
