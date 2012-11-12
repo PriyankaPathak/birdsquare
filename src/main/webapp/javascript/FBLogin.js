@@ -25,10 +25,7 @@ window.fbAsyncInit = function () {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
             setFbuidInPage(uid);
-
-//            if (document.URL ===  getBaseUrl() + '/home') {
-                fetchUserData(response);
-//            }
+            fetchUserData(response);
 //            } else if (response.status === 'not_authorized') {
 //                // the user is logged in to Facebook,
 //                // but has not authenticated your app
@@ -39,23 +36,19 @@ window.fbAsyncInit = function () {
     });
 
     function redirectToReferrerPage() {
-        if (document.URL === getBaseUrl() + '/login') {
+        if (document.URL === 'http://' + window.location.host + '/login') {
             window.location.href = document.referrer;
         }
     }
 
     function redirectToLogin() {
-        var loginUrl = getBaseUrl()+'/login';
-        var cleanLoginUrl =  loginUrl.replace('//', '/');
-
-        if (document.URL != cleanLoginUrl) {
-            alert(cleanLoginUrl);
-            window.location.href = cleanLoginUrl;
+        if (document.URL != 'http://' + window.location.host + '/login') {
+            window.location.href = '/login';
         }
     }
 
     function setFbuidInPage(uid) {
-        if (document.URL === getBaseUrl() + '/checkinform') {
+        if (document.URL === 'http://' + window.location.host + '/checkinform') {
             document.getElementById('fbuid').value = uid;
         }
     }
@@ -65,13 +58,14 @@ window.fbAsyncInit = function () {
     }
 
     function fetchUserData(response) {
-
+        if (document.URL === 'http://' + 'http://' + window.location.host + '/home') {
             FB.api('/me', function (response) {
                 document.getElementsByClassName('fbuser')[0].innerHTML += response.name + "<br>";
                 document.getElementsByClassName('fbpic')[0].innerHTML += "<img src='http://graph.facebook.com/" +
                     response.id + "/picture' />" + "<br>";
             });
         }
+    }
 };
 
 function loginUser() {
