@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 
 import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
@@ -45,8 +44,7 @@ public class BirdCheckinControllerTest {
         request.setParameter("birdName","Lerwa lerwa");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-
-        assertViewName(mav, "profile/profile");
+        assertViewName(mav, "home/home");
     }
 
     @Test

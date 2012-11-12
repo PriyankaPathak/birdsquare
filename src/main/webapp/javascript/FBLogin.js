@@ -7,10 +7,12 @@ window.fbAsyncInit = function () {
     });
 
     FB.Event.subscribe('auth.login', function (response) {
+        document.cookie = 'fbuid=' + uid;
         redirectToReferrerPage();
     });
 
     FB.Event.subscribe('auth.logout', function (response) {
+        document.cookie = '';
         redirectToLogin();
     });
 
@@ -26,6 +28,11 @@ window.fbAsyncInit = function () {
             var accessToken = response.authResponse.accessToken;
             setFbuidInPage(uid);
             fetchUserData(response);
+            document.cookie = 'fbuid=' + uid;
+
+//            if (document.URL ===  getBaseUrl() + '/home') {
+//                fetchUserData(response);
+//            }
 //            } else if (response.status === 'not_authorized') {
 //                // the user is logged in to Facebook,
 //                // but has not authenticated your app

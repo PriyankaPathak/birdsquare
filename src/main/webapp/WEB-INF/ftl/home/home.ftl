@@ -13,8 +13,7 @@
 
         <p class="fbuser"></p>
         <p class="fbpic"></p>
-        <p></p>
-        <div></div>
+        <p>you have earned ${points} points</p>
         <a onclick="logOutUser();" data-role="button" rel="external" data-theme="b" class="ui-btn-middle">Log out</a>
 
     </div>

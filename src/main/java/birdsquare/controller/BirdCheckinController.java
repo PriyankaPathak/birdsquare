@@ -52,7 +52,7 @@ public class BirdCheckinController {
         }
         model.addAttribute("points", user.getPoints());
 
-        return "profile/profile";
+        return "home/home";
     }
 
 
