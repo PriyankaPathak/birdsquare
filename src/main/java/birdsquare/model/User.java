@@ -17,9 +17,18 @@ public class User {
     public long id;
     public String name;
     public int points;
+    public int totalCheckins;
 
     public long getId() {
         return id;
+    }
+
+    public int getTotalCheckins() {
+        return totalCheckins;
+    }
+
+    public void setTotalCheckins(int totalCheckins) {
+        this.totalCheckins = totalCheckins;
     }
 
     public String getName() {
@@ -39,4 +48,7 @@ public class User {
     }
 
 
+    public void incrementPointsByOne() {
+        points=points+1;
+    }
 }

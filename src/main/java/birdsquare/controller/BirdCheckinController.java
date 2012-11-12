@@ -13,27 +13,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.sound.midi.SysexMessage;
 import java.util.List;
 
 @Controller
 public class BirdCheckinController {
 
     private BirdSquareSession birdSquareSession;
+    private SQLQuery sqlQuery;
 
     @Autowired
     public BirdCheckinController(BirdSquareSession birdSquareSession) {
         this.birdSquareSession = birdSquareSession;
     }
 
-    @RequestMapping(value = "/profilesuccess", method=RequestMethod.POST)
+    @RequestMapping(value = "/profilesuccess", method = RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToProfilePage(@ModelAttribute("checkin") Checkin checkin, Model model, @RequestParam("birdName") String birdName) {
 
         model.addAttribute("checkinurl", "checkinlocations");
 
-        String sql = "select id from bird where scientific_name='"+birdName+"';";
-        SQLQuery sqlQuery = birdSquareSession.createSQLQuery(sql);
+        String sql = "select id from bird where scientific_name='" + birdName + "';";
+        sqlQuery = birdSquareSession.createSQLQuery(sql);
+        if(sqlQuery.list().isEmpty())
+        {
+            System.out.println("Is empty");
+            throw new ResourceNotFoundException("No bird name found");
 
+        }
         checkin.setBirdId((Integer) sqlQuery.list().get(0));
 
       //        TODO CHECKIN POINTS GOES HERE
@@ -46,6 +51,13 @@ public class BirdCheckinController {
         }
 
         return "profile/profile";
+    }
+
+    @RequestMapping(value="/404")
+    public String RedirectWhenExceptionCaught(Model model)
+    {
+          model.addAttribute("checkinurl","checkinform");
+        return "404";
     }
 
 

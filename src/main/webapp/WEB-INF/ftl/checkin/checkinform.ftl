@@ -10,6 +10,7 @@
 
 <body>
 
+
 <div data-role="page" id="checkinform">
 
     <form name="birdinformation" onsubmit="return validateForm()" action="profilesuccess" method="post" data-ajax="false">

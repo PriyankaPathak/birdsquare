@@ -21,9 +21,6 @@ public class BirdIT {
     @Test
     public void shouldLoadAllBirds() throws Exception {
         List allBirds = birdSquareSession.getAll(Bird.class);
-//        for (Object bird : allBirds) {
-//            System.out.println(((Bird)bird).getCommon_name());
-//        }
         assertTrue(allBirds.size() > 0);
     }
 }

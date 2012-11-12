@@ -18,5 +18,6 @@ create table user (
 id int not null auto_increment,
 name varchar(200) not null,
 points int default 0,
+totalCheckins int default 0,
 PRIMARY KEY ( id )
 );
