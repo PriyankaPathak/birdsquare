@@ -2,18 +2,27 @@ version = '1.0'
 
 apply plugin: 'jetty'
 apply plugin: 'idea'
+apply plugin: 'jasmineGradle'
+
+convention.plugins.jasmineGradlePlugin.sourceIncludes += 'src/main/webapp/javascript/**'
+convention.plugins.jasmineGradlePlugin.testIncludes += 'src/test/webapp/javascript/**'
 
 defaultTasks 'clean', 'idea', 'setupDB', 'build'
 
-
 apply from:"https://raw.github.com/breskeby/gradleplugins/master/emmaPlugin/emma.gradle"
 
-
+buildscript {
+    repositories {
+        mavenCentral();
+    }
+    dependencies {
+        classpath "com.github.dzhaughnroth:jasmine-gradle-plugin:0.4"
+    }
+}
 
 repositories {
     mavenCentral()
 }
-
 
 dependencies {
     compile "org.springframework:spring-core:+"
