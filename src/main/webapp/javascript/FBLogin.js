@@ -48,9 +48,9 @@ window.fbAsyncInit = function () {
         var loginUrl = getBaseUrl()+'/login';
         var cleanLoginUrl =  loginUrl.replace('//', '/');
 
-        if (document.URL != loginUrl) {
-
-            window.location.href = loginUrl;
+        if (document.URL != cleanLoginUrl) {
+            alert(cleanLoginUrl);
+            window.location.href = cleanLoginUrl;
         }
     }
 
