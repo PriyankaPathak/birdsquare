@@ -22,6 +22,7 @@ public class HomePageTest {
         webDriver.get(HOME_PAGE_URL);
     }
 
+    @Ignore
     @Test
     public void shouldShowHomePage() {
         if (runningInGo()) return;
