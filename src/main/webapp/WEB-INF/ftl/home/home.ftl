@@ -12,16 +12,9 @@
     <div data-role="content" id="home-content">
 
         <div id="fbpic"></div>
-        <div class="fbuserdetails">
-            <p id="username"></p>
-            <p id="city"></p>
-            <p>you have earned ${points} points</p>
-        </div>
-
         <div id="userpoints">
             POINTS (LAST 7 DAYS)
         </div>
-
         <div id="fb-logout-btn"><a onclick="logOutUser();" data-role="button" rel="external" data-theme="b" class="ui-btn-middle">Log out</a></div>
 
     </div>
