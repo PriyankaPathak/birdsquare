@@ -58,13 +58,4 @@
         <url-pattern>*.js</url-pattern>
     </servlet-mapping>
 
-    <error-page>
-        <error-code>404</error-code>
-        <location>/WEB-INF/ftl/404.ftl</location>
-    </error-page>
-
-    <error-page>
-        <exception-type>java.lang.Exception</exception-type>
-        <location>/WEB-INF/ftl/404.ftl</location>
-    </error-page>
 </web-app>

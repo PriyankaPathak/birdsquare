@@ -30,7 +30,7 @@
                 <input type="text" name="birdName" id="birdname-field" placeholder="Bird name"/>
 
                 <label for ="numberofbirds-field" class="ui-hidden-accessible"></label>
-                <input type="text" name="number" id="numberofbirds-field" placeholder="Number of birds seen" />
+                <input type="number" name="number" id="numberofbirds-field" placeholder="Number of birds seen"/>
 
                 <label for ="comments-field" class="ui-hidden-accessible"></label>
                 <textarea id="comments" name="comments" id="comments-field" placeholder="Comments"></textarea>
@@ -39,10 +39,10 @@
 
                 <input type="hidden" name="latitude" value="${latitude}"/>
                 <input type="hidden" name="longitude" value="${longitude}"/>
+
                 <input type="hidden" name="fbuid" id="fbuid" />
 
-
-                <input type="hidden" id="birdNameList" value="<#list allbirds as item>${item},</#list>"/>
+                <input type="hidden" name="birdNameList" id="birdNameList" value="<#list allbirds as item>${item},</#list>"/>
 
             </div>
         </div>

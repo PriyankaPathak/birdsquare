@@ -9,12 +9,12 @@ function getLocation() {
 
 
 function showPosition(position) {
-//    document.getElementById("addLocation").innerHTML +=
-//        "<form id='form-addlocation"  + "' method='post' action='checkinform'> " +
-//            " <input type='hidden' name='name' /> " +
-//            " <input type='hidden' name='latitude' value=" + position.coords.latitude +" /> " +
-//            " <input type='hidden' name='longitude' value=" + position.coords.longitude +" /> "+
-//            "</form>";
+    document.getElementById("location-container").innerHTML +=
+        "<form id='form-addlocation"  + "' method='post' action='checkinform'> " +
+            " <input type='hidden' name='name' /> " +
+            " <input type='hidden' name='latitude' value=" + position.coords.latitude +" /> " +
+            " <input type='hidden' name='longitude' value=" + position.coords.longitude +" /> "+
+            "</form>";
 
     var foursquareAPIURL = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&oauth_token=XQZOS4SH3WHZ32EKFAUX3YU45CFEJGYZTFR2C5F0KMB1EHCX&v=20121030"
     $.getJSON(foursquareAPIURL, function (data) {

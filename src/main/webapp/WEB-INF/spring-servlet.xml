@@ -23,19 +23,6 @@
 
     </bean>
 
-    <bean
-            class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="exceptionMappings">
-            <props>
-                <prop key="birdsquare.controller.ResourceNotFoundException">
-                    404
-                </prop>
-                <prop key="java.lang.Exception">error</prop>
-            </props>
-        </property>
-    </bean>
-
-
 
     <!--Do not delete the line below. Everything will break.-->
     <context:component-scan base-package="birdsquare"/>

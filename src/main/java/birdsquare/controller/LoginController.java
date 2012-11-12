@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 
     @RequestMapping(value = "/login")
-    public String home(Model model){
-        model.addAttribute("checkinurl", "checkinlocations");
+    public String home(){
         return "home/login";
     }
 }

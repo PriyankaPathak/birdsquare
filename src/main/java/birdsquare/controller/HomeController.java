@@ -12,14 +12,12 @@ public class HomeController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model) {
-        model.addAttribute("checkinurl", "checkinlocations");
+    public String index() {
         return "home/home";
     }
 
     @RequestMapping(value = "/home")
-    public String home(Model model) {
-        model.addAttribute("checkinurl", "checkinlocations");
+    public String home() {
         return "home/home";
     }
 
@@ -33,7 +31,6 @@ public class HomeController {
 
     @RequestMapping(value = "/profile")
     public String profile(Model model) {
-        model.addAttribute("checkinurl", "checkinlocations");
         model.addAttribute("message", "");
         return "profile/profile";
     }

@@ -29,8 +29,6 @@ public class BirdCheckinController {
     @RequestMapping(value = "/profilesuccess", method = RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToProfilePage(@ModelAttribute("checkin") Checkin checkin, Model model, @RequestParam("birdName") String birdName) {
 
-        model.addAttribute("checkinurl", "checkinlocations");
-
         String sql = "select id from bird where scientific_name='" + birdName + "';";
         sqlQuery = birdSquareSession.createSQLQuery(sql);
         if(sqlQuery.list().isEmpty())
@@ -53,17 +51,9 @@ public class BirdCheckinController {
         return "profile/profile";
     }
 
-    @RequestMapping(value="/404")
-    public String RedirectWhenExceptionCaught(Model model)
-    {
-          model.addAttribute("checkinurl","checkinform");
-        return "404";
-    }
-
 
     @RequestMapping(value = "/checkinform", method = RequestMethod.POST)
     public String birdcheckin(@ModelAttribute("Location") Location location, Model model) throws JSONException {
-        model.addAttribute("checkinurl", "checkinlocations");
         model.addAttribute("locationName", location.getName());
         model.addAttribute("longitude", location.getLongitude());
         model.addAttribute("latitude", location.getLatitude());

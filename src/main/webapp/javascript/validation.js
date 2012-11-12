@@ -1,103 +1,62 @@
 validateForm=function()
 {
     var birdName=document.forms["birdinformation"]["birdName"].value;
-
     birdName = birdName.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 
     var number=document.forms["birdinformation"]["number"].value;
 
     var locationName=document.forms["birdinformation"]["locationName"].value;
     locationName = locationName.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-    if (!is_not_an_empty_field(birdName))
-    {
-        alert("Bird name must be filled out");
-        return false;
-    }
-    else if (!does_not_contain_numbers(birdName))
-    {
-        alert("Bird name must not have numeric characters");
 
-        return false;
-    }
-    else  if(!does_not_contain_special_characters(birdName)) {
-        alert('Bird name should not contain special characters');
-        return false;
-    }
-    if(does_not_contain_numbers(number))
-    {
-        alert("Enter a valid number");
-        return false;
+    var birdNameString = document.forms["birdinformation"]["birdNameList"].value;
 
-    }
-    else if(!contains_number_atleast_greater_than_zero(number)){
-        alert("Invalid Number");
-        return false;
-    }
-    else if(!is_not_an_empty_field(number))
-    {
-        alert("Number of birds must be filled out");
-        return false;
+    var birdNameList = birdNameString.split(",");
 
-    }
-    else if(!is_a_valid_number(number))
-    {
-        alert("Please enter a valid number");
-        return false;
-    }
+       var errMessage = "";
+    if (!validate_bird_name_field(birdName, birdNameList))
+        errMessage += "[Bird Name] Please select bird name from given list.\n";
+
+    if(!validate_number_of_birds_field(number))
+        errMessage += "[Number of birds] Please enter valid integer greater than zero.\n";
+
     if (!is_not_an_empty_field(locationName))
-    {
-        alert("Location name must be filled out");
+        errMessage += "[Location Name]Location name must be filled out\n";
+
+    if (errMessage !== ""){
+        alert(errMessage);
         return false;
     }
-
-//   showPopup(number, birdName, locationName);
-    alert("You have checked in " + number + " " + birdName + "(s) successfully in "+locationName+".");
-    document.forms["birdinformation"]["birdName"].value = getScientificNameOfBird(birdName);
-    return true;
+    else {
+        alert("You have checked in " + number + " " + birdName + "(s) successfully in "+locationName+".");
+        document.forms["birdinformation"]["birdName"].value = getScientificNameOfBird(birdName);
+        return true;
+    }
 };
 
-
-////function showPopup(number, birdName, locationName){
-//////    alert('inside popup');
-////
-////}
-//
-//$('#birdinformation').submit(function() {
-//    $('<div>').simpledialog2({
-//        mode: 'blank',
-//        headerText: 'Some Stuff',
-//        headerClose: true,
-//        position : 'absolute',
-//        blankContent :
-//            "<div><p>Hello We Are ine popup</p>" +
-//                "<a rel='close' data-role='button' href='#'>Close</a></div>"
-//    })
-//    return true;
-//});
-function getScientificNameOfBird(birdName) {
-    birdName = birdName.substring(birdName.indexOf("(")+1, (birdName.indexOf(")")));
-    return birdName;
+function validate_bird_name_field(birdName, birdNameList){
+    return (bird_name_belongs_in_database(birdName, birdNameList) &&
+            is_not_an_empty_field(birdName));
 }
+
+function validate_number_of_birds_field(number){
+    return (contains_number_atleast_greater_than_zero(number) &&
+            is_not_an_empty_field(number) &&
+            is_a_valid_number(number));
+}
+
+function getScientificNameOfBird(birdName) {
+    return birdName.substring(birdName.indexOf("(")+1, (birdName.indexOf(")")));
+};
 
 var is_a_valid_number = function(input){
-
     return !isNaN(input);
-}
-
-
-var does_not_contain_numbers = function(input){
-    return !(/\d/.test(input));
 };
 
 var is_not_an_empty_field = function(input){
-    if(input==null || input=="")
-    {
-        return false;
-    }
-    return true;
+    return !(input==null || input=="");
 };
 
-does_not_contain_special_characters=function(input){
+var does_not_contain_special_characters=function(input){
     var iChars = "!@#$%^&*+=[]\\;,./{}|\":<>?";
     for (var i = 0; i < input.length; i++) {
         if (iChars.indexOf(input.charAt(i)) != -1) {
@@ -108,11 +67,11 @@ does_not_contain_special_characters=function(input){
 };
 
 var contains_number_atleast_greater_than_zero = function(input){
-    if(input <= 0) {
-        return false;
-    }
-    return true;
+    return !(input <= 0);
 }
 
-
+var bird_name_belongs_in_database = function( birdName , birdNameList){
+    var foundIt = birdNameList.indexOf(birdName);
+    return (foundIt >= 0);
+}
 
