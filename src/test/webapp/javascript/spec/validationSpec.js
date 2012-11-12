@@ -12,17 +12,6 @@ describe("bird name validation", function () {
         expect(result).toBe(true);
     });
 
-    it("should not accept name with special characters", function () {
-        var result = does_not_contain_special_characters("Pigeon&**");
-        expect(result).not.toBe(true);
-    });
-
-    it("should accept name with special character brackets", function () {
-        var result = does_not_contain_special_characters("(Pigeon\'s)");
-        expect(result).toBe(true);
-    });
-
-
     it("should not accept zero as number of birds", function () {
         var result = contains_number_atleast_greater_than_zero("0");
         expect(result).not.toBe(true);
@@ -39,19 +28,19 @@ describe("bird name validation", function () {
     });
 
     it("should split the scientific and common name and store only scientific name", function () {
-        var result = getScientificNameOfBird("Pigeon(SN)");
+        var result = get_scientific_name_of_bird("Pigeon(SN)");
         expect(result).toEqual("SN");
     });
 
     it("should not accept a bird name not in database", function () {
-        var birdNameList = ["Priyanka", "Nazneen", "Suet", "Ashwin", "Wei", "Naval", "Ritika", "Sneha", "Varun"];
+        var birdNameList = new Array("Priyanka", "Nazneen", "Suet", "Ashwin", "Wei", "Naval", "Ritika", "Sneha", "Varun");
         var birdName = "Scott";
         var inBirdList = bird_name_belongs_in_database(birdName, birdNameList);
         expect(inBirdList).toBeFalsy();
     });
 
     it("should accept a bird name which is in database", function () {
-        var birdNameList = ["Priyanka", "Nazneen", "Suet", "Ashwin", "Wei", "Naval", "Ritika", "Sneha", "Varun"];
+        var birdNameList = new Array("Priyanka", "Nazneen", "Suet", "Ashwin", "Wei", "Naval", "Ritika", "Sneha", "Varun");
         var birdName = "Priyanka";
         var inBirdList = bird_name_belongs_in_database(birdName, birdNameList);
         expect(inBirdList).toBeTruthy();

@@ -28,7 +28,7 @@ validateForm=function()
     }
     else {
         alert("You have checked in " + number + " " + birdName + "(s) successfully in "+locationName+".");
-        document.forms["birdinformation"]["birdName"].value = getScientificNameOfBird(birdName);
+        document.forms["birdinformation"]["birdName"].value = get_scientific_name_of_bird(birdName);
         return true;
     }
 };
@@ -36,15 +36,15 @@ validateForm=function()
 function validate_bird_name_field(birdName, birdNameList){
     return (bird_name_belongs_in_database(birdName, birdNameList) &&
             is_not_an_empty_field(birdName));
-}
+};
 
 function validate_number_of_birds_field(number){
-    return (contains_number_atleast_greater_than_zero(number) &&
-            is_not_an_empty_field(number) &&
-            is_a_valid_number(number));
-}
+    return (is_not_an_empty_field(number) &&
+        is_a_valid_number(number) &&
+        contains_number_atleast_greater_than_zero(number));
+};
 
-function getScientificNameOfBird(birdName) {
+function get_scientific_name_of_bird(birdName) {
     return birdName.substring(birdName.indexOf("(")+1, (birdName.indexOf(")")));
 };
 
@@ -56,22 +56,23 @@ var is_not_an_empty_field = function(input){
     return !(input==null || input=="");
 };
 
-var does_not_contain_special_characters=function(input){
-    var iChars = "!@#$%^&*+=[]\\;,./{}|\":<>?";
-    for (var i = 0; i < input.length; i++) {
-        if (iChars.indexOf(input.charAt(i)) != -1) {
-            return false;
-        }
-    }
-    return true;
-};
-
 var contains_number_atleast_greater_than_zero = function(input){
     return !(input <= 0);
-}
+};
 
-var bird_name_belongs_in_database = function( birdName , birdNameList){
-    var foundIt = birdNameList.indexOf(birdName);
-    return (foundIt >= 0);
-}
+var bird_name_belongs_in_database = function(birdName, birdNameList){
+    if (birdNameList == null) return false;
+//    had to add this in because when gradle runs jasmine tests, arrays dont have a function named indexOf
+    if(!Array.prototype.indexOf) {
+        Array.prototype.indexOf = function(needle) {
+            for(var i = 0; i < this.length; i++) {
+                if(this[i] === needle) {
+                    return i;
+                }
+            }
+            return -1;
+        };
+    }
+    return (birdNameList.indexOf(birdName) >= 0);
+};
 
