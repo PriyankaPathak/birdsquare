@@ -46,7 +46,11 @@
     font-size: 13px;
 }
 
-/*.ui-content{*/
-    /*height:300px;*/
-    /*overflow-y: scroll;*/
-/*}*/
+.fbuser{
+    float: right;
+    font-weight: bold;
+}
+
+.fbpic{
+    float: left;
+}

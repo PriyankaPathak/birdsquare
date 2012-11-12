@@ -24,15 +24,6 @@ public class LoginControllerTest {
         controller = new LoginController();
     }
 
-//    @Test
-//    public void shouldRenderHomePageAsLandingPage() throws Exception {
-//        request.setRequestURI("/");
-//        request.setMethod("GET");
-//
-//        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-//        assertViewName(mav, "home/login");
-//    }
-
     @Test
     public void shouldRenderHomePageAfterClickingHomeButton() throws Exception {
         request.setRequestURI("/login");

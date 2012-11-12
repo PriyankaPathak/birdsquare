@@ -10,9 +10,13 @@
 <#include "../headers/header-with-checkin.ftl">
 
     <div data-role="content" id="home-content">
-        <p>
-            Welcome to BirdSquare
-        </p>
+
+        <p class="fbuser"></p>
+        <p class="fbpic"></p>
+        <p></p>
+        <div></div>
+        <a onclick="logOutUser();" data-role="button" rel="external" data-theme="b" class="ui-btn-middle">Log out</a>
+
     </div>
 <#include "../footer.ftl">
 </div>

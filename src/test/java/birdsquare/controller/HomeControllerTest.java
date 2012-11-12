@@ -24,7 +24,6 @@ public class HomeControllerTest {
         controller = new HomeController();
     }
 
-
     @Test
     public void shouldRenderHomePageAsLandingPage() throws Exception {
         request.setRequestURI("/");
