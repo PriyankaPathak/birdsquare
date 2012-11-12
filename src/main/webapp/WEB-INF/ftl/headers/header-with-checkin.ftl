@@ -1,4 +1,4 @@
 <div data-role="header" data-position="fixed">
-    <h1><a href="home">BirdSquare</a></h1>
-    <a href="checkinlocations" data-role="button" rel="external" data-theme="e" class="ui-btn-right">Check In</a>
+    <h1><a href="home">birdsquare</a></h1>
+    <a href="checkinlocations" data-role="button" rel="external" data-theme="e" class="ui-btn-right">Sighting</a>
 </div>

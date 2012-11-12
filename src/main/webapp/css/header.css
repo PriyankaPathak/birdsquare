@@ -5,9 +5,9 @@
 }
 
 .ui-header .ui-title {
-    font-size: 25px;
-    font-family: "Chela One", sans-serif;
-    margin-left: -20%;
+    font-size: 20px;
+    font-family: "Calibri", sans-serif;
+    margin-left: -40%;
 }
 
 .ui-header .ui-title a:link{
@@ -29,7 +29,7 @@
 }
 
 .ui-header .ui-btn-right {
-    top: 20%;
+    top: 13%;
     vertical-align: middle;
 }
 
