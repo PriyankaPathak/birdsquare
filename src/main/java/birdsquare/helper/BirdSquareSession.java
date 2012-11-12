@@ -23,8 +23,6 @@ public class BirdSquareSession {
 
     public List getCorrespondingRowAccordingToFilterSet(Class clazz, String value, String filter) {
         return session.createCriteria(clazz).add(Restrictions.like(filter, value)).list();
-
-
     }
 
     public List getAll(Class clazz) {
@@ -52,10 +50,6 @@ public class BirdSquareSession {
     public void close() {
         session.close();
         session = null;
-    }
-
-    public SQLQuery createSQLQuery(String sql) {
-        return session.createSQLQuery(sql);
     }
 
     private void startTransaction() {

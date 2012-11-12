@@ -19,20 +19,6 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <filter>
-        <filter-name>loginFilter</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>loginFilter</filter-name>
-        <url-pattern>/something</url-pattern>
-    </filter-mapping>
-
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.css</url-pattern>

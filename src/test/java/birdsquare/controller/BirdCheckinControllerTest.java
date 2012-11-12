@@ -3,7 +3,6 @@ package birdsquare.controller;
 import birdsquare.helper.BirdSquareSession;
 import birdsquare.model.Bird;
 import birdsquare.model.Checkin;
-import org.hibernate.SQLQuery;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -26,7 +25,6 @@ public class BirdCheckinControllerTest {
 
     @Mock
     private BirdSquareSession birdSquareSession;
-    private SQLQuery sqlQuery;
 
     @Before
     public void setUp() {
@@ -44,7 +42,6 @@ public class BirdCheckinControllerTest {
         request.setParameter("birdName","Lerwa lerwa");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-//        Mockito.verify(birdSquareSession, times(1).retrieveResultFromSQLQuery(sqlQuery));
         assertViewName(mav, "home/home");
     }
 
@@ -55,7 +52,6 @@ public class BirdCheckinControllerTest {
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "checkin/checkinform");
     }
-
 
     @Test
     public void verifyThatBirdInformationGetsSavedOnCheckIn() throws Exception {
@@ -72,5 +68,4 @@ public class BirdCheckinControllerTest {
         controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap(), "Lerwa lerwa");
         Mockito.verify(birdSquareSession, times(1)).getCorrespondingRowAccordingToFilterSet(Bird.class, "Lerwa lerwa", "scientific_name");
     }
-
 }

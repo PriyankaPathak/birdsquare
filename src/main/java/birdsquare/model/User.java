@@ -21,17 +21,17 @@ public class User {
     }
 
     public void incrementPointsByOne() {
-        points=points+1;
+        points = points + 1;
     }
 
     public int getPoints() {
         return points;
     }
 
-
     public void setPoints(int points) {
         this.points = points;
     }
+
     public String getId() {
         return id;
     }

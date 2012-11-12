@@ -30,7 +30,7 @@ public class CheckinIT {
         birdSquareSession.saveOrUpdate(checkin);
 
         Checkin loadedCheckIn = (Checkin) birdSquareSession.get(Checkin.class, checkin.getId());
-     ///   assertEquals(checkin.getBirdName(), loadedCheckIn.getBirdName());
+        assertEquals(checkin.getBirdID(), loadedCheckIn.getBirdID());
         assertEquals(checkin.getNumber(), loadedCheckIn.getNumber());
         assertNotNull(loadedCheckIn.getDate());
     }

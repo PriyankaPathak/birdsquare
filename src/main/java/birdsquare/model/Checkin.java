@@ -3,7 +3,10 @@ package birdsquare.model;
 import birdsquare.helper.BirdSquareSession;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,17 +21,12 @@ public class Checkin {
     private long id;
 
     private long birdID;
-
     private String locationName;
-
     private int number;
     private Date date = new Date();
     private double longitude;
     private double latitude;
     private String comments;
-    //    @ManyToOne
-//    @JoinColumn(name = "fbuid")
-//
     public String fbuid;
 
     public String getFbuid() {
@@ -88,18 +86,18 @@ public class Checkin {
     }
 
     public List<String> getBirdNameList(BirdSquareSession birdSquareSession) {
-            List<String> birdNameList = new ArrayList();
-            List allBirds = birdSquareSession.getAll(Bird.class);
-            for (Object bird : allBirds) {
-                String name = ((Bird)bird).getCommon_name()+" ("+((Bird)bird).getScientific_name()+")";
+        List<String> birdNameList = new ArrayList();
+        List allBirds = birdSquareSession.getAll(Bird.class);
+        for (Object bird : allBirds) {
+            String name = ((Bird) bird).getCommon_name() + " (" + ((Bird) bird).getScientific_name() + ")";
 
-                birdNameList.add(name);
-            }
-            return birdNameList;
+            birdNameList.add(name);
+        }
+        return birdNameList;
     }
 
     public void setBirdId(int birdID) {
-        this.birdID=birdID;
+        this.birdID = birdID;
     }
 
     public long getBirdID() {
@@ -109,6 +107,4 @@ public class Checkin {
     public void setBirdID(long birdID) {
         this.birdID = birdID;
     }
-
-
 }

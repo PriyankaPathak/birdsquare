@@ -16,7 +16,6 @@ public class HomeController {
 
     private BirdSquareSession birdSquareSession;
 
-
     @Autowired
     public HomeController(BirdSquareSession birdSquareSession) {
         this.birdSquareSession = birdSquareSession;
@@ -51,11 +50,5 @@ public class HomeController {
         model.addAttribute("longitude", location.getLongitude());
         return "checkin/checkinlocations";
     }
-
-//    @RequestMapping(value = "/profile")
-//    public String profile(Model model) {
-//        model.addAttribute("message", "");
-//        return "home/home";
-//    }
 }
 

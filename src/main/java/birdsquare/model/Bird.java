@@ -1,8 +1,6 @@
 package birdsquare.model;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.NamedNativeQueries;
-import org.hibernate.annotations.NamedNativeQuery;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

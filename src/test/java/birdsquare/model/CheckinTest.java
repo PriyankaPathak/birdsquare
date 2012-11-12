@@ -27,17 +27,16 @@ public class CheckinTest {
         assertEquals(dateFormat.format(new Date()), dateFormat.format(checkin.getDate()));
     }
 
+    @Test
+    public void shouldReturnANonEmptyListOfBirdDetails() {
+        List<String> listOfBirds = checkin.getBirdNameList(new BirdSquareSession());
+        Assert.notEmpty(listOfBirds);
+    }
+
     private Checkin createCheckin() {
         Checkin checkin = new Checkin();
         checkin.setBirdId(1);
         checkin.setNumber(16);
         return checkin;
-    }
-
-    @Test
-    public void shouldReturnANonEmptyListOfBirdDetails()
-    {
-        List<String> listOfBirds = checkin.getBirdNameList(new BirdSquareSession());
-        Assert.notEmpty(listOfBirds);
     }
 }

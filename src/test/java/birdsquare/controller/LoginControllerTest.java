@@ -31,5 +31,4 @@ public class LoginControllerTest {
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "home/login");
     }
-
 }

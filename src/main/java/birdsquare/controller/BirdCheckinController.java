@@ -5,7 +5,6 @@ import birdsquare.model.Bird;
 import birdsquare.model.Checkin;
 import birdsquare.model.Location;
 import birdsquare.model.User;
-import org.hibernate.SQLQuery;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +20,6 @@ import java.util.List;
 public class BirdCheckinController {
 
     private BirdSquareSession birdSquareSession;
-    private SQLQuery sqlQuery;
 
     @Autowired
     public BirdCheckinController(BirdSquareSession birdSquareSession) {
@@ -30,21 +28,15 @@ public class BirdCheckinController {
 
     @RequestMapping(value = "/homesuccess", method = RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToProfilePage(@ModelAttribute("checkin") Checkin checkin, Model model, @RequestParam("birdName") String birdName) {
-
-
-        List birds=birdSquareSession.getCorrespondingRowAccordingToFilterSet(Bird.class, birdName,"scientific_name");
+        List birds = birdSquareSession.getCorrespondingRowAccordingToFilterSet(Bird.class, birdName, "scientific_name");
         for (Object bird : birds) {
-            checkin.setBirdId((int) ((Bird)bird).getId());
-
-
+            checkin.setBirdId((int) ((Bird) bird).getId());
         }
 
-        User user = (User) birdSquareSession.get(User.class,checkin.getFbuid());
+        User user = (User) birdSquareSession.get(User.class, checkin.getFbuid());
         if (null != checkin && null != birdName) {
-
             birdSquareSession.save(checkin);
-            if( user == null)
-            {
+            if (user == null) {
                 user = new User(checkin.getFbuid());
             }
             user.incrementPointsByOne();
@@ -67,5 +59,4 @@ public class BirdCheckinController {
 
         return "checkin/checkinform";
     }
-
 }

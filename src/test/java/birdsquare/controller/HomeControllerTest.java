@@ -66,7 +66,4 @@ public class HomeControllerTest {
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "checkin/checkinlocations");
     }
-
-
-
 }

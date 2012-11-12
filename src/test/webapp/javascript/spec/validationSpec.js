@@ -86,9 +86,4 @@ describe("bird name validation", function () {
         var validated = validate_number_of_birds_field("5");
         expect(validated).toBeTruthy();
     });
-
-
-
-
-
 });
