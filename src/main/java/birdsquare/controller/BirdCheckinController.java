@@ -1,6 +1,7 @@
 package birdsquare.controller;
 
 import birdsquare.helper.BirdSquareSession;
+import birdsquare.model.Bird;
 import birdsquare.model.Checkin;
 import birdsquare.model.Location;
 import birdsquare.model.User;
@@ -30,15 +31,13 @@ public class BirdCheckinController {
     @RequestMapping(value = "/profilesuccess", method = RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToProfilePage(@ModelAttribute("checkin") Checkin checkin, Model model, @RequestParam("birdName") String birdName) {
 
-        String sql = "select id from bird where scientific_name='" + birdName + "';";
-        sqlQuery = birdSquareSession.createSQLQuery(sql);
-        if(sqlQuery.list().isEmpty())
-        {
-            System.out.println("Is empty");
-            throw new ResourceNotFoundException("No bird name found");
+
+        List birds=birdSquareSession.getCorrespondingRowAccordingToFilterSet(Bird.class, birdName,"scientific_name");
+        for (Object bird : birds) {
+            checkin.setBirdId((int) ((Bird)bird).getId());
+
 
         }
-        checkin.setBirdId((Integer) sqlQuery.list().get(0));
 
         User user = (User) birdSquareSession.get(User.class,checkin.getFbuid());
         if (null != checkin && null != birdName) {

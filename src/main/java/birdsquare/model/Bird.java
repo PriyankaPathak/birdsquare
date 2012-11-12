@@ -37,4 +37,8 @@ public class Bird {
     public String getOrder_name() {
         return order_name;
     }
+
+    public long getId() {
+        return id;
+    }
 }

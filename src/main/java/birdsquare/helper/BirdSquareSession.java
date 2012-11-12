@@ -2,6 +2,7 @@ package birdsquare.helper;
 
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -18,6 +19,12 @@ public class BirdSquareSession {
 
     public Object get(Class clazz, Serializable id) {
         return session.get(clazz, id);
+    }
+
+    public List getCorrespondingRowAccordingToFilterSet(Class clazz, String value, String filter) {
+        return session.createCriteria(clazz).add(Restrictions.like(filter, value)).list();
+
+
     }
 
     public List getAll(Class clazz) {
@@ -47,8 +54,7 @@ public class BirdSquareSession {
         session = null;
     }
 
-    public SQLQuery createSQLQuery(String sql)
-    {
+    public SQLQuery createSQLQuery(String sql) {
         return session.createSQLQuery(sql);
     }
 
