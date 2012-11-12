@@ -7,7 +7,7 @@
 .ui-header .ui-title {
     font-size: 20px;
     font-family: "Calibri", sans-serif;
-    margin-left: -40%;
+    margin-left: -100px;
 }
 
 .ui-header .ui-title a:link{
@@ -46,11 +46,44 @@
     font-size: 13px;
 }
 
-.fbuser{
-    float: right;
+#username{
+    text-align: left;
+    font-size: 16px;
     font-weight: bold;
 }
 
-.fbpic{
+#city {
+    font-size: 13px;
+    text-align: left;
+    font-weight: normal;
+}
+
+#fbpic{
     float: left;
+    margin-left: 5%;
+}
+
+.fbuserdetails {
+    float: left;
+    margin-left: 5%;
+    /*padding-right: 20%;*/
+    /*padding-left: 3%;*/
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    /*border-color: #d3d3d3;*/
+}
+
+#userpoints {
+    margin-left: 5%;
+    padding-top: 15px;
+    font-size: 10px;
+    color: grey;
+    clear: both;
+}
+
+#fb-logout-btn {
+    position: absolute;
+    bottom: 40px;
+    right: 2%;
+
 }

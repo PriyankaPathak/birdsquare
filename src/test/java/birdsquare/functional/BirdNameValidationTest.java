@@ -29,7 +29,7 @@ public class BirdNameValidationTest {
     public void BirdNameTest()
     {
         if (runningInGo()) return;
-        webDriver.findElement(By.linkText("Check In")).click();
+        webDriver.findElement(By.linkText("Sighting")).click();
 
 
         WebElement myDynamicElement = (new WebDriverWait(webDriver, 50)).until(new ExpectedCondition<WebElement>()

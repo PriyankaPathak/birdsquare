@@ -67,15 +67,6 @@ public class HomeControllerTest {
         assertViewName(mav, "checkin/checkinlocations");
     }
 
-//    @Test
-//    public void shouldRenderProfilePageAfterClickingProfileButton() throws Exception {
-//        request.setRequestURI("/profile");
-//        request.setMethod("POST");
-//
-//        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-//        assertViewName(mav, "profile/profile");
-//    }
-
 
 
 }

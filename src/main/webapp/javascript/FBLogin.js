@@ -67,18 +67,22 @@ window.fbAsyncInit = function () {
     function fetchUserData(response) {
         if (document.URL === 'http://' + 'http://' + window.location.host + '/home') {
             FB.api('/me', function (response) {
-                document.getElementsByClassName('fbuser')[0].innerHTML += response.name + "<br>";
-                document.getElementsByClassName('fbpic')[0].innerHTML += "<img src='http://graph.facebook.com/" +
-                    response.id + "/picture' />" + "<br>";
+                console.log("hello fetching fb data")
+                $("#username").append(response.name);
+                if (response.location != null)
+                    $('#city').append(response.location.name);
+                $('#fbpic').append("<img style='width:100px; height:100px' src='http://graph.facebook.com/" + response.id + "/picture'/>")
             });
         }
     }
 };
 
 function loginUser() {
+    console.log("hello i'm trying to log in");
     FB.login(function (response) {
         }, {scope:'user_likes, offline_access'}
     );
+    console.log("after log in");
 }
 ;
 

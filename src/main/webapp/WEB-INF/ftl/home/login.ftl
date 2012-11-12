@@ -28,7 +28,7 @@
 
 
 
-        <a  onClick="loginUser(); return false;"><img src="img/button.jpg" /></a>
+        <a onClick="loginUser(); return false;"><img src="img/button.jpg" /></a>
 
     </div>
 

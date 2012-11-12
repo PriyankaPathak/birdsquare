@@ -39,11 +39,12 @@ public class BirdCheckinControllerTest {
 
     @Test
     public void shouldRenderProfilePage() throws Exception {
-        request.setRequestURI("/profilesuccess");
+        request.setRequestURI("/homesuccess");
         request.setMethod("POST");
         request.setParameter("birdName","Lerwa lerwa");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+//        Mockito.verify(birdSquareSession, times(1).retrieveResultFromSQLQuery(sqlQuery));
         assertViewName(mav, "home/home");
     }
 

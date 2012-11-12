@@ -52,12 +52,10 @@ public class HomeController {
         return "checkin/checkinlocations";
     }
 
-    @RequestMapping(value = "/profile")
-    public String profile(Model model) {
-        model.addAttribute("message", "");
-        model.addAttribute("checkinurl", "checkinlocations");
-        return "profile/profile";
-    }
-
+//    @RequestMapping(value = "/profile")
+//    public String profile(Model model) {
+//        model.addAttribute("message", "");
+//        return "home/home";
+//    }
 }
 

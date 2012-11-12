@@ -43,7 +43,7 @@ public class CheckIn_SelectLocation_Test {
     {
         // cannot use FireFoxDriver in Go yet
         if (runningInGo()) return;
-        webDriver.findElement(By.linkText("Check In")).click();
+        webDriver.findElement(By.linkText("Sighting")).click();
 
 
         WebElement myDynamicElement = (new WebDriverWait(webDriver, 50)).until(new ExpectedCondition<WebElement>()

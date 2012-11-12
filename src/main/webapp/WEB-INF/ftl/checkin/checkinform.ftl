@@ -13,8 +13,8 @@
 
 <div data-role="page" id="checkinform">
 
-    <form id="checkinform_form" name="birdinformation" onsubmit="return validateForm()" action="profilesuccess" method="post" data-ajax="false">
-    <#include "../headers/header-with-submit.ftl">
+    <form id="checkinform_form" name="birdinformation" onsubmit="return validateForm()" action="home" method="post" data-ajax="false">
+    <#include "../headers/header-without-button.ftl">
 
         <div data-role="content" id="checkinform-content">
 
@@ -30,7 +30,7 @@
                 <input type="text" name="birdName" id="birdname-field" placeholder="Bird name"/>
 
                 <label for ="numberofbirds-field" class="ui-hidden-accessible"></label>
-                <input type="number" name="number" id="numberofbirds-field" placeholder="Number of birds seen"/>
+                <input type="text" name="number" id="numberofbirds-field" placeholder="Number of birds seen"/>
 
                 <label for ="comments-field" class="ui-hidden-accessible"></label>
                 <textarea id="comments" name="comments" id="comments-field" placeholder="Comments"></textarea>

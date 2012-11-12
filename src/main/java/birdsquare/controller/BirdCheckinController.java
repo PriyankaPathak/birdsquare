@@ -28,7 +28,7 @@ public class BirdCheckinController {
         this.birdSquareSession = birdSquareSession;
     }
 
-    @RequestMapping(value = "/profilesuccess", method = RequestMethod.POST)
+    @RequestMapping(value = "/homesuccess", method = RequestMethod.POST)
     public String retrieveBirdNameFromUserAndRedirectToProfilePage(@ModelAttribute("checkin") Checkin checkin, Model model, @RequestParam("birdName") String birdName) {
 
 

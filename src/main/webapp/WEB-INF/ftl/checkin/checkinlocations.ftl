@@ -13,7 +13,7 @@
 <body>
 
 <div data-role="page" id="checkinlocations"><!--this div is closed in footer-->
-<#include "../headers/header-with-addlocation.ftl" />
+<#include "../headers/header-without-button.ftl" />
 
     <div data-role="content" id="checkinlocations-content">
         <p>
