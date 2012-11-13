@@ -13,6 +13,9 @@ public class HomePage extends Page {
     @FindBy(how = How.ID, using = "fb-logout-btn")
     private WebElement logoutBtn;
 
+    @FindBy(how = How.ID, using = "sighting")
+    private WebElement sighting;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -20,6 +23,11 @@ public class HomePage extends Page {
     @Override
     public void waitForThePageToLoad() {
         waitForElementToLoad(By.id(HOME_CONTENT_ID));
+    }
+
+    public CheckinLocationPage checkIn() {
+        sighting.click();
+        return new CheckinLocationPage(webDriver);
     }
 
     public boolean isLogoutButtonVisible() {

@@ -1,30 +1,20 @@
 package birdsquare.functional;
 
-public class BirdNameValidationTest {
+import birdsquare.functional.framework.BaseTest;
+import birdsquare.functional.framework.page.CheckinLocationPage;
+import birdsquare.functional.framework.page.LoginPage;
+import org.junit.Test;
 
-//    @Before
-//    public void BeforeMethod() {
-//        CheckInLocationTest object_EnterBirdLocation = new CheckInLocationTest();
-//        object_EnterBirdLocation.BeforeMethod();
-//
-//    }
+import static junit.framework.Assert.assertTrue;
 
-//    @Test
-//    @Ignore
-//    public void BirdNameTest() {
-//        webDriver.findElement(By.linkText("Sighting")).click();
-//
-//        WebElement myDynamicElement = (new WebDriverWait(webDriver, 50)).until(new ExpectedCondition<WebElement>() {
-//
-//            @Override
-//            public WebElement apply(WebDriver d) {
-//                return d.findElement(By.xpath("//ul[@id='location-container']/li/div/div/a"));
-//            }
-//        });
-//
-//        webDriver.findElement(By.xpath("//ul[@id='location-container']/li/div/div/a")).click();
-//
-//        webDriver.findElement(By.id("birdname-field")).sendKeys("123");
-//        webDriver.findElement(By.xpath("//input[@type='submit']")).click();
-//    }
+public class BirdNameValidationTest extends BaseTest {
+
+    @Test
+    public void checkInAnInvalidBird() {
+        CheckinLocationPage checkinLocationPage = new LoginPage(webDriver).redirectToFBLogin().login().checkIn();
+        checkinLocationPage.selectLocation().submitForm("123", "0");
+
+        assertTrue(webDriver.switchTo().alert().getText().contains("[Bird Name] Please select bird name from given list."));
+        assertTrue(webDriver.switchTo().alert().getText().contains("[Number of birds] Please enter valid integer greater than zero."));
+    }
 }

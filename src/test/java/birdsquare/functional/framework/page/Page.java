@@ -13,7 +13,7 @@ public abstract class Page {
 
     public Page(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.wait = new WebDriverWait(webDriver, 15);
+        this.wait = new WebDriverWait(webDriver, 20);
         waitForThePageToLoad();
         PageFactory.initElements(webDriver, this);
     }
