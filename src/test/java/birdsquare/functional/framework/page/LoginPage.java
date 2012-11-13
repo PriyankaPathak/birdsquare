@@ -11,7 +11,10 @@ public class LoginPage extends Page {
     public static final String LOGIN_CONTENT_ID = "login-content";
 
     @FindBy(how = How.ID, using = LOGIN_CONTENT_ID)
-    private WebElement loginContentElement;
+    private WebElement loginContent;
+
+    @FindBy(how = How.ID, using = "facebookLogin")
+    private WebElement facebookLogin;
 
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
@@ -23,6 +26,11 @@ public class LoginPage extends Page {
     }
 
     public String getLoginContentText() {
-        return loginContentElement.getText();
+        return loginContent.getText();
+    }
+
+    public FacebookLoginPage redirectToFBLogin() {
+        facebookLogin.click();
+        return new FacebookLoginPage(webDriver);
     }
 }

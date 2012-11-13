@@ -28,4 +28,23 @@ public abstract class Page {
             }
         });
     }
+
+    protected void switchToNextWindow() {
+        waitUntilWindowsOpenUp(2);
+        webDriver.switchTo().window((String) webDriver.getWindowHandles().toArray()[1]);
+    }
+
+    protected void switchBackToMainWindow() {
+        waitUntilWindowsOpenUp(1);
+        webDriver.switchTo().window((String) webDriver.getWindowHandles().toArray()[0]);
+    }
+
+    private void waitUntilWindowsOpenUp(final int numberOfWindows) {
+        wait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver webDriver) {
+                return webDriver.getWindowHandles().size() == numberOfWindows;
+            }
+        });
+    }
 }

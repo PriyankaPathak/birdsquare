@@ -16,7 +16,7 @@
             Welcome!
         </h1>
 
-        <a onClick="loginUser(); return false;"><img src="img/button.jpg" /></a>
+        <a id="facebookLogin"  onClick="loginUser(); return false;"><img src="img/button.jpg" /></a>
 
     </div>
 
