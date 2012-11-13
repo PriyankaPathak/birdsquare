@@ -2,9 +2,12 @@ package birdsquare.functional.framework;
 
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 
@@ -19,7 +22,13 @@ public abstract class BaseTest {
         File profileDir = new File(getFirefoxProfile());
         FirefoxProfile profile = new FirefoxProfile(profileDir);
         webDriver = new FirefoxDriver(profile);
-        webDriver.get(String.format("%s/login", BaseTest.HOME_PAGE_URL));
+        webDriver.get(BaseTest.HOME_PAGE_URL);
+        new WebDriverWait(webDriver, 10).until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver webDriver) {
+                return (Boolean) ((JavascriptExecutor)webDriver).executeScript("return FB != null;");
+            }
+        });
     }
 
     @After
