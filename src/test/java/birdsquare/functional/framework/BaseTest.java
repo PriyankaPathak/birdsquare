@@ -19,7 +19,7 @@ public abstract class BaseTest {
         File profileDir = new File(getFirefoxProfile());
         FirefoxProfile profile = new FirefoxProfile(profileDir);
         webDriver = new FirefoxDriver(profile);
-        webDriver.get(BaseTest.HOME_PAGE_URL);
+        webDriver.get(String.format("%s/login", BaseTest.HOME_PAGE_URL));
     }
 
     @After
