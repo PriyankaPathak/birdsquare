@@ -25,10 +25,10 @@ describe("UrlParser", function () {
         expect("/context").toEqual(urlParser.contextPath());
     });
 
-    it("empty if the root path is to a known route", function() {
-        var urlParser = new UrlParser("http://foo.com/checkinform/");
-        expect("").toEqual(urlParser.contextPath());
-    });
+//    it("empty if the root path is to a known route", function() {
+//        var urlParser = new UrlParser("http://foo.com/checkinform/");
+//        expect("").toEqual(urlParser.contextPath());
+//    });
 
 
 });
