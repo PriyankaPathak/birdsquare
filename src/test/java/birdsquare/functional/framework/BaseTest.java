@@ -29,6 +29,7 @@ public abstract class BaseTest {
                 return (Boolean) ((JavascriptExecutor)webDriver).executeScript("return FB != null;");
             }
         });
+        webDriver.get(String.format("%s/login", HOME_PAGE_URL));
     }
 
     @After
