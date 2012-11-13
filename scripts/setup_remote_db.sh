@@ -1,4 +1,4 @@
-scp database/data.csv root@$1.birdsquare.in:/tmp
+scp data.csv root@$1.birdsquare.in:/tmp
 scp database/populate_data.sql root@$1.birdsquare.in:/tmp
 
 ssh -t root@$1.birdsquare.in mysql -uroot < "database/create_schema.sql"
