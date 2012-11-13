@@ -30,9 +30,6 @@ window.fbAsyncInit = function () {
             fetchUserData(response);
             document.cookie = 'fbuid=' + uid;
 
-//            if (document.URL ===  getBaseUrl() + '/home') {
-//                fetchUserData(response);
-//            }
 //            } else if (response.status === 'not_authorized') {
 //                // the user is logged in to Facebook,
 //                // but has not authenticated your app
@@ -43,29 +40,26 @@ window.fbAsyncInit = function () {
     });
 
     function redirectToReferrerPage() {
-        if (document.URL === 'http://' + window.location.host + '/login') {
+        if (document.URL === fetchUrl("/login")) {
             window.location.href = document.referrer;
         }
     }
 
     function redirectToLogin() {
-        var loginUrl = getBaseUrl() + '/login';
-        var cleanLoginUrl =  'http://' + loginUrl.replace('http://', '').replace('//','/');
-
-        if (document.URL != cleanLoginUrl) {
-            alert(cleanLoginUrl);
-            window.location.href = cleanLoginUrl;
+        if (document.URL != fetchUrl("/login")) {
+            window.location.href = fetchUrl("/login");
         }
     }
 
     function setFbuidInPage(uid) {
-        if (document.URL === 'http://' + window.location.host + '/checkinform') {
+        if (document.URL === fetchUrl('/checkinform')) {
             document.getElementById('fbuid').value = uid;
         }
     }
 
-    function getBaseUrl() {
-        return document.URL.replace(/\/[^\/]+$/, '');
+    function fetchUrl(thePage) {
+        var loginUrl = document.URL.replace(/\/[^\/]+$/, '') + thePage;
+        return 'http://' + loginUrl.replace('http://', '').replace('//','/');
     }
 
     function fetchUserData(response) {
@@ -82,13 +76,11 @@ window.fbAsyncInit = function () {
 };
 
 function loginUser() {
-    console.log("hello i'm trying to log in");
     FB.login(function (response) {
         }, {scope:'user_likes, offline_access'}
     );
-    console.log("after log in");
-}
-;
+
+};
 
 function logOutUser() {
     FB.logout(function (response) {
