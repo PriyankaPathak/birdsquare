@@ -49,8 +49,12 @@ window.fbAsyncInit = function () {
     }
 
     function redirectToLogin() {
-        if (document.URL != 'http://' + window.location.host + '/login') {
-            window.location.href = '/login';
+        var loginUrl = getBaseUrl() + '/login';
+        var cleanLoginUrl =  'http://' + loginUrl.replace('http://', '').replace('//','/');
+
+        if (document.URL != cleanLoginUrl) {
+            alert(cleanLoginUrl);
+            window.location.href = cleanLoginUrl;
         }
     }
 
