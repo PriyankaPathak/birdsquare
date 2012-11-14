@@ -7,6 +7,7 @@ window.fbAsyncInit = function () {
     });
 
     FB.Event.subscribe('auth.login', function (response) {
+        var uid = response.authResponse.userID;
         document.cookie = 'fbuid=' + uid;
         redirectToReferrerPage();
     });
@@ -40,14 +41,14 @@ window.fbAsyncInit = function () {
     });
 
     function redirectToReferrerPage() {
-        if (document.URL === fetchUrl("/login")) {
+        if (document.URL === fetchUrl('/login')) {
             window.location.href = document.referrer;
         }
     }
 
     function redirectToLogin() {
-        if (document.URL != fetchUrl("/login")) {
-            window.location.href = fetchUrl("/login");
+        if (document.URL != fetchUrl('/login')) {
+            window.location.href = fetchUrl('/login');
         }
     }
 
@@ -65,7 +66,6 @@ window.fbAsyncInit = function () {
     function fetchUserData(response) {
         if (document.URL === 'http://' + 'http://' + window.location.host + '/home') {
             FB.api('/me', function (response) {
-                console.log("hello fetching fb data")
                 $("#username").append(response.name);
                 if (response.location != null)
                     $('#city').append(response.location.name);
