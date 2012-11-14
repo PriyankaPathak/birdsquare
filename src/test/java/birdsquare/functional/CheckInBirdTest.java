@@ -13,13 +13,14 @@ import static junit.framework.Assert.assertTrue;
 public class CheckInBirdTest extends BaseTest {
 
     @Test
-    public void checkInABirdSuccessfully() {
+    public void checkInABirdSuccessfullyWithoutComments() {
         CheckinLocationPage checkinLocationPage = new LoginPage(webDriver).redirectToFBLogin().login().checkIn();
 
         String birdName = "Hill Partridge (Arborophila torqueola)";
         String numberOfBirds = "2";
+        String comments = "";
 
-        checkinLocationPage.selectLocation().submitForm(birdName, numberOfBirds);
+        checkinLocationPage.selectLocation().submitForm(birdName, numberOfBirds, comments);
 
         String expectedMessage = String.format("You have checked in %s %s(s) successfully", numberOfBirds, birdName);
         assertTrue(webDriver.switchTo().alert().getText().contains(expectedMessage));
@@ -43,3 +44,4 @@ public class CheckInBirdTest extends BaseTest {
     }
 
 }
+

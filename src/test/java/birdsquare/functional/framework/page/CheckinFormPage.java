@@ -12,13 +12,16 @@ public class CheckinFormPage extends Page {
     public static final String LOCATION_FIELD_ID = "location-field";
 
     @FindBy(how = How.ID, using = "birdname-field")
-    private WebElement birdName;
+    private WebElement birdNameField;
 
     @FindBy(how = How.ID, using = "numberofbirds-field")
-    private WebElement numberOfBirds;
+    private WebElement numberOfBirdsField;
 
     @FindBy(how = How.ID, using = "submit")
     private WebElement submit;
+
+    @FindBy(how = How.ID, using = "comments")
+    private WebElement commentField;
 
     public CheckinFormPage(WebDriver webDriver) {
         super(webDriver);
@@ -30,9 +33,14 @@ public class CheckinFormPage extends Page {
     }
 
     public void submitForm(String birdNameText, String numberOfBirdsText) {
-        birdName.sendKeys(birdNameText);
-        birdName.sendKeys(Keys.DOWN);
-        numberOfBirds.sendKeys(numberOfBirdsText);
+        submitForm(birdNameText, numberOfBirdsText, "");
+    }
+
+    public void submitForm(String birdNameText, String numberOfBirdsText, String comment) {
+        birdNameField.sendKeys(birdNameText);
+        birdNameField.sendKeys(Keys.DOWN);
+        numberOfBirdsField.sendKeys(numberOfBirdsText);
+        commentField.sendKeys(comment);
         submit.click();
     }
 }

@@ -32,8 +32,8 @@
                 <label for ="numberofbirds-field" class="ui-hidden-accessible"></label>
                 <input type="text" name="number" id="numberofbirds-field" placeholder="Number of birds seen"/>
 
-                <label for ="comments-field" class="ui-hidden-accessible"></label>
-                <textarea id="comments" name="comments" id="comments-field" placeholder="Comments"></textarea>
+                <label for="comments" class="ui-hidden-accessible"></label>
+                <textarea id="comments" name="comments" placeholder="Comments"></textarea>
 
                 <input type="submit" id="submit" value="Submit"/>
 
