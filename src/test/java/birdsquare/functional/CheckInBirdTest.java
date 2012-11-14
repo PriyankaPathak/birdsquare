@@ -60,10 +60,16 @@ public class CheckInBirdTest extends BaseTest {
     public void checkThatWeCanCountBirdList() {
         CheckinFormPage checkinFormPage= new LoginPage(webDriver).redirectToFBLogin().login().checkIn().selectLocation();
 
-        List<WebElement> autoCompleteList = checkinFormPage.getBirdAutocompleteListFor("malab");
-
-        assertThat(autoCompleteList.size(), is(12));
+        assertAutoCompleteResultCount(checkinFormPage, "malab", 12);
+        assertAutoCompleteResultCount(checkinFormPage, "hornbill", 10);
     }
+
+    private void assertAutoCompleteResultCount(CheckinFormPage checkinFormPage, String partialBirdNameText, int expectedNumber) {
+        List<WebElement> autoCompleteList = checkinFormPage.getBirdAutocompleteListFor(partialBirdNameText);
+        assertThat(autoCompleteList.size(), is(expectedNumber));
+        checkinFormPage.resetBirdNameField();
+    }
+
 
 }
 

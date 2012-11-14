@@ -50,7 +50,18 @@ public class CheckinFormPage extends Page {
         String autoCompleteSelectionCss = ".ui-autocomplete li";
 
         birdNameField.sendKeys(partialBirdNameText);
+
+        // TODO this is a huge smell! Need to figure out how to remove the previous autocomplete list
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
         waitForElementToLoad(By.cssSelector(autoCompleteSelectionCss));
         return webDriver.findElements(By.cssSelector(autoCompleteSelectionCss));
+    }
+
+    public void resetBirdNameField() {
+        birdNameField.clear();
     }
 }
