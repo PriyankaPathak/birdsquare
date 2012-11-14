@@ -10,8 +10,13 @@ import birdsquare.functional.framework.page.LoginPage;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static junit.framework.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 public class CheckInBirdTest extends BaseTest {
 
@@ -49,6 +54,15 @@ public class CheckInBirdTest extends BaseTest {
         checkinFormPage.submitForm(TestData.VALID_BIRD_NAME, "-1");
 
         assertTrue(webDriver.switchTo().alert().getText().contains("[Number of birds] Please enter valid integer greater than zero."));
+    }
+
+    @Test
+    public void checkThatWeCanCountBirdList() {
+        CheckinFormPage checkinFormPage= new LoginPage(webDriver).redirectToFBLogin().login().checkIn().selectLocation();
+
+        List<WebElement> autoCompleteList = checkinFormPage.getBirdAutocompleteListFor("malab");
+
+        assertThat(autoCompleteList.size(), is(12));
     }
 
 }

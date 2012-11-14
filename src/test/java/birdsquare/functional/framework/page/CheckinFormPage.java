@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import java.util.List;
+
 public class CheckinFormPage extends Page {
 
     public static final String LOCATION_FIELD_ID = "location-field";
@@ -42,5 +44,13 @@ public class CheckinFormPage extends Page {
         numberOfBirdsField.sendKeys(numberOfBirdsText);
         commentField.sendKeys(comment);
         submit.click();
+    }
+
+    public List<WebElement> getBirdAutocompleteListFor(String partialBirdNameText) {
+        String autoCompleteSelectionCss = ".ui-autocomplete li";
+
+        birdNameField.sendKeys(partialBirdNameText);
+        waitForElementToLoad(By.cssSelector(autoCompleteSelectionCss));
+        return webDriver.findElements(By.cssSelector(autoCompleteSelectionCss));
     }
 }
