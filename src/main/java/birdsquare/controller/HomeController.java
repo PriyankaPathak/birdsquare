@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 public class HomeController {
     private BirdSquareSession birdSquareSession;
@@ -26,8 +28,14 @@ public class HomeController {
         User user = (User) birdSquareSession.get(User.class, uid);
         if (user == null) {
             user = new User(uid);
+            birdSquareSession.save(user);
         }
+
+        List leaderboardList = birdSquareSession.getSortedDescendingList(User.class, "points", 5);
+
+        model.addAttribute("leaderboardlist", leaderboardList);
         model.addAttribute("points", user.getPoints());
+
         return "home/home";
     }
 

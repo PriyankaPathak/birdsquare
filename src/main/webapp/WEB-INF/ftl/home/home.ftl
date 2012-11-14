@@ -16,6 +16,15 @@
             POINTS (LAST 7 DAYS)
             <p id="userpoints-number">${points}</p>
         </div>
+
+        <div id="leaderboard">
+            <ul data-role='listview'>
+                <#list leaderboardlist as user>
+                    <li>${user.points}, ${user.id}</li>
+                </#list>
+            </ul>
+        </div>
+
         <div id="fb-logout-btn"><a onclick="logOutUser();" data-role="button" rel="external" data-theme="b" class="ui-btn-middle">Log out</a></div>
 
     </div>

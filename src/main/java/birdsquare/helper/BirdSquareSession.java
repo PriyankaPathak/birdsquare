@@ -1,7 +1,10 @@
 package birdsquare.helper;
 
+import birdsquare.model.User;
+import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
@@ -65,4 +68,10 @@ public class BirdSquareSession {
     private void initSession() {
         this.session = BirdSquareSessionFactory.getInstance().createSession();
     }
+
+    public List getSortedDescendingList(Class clazz, String variableToSortBy, int lengthOfList) {
+        Criteria criteria = session.createCriteria(clazz).addOrder(Order.desc(variableToSortBy)).setMaxResults(lengthOfList);
+        return criteria.list();
+    }
+
 }
