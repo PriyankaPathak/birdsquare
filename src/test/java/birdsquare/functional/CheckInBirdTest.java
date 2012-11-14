@@ -19,13 +19,12 @@ public class CheckInBirdTest extends BaseTest {
     public void checkInABirdSuccessfullyWithoutComments() {
         CheckinLocationPage checkinLocationPage = new LoginPage(webDriver).redirectToFBLogin().login().checkIn();
 
-        String birdName = "Hill Partridge (Arborophila torqueola)";
         String numberOfBirds = "2";
         String comments = "";
 
-        checkinLocationPage.selectLocation().submitForm(birdName, numberOfBirds, comments);
+        checkinLocationPage.selectLocation().submitForm(TestData.VALID_BIRD_NAME, numberOfBirds, comments);
 
-        String expectedMessage = String.format("You have checked in %s %s(s) successfully", numberOfBirds, birdName);
+        String expectedMessage = String.format("You have checked in %s %s(s) successfully", numberOfBirds, TestData.VALID_BIRD_NAME);
 
         Alert alertBox = webDriver.switchTo().alert();
         assertTrue(alertBox.getText().contains(expectedMessage));
