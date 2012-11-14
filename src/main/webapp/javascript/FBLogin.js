@@ -75,6 +75,14 @@ window.fbAsyncInit = function () {
     }
 };
 
+// Load the SDK Asynchronously
+(function(d){
+    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    d.getElementsByTagName('head')[0].appendChild(js);
+}(document));
+
 function loginUser() {
     FB.login(function (response) {
         }, {scope:'user_likes, offline_access'}

@@ -3,7 +3,6 @@
 <head>
 <#include "../includes.ftl">
     <title> BirdSquare: Login</title>
-    <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
 </head>
 
 <body>

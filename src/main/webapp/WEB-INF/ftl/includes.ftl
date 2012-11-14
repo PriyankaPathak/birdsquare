@@ -11,7 +11,6 @@
 <script src="javascript/jquery.mobile-1.2.0.min.js"></script>
 
 <#--facebook js libraries-->
-<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
 <script type="text/javascript" src="javascript/FBLogin.js"></script>
 
 <#--css stylesheets-->
