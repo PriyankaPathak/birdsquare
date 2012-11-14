@@ -9,6 +9,7 @@ window.fbAsyncInit = function () {
     FB.Event.subscribe('auth.login', function (response) {
         var uid = response.authResponse.userID;
         document.cookie = 'fbuid=' + uid;
+        fetchUserData(response);
         redirectToReferrerPage();
     });
 
@@ -26,7 +27,6 @@ window.fbAsyncInit = function () {
             // and signed request each expire
 
             var uid = response.authResponse.userID;
-            var accessToken = response.authResponse.accessToken;
             setFbuidInPage(uid);
             fetchUserData(response);
             document.cookie = 'fbuid=' + uid;
@@ -64,7 +64,7 @@ window.fbAsyncInit = function () {
     }
 
     function fetchUserData(response) {
-        if (document.URL === 'http://' + 'http://' + window.location.host + '/home') {
+        if (document.URL === fetchUrl('/home')) {
             FB.api('/me', function (response) {
                 $("#username").append(response.name);
                 if (response.location != null)
