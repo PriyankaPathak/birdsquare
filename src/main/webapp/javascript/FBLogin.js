@@ -9,6 +9,7 @@ window.fbAsyncInit = function () {
     FB.Event.subscribe('auth.login', function (response) {
         var uid = response.authResponse.userID;
         document.cookie = 'fbuid=' + uid;
+
         fetchUserData(response);
         redirectToReferrerPage();
     });
@@ -27,8 +28,10 @@ window.fbAsyncInit = function () {
             // and signed request each expire
 
             var uid = response.authResponse.userID;
+
 //            setFbuidInPage(uid);
             fetchUserData(response);
+            console.log(response);
             document.cookie = 'fbuid=' + uid;
 
 //            } else if (response.status === 'not_authorized') {
@@ -67,6 +70,7 @@ window.fbAsyncInit = function () {
         if (document.URL === fetchUrl('/home')) {
             FB.api('/me', function (response) {
                 $("#username").append(response.name);
+                document.cookie = "fbusername=" + response.name;
                 if (response.location != null)
                     $('#city').append(response.location.name);
                 $('#fbpic').append("<img style='width:100px; height:100px' src='http://graph.facebook.com/" + response.id + "/picture'/>")

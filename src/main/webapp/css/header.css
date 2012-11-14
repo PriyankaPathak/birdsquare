@@ -50,6 +50,8 @@
     text-align: left;
     font-size: 16px;
     font-weight: bold;
+    float: left;
+    margin-left: 3%;
 }
 
 #city {
@@ -60,7 +62,7 @@
 
 #fbpic{
     float: left;
-    margin-left: 5%;
+    margin-left: 3%;
 }
 
 .fbuserdetails {
@@ -74,16 +76,17 @@
 }
 
 #userpoints {
-    margin-left: 5%;
+    margin-left: 3%;
     padding-top: 15px;
-    font-size: 10px;
+    font-size: 15px;
     color: grey;
     clear: both;
 }
 
 #userpoints-number {
-    margin-left: 5%;
     font-size: 50px;
+    margin-top: 1%;
+    color: black;
 }
 
 #fb-logout-btn {
@@ -91,4 +94,9 @@
     bottom: 40px;
     right: 2%;
 
+}
+
+#leaderboard{
+    margin-left: 3%;
+    margin-right: 3%;
 }

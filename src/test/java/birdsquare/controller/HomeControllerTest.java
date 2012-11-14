@@ -36,8 +36,7 @@ public class HomeControllerTest {
     @Test
     public void shouldRenderHomePageAsLandingPage() throws Exception {
         request.setRequestURI("/");
-        request.setCookies(new Cookie("fbuid", "fbUserId"));
-
+        request.setCookies(new Cookie("fbuid", "fbUserId"), new Cookie("fbusername", "fbStubUserName"));
         request.setMethod("GET");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
@@ -47,7 +46,7 @@ public class HomeControllerTest {
     @Test
     public void shouldRenderHomePageAfterClickingHomeButton() throws Exception {
         request.setRequestURI("/home");
-        request.setCookies(new Cookie("fbuid", "fbUserId"));
+        request.setCookies(new Cookie("fbuid", "fbUserId"), new Cookie("fbusername", "fbStubUserName"));
         request.setMethod("GET");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);

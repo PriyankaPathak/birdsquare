@@ -2,6 +2,7 @@
 <html>
 <head>
 <#include "../includes.ftl">
+
     <title> BirdSquare: Home</title>
 </head>
 
@@ -12,15 +13,17 @@
     <div data-role="content" id="home-content">
 
         <div id="fbpic"></div>
+        <div id="username"></div>
         <div id="userpoints">
             POINTS (LAST 7 DAYS)
             <p id="userpoints-number">${points}</p>
         </div>
 
         <div id="leaderboard">
+            <h3>Leaderboard</h3>
             <ul data-role='listview'>
                 <#list leaderboardlist as user>
-                    <li>${user.points}, ${user.id}</li>
+                    <li id="${user.id}">${user.points})</li>
                 </#list>
             </ul>
         </div>
@@ -35,3 +38,10 @@
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function(){
+
+    }
+</script>
+

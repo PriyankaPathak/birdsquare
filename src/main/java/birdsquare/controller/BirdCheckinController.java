@@ -31,7 +31,7 @@ public class BirdCheckinController {
         }
 
         User user = (User) birdSquareSession.get(User.class, uid);
-        if (null != checkin && null != birdName) {
+        if (null != checkin && null != birdName && user!= null) {
             birdSquareSession.save(checkin);
             user.incrementPointsByOne();
             birdSquareSession.saveOrUpdate(user);

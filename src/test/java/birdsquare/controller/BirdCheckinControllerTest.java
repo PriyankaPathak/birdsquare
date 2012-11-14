@@ -3,6 +3,7 @@ package birdsquare.controller;
 import birdsquare.helper.BirdSquareSession;
 import birdsquare.model.Bird;
 import birdsquare.model.Checkin;
+import birdsquare.model.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -15,7 +16,11 @@ import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAda
 
 import javax.servlet.http.Cookie;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
@@ -42,10 +47,10 @@ public class BirdCheckinControllerTest {
         request.setRequestURI("/homesuccess");
         request.setMethod("POST");
         request.setParameter("birdName","Lerwa lerwa");
-        request.setCookies(new Cookie("fbuid", "fbUserId"));
+        request.setCookies(new Cookie("fbuid", "fbUserId"), new Cookie("fbusername", "fbStubUserName"));
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
-        assertViewName(mav, "home/home");
+        assertViewName(mav, "redirect:/home");
     }
 
     @Test
@@ -59,7 +64,8 @@ public class BirdCheckinControllerTest {
     @Test
     public void verifyThatBirdInformationGetsSavedOnCheckIn() throws Exception {
         Checkin checkin = new Checkin();
-
+        User mockUser = new User("123456");
+        when(birdSquareSession.get(eq(User.class), anyString())).thenReturn(mockUser);
         controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap(), "Lerwa lerwa", "fbuid");
         Mockito.verify(birdSquareSession, times(1)).save(checkin);
     }

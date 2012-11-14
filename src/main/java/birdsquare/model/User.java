@@ -13,8 +13,8 @@ public class User {
 
     public int points = 0;
 
-    public User(String id) {
-        this.id = id;
+    public User(String uid) {
+        this.id = uid;
     }
 
     public User() {

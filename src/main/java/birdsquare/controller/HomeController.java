@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import sun.net.www.http.HttpClient;
 
 import java.util.List;
 
@@ -24,10 +25,11 @@ public class HomeController {
 
 
     @RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
-    public String index(Model model, @CookieValue("fbuid") String uid) {
+    public String index(Model model, @CookieValue("fbuid") String uid){//, @CookieValue("fbusername") String username) {
         User user = (User) birdSquareSession.get(User.class, uid);
         if (user == null) {
             user = new User(uid);
+//             json new HttpClient.New();
             birdSquareSession.save(user);
         }
 
