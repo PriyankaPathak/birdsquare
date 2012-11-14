@@ -5,6 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -32,6 +34,7 @@ public class CheckinIT {
         Checkin loadedCheckIn = (Checkin) birdSquareSession.get(Checkin.class, checkin.getId());
         assertEquals(checkin.getBirdID(), loadedCheckIn.getBirdID());
         assertEquals(checkin.getNumber(), loadedCheckIn.getNumber());
+        assertEquals(checkin.getDate(), loadedCheckIn.getDate());
         assertNotNull(loadedCheckIn.getDate());
     }
 
