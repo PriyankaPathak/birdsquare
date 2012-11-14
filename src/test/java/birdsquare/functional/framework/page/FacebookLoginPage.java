@@ -37,6 +37,8 @@ public class FacebookLoginPage extends Page {
         password.sendKeys(TEST_PASSWORD);
         loginBtn.click();
         switchBackToMainWindow();
+
+        // TODO this is a bug! upon login, the user should be back at the HomePage
         webDriver.get(BaseTest.HOME_PAGE_URL);
         return new HomePage(webDriver);
     }

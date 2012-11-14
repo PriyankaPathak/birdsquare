@@ -5,8 +5,11 @@ import birdsquare.functional.framework.BaseTest;
 import birdsquare.functional.framework.TestData;
 import birdsquare.functional.framework.page.CheckinFormPage;
 import birdsquare.functional.framework.page.CheckinLocationPage;
+import birdsquare.functional.framework.page.HomePage;
 import birdsquare.functional.framework.page.LoginPage;
+import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 
 import static junit.framework.Assert.assertTrue;
 
@@ -23,7 +26,13 @@ public class CheckInBirdTest extends BaseTest {
         checkinLocationPage.selectLocation().submitForm(birdName, numberOfBirds, comments);
 
         String expectedMessage = String.format("You have checked in %s %s(s) successfully", numberOfBirds, birdName);
-        assertTrue(webDriver.switchTo().alert().getText().contains(expectedMessage));
+
+        Alert alertBox = webDriver.switchTo().alert();
+        assertTrue(alertBox.getText().contains(expectedMessage));
+        alertBox.accept();
+
+        HomePage homePage = new HomePage(webDriver);
+        Assert.assertTrue(homePage.isLogoutButtonVisible());
     }
 
     @Test
