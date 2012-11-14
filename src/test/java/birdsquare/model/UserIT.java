@@ -38,6 +38,5 @@ public class UserIT {
     @After
     public void tearDown() {
         birdSquareSession.delete(persistedUser);
-
     }
 }

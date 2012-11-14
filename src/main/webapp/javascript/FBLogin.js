@@ -27,7 +27,7 @@ window.fbAsyncInit = function () {
             // and signed request each expire
 
             var uid = response.authResponse.userID;
-            setFbuidInPage(uid);
+//            setFbuidInPage(uid);
             fetchUserData(response);
             document.cookie = 'fbuid=' + uid;
 
@@ -52,11 +52,11 @@ window.fbAsyncInit = function () {
         }
     }
 
-    function setFbuidInPage(uid) {
-        if (document.URL === fetchUrl('/checkinform')) {
-            document.getElementById('fbuid').value = uid;
-        }
-    }
+//    function setFbuidInPage(uid) {
+//        if (document.URL === fetchUrl('/checkinform')) {
+//            document.getElementById('fbuid').value = uid;
+//        }
+//    }
 
     function fetchUrl(thePage) {
         var loginUrl = document.URL.replace(/\/[^\/]+$/, '') + thePage;

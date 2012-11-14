@@ -11,7 +11,7 @@ public class User {
     @Id
     public String id;
 
-    public int points;
+    public int points = 0;
 
     public User(String id) {
         this.id = id;

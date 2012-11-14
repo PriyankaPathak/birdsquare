@@ -15,19 +15,23 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 import static junit.framework.Assert.assertTrue;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class CheckInBirdTest extends BaseTest {
 
     @Test
-    public void checkInABirdSuccessfullyWithoutComments() {
-        CheckinLocationPage checkinLocationPage = new LoginPage(webDriver).redirectToFBLogin().login().checkIn();
+    public void checkInABirdSuccessfullyWithoutCommentsAndIncrementUserPointsByOne() {
 
         String numberOfBirds = "2";
         String comments = "";
 
-        checkinLocationPage.selectLocation().submitForm(TestData.VALID_BIRD_NAME, numberOfBirds, comments);
+        HomePage homePage = new LoginPage(webDriver).redirectToFBLogin().login();
+        int prevUserPoints = homePage.getCurrentUserPoints();
+        CheckinFormPage checkinFormPage = homePage.checkIn().selectLocation();
+
+        checkinFormPage.submitForm(TestData.VALID_BIRD_NAME, numberOfBirds, comments);
 
         String expectedMessage = String.format("You have checked in %s %s(s) successfully", numberOfBirds, TestData.VALID_BIRD_NAME);
 
@@ -35,8 +39,9 @@ public class CheckInBirdTest extends BaseTest {
         assertTrue(alertBox.getText().contains(expectedMessage));
         alertBox.accept();
 
-        HomePage homePage = new HomePage(webDriver);
         Assert.assertTrue(homePage.isLogoutButtonVisible());
+        Assert.assertThat(homePage.getCurrentUserPoints(), is(prevUserPoints+1));
+
     }
 
     @Test

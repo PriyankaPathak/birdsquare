@@ -9,10 +9,7 @@ import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,24 +24,20 @@ public class BirdCheckinController {
     }
 
     @RequestMapping(value = "/homesuccess", method = RequestMethod.POST)
-    public String retrieveBirdNameFromUserAndRedirectToProfilePage(@ModelAttribute("checkin") Checkin checkin, Model model, @RequestParam("birdName") String birdName) {
+    public String retrieveBirdNameFromUserAndRedirectToProfilePage(@ModelAttribute("checkin") Checkin checkin, Model model, @RequestParam("birdName") String birdName, @CookieValue("fbuid") String uid) {
         List birds = birdSquareSession.getCorrespondingRowAccordingToFilterSet(Bird.class, birdName, "scientific_name");
         for (Object bird : birds) {
             checkin.setBirdId((int) ((Bird) bird).getId());
         }
 
-        User user = (User) birdSquareSession.get(User.class, checkin.getFbuid());
+        User user = (User) birdSquareSession.get(User.class, uid);
         if (null != checkin && null != birdName) {
             birdSquareSession.save(checkin);
-            if (user == null) {
-                user = new User(checkin.getFbuid());
-            }
             user.incrementPointsByOne();
             birdSquareSession.saveOrUpdate(user);
         }
-        model.addAttribute("points", user.getPoints());
 
-        return "home/home";
+        return "redirect:/home";
     }
 
 

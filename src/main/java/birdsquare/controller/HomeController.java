@@ -13,14 +13,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
+    private BirdSquareSession birdSquareSession;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
-        return "home/home";
+    @Autowired
+    public HomeController(BirdSquareSession birdSquareSession) {
+        this.birdSquareSession = birdSquareSession;
     }
 
-    @RequestMapping(value = "/home")
-    public String home() {
+
+    @RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
+    public String index(Model model, @CookieValue("fbuid") String uid) {
+        User user = (User) birdSquareSession.get(User.class, uid);
+        if (user == null) {
+            user = new User(uid);
+        }
+        model.addAttribute("points", user.getPoints());
         return "home/home";
     }
 

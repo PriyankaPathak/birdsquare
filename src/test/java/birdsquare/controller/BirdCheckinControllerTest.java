@@ -13,6 +13,8 @@ import org.springframework.ui.ExtendedModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 
+import javax.servlet.http.Cookie;
+
 import static org.mockito.Mockito.times;
 import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
@@ -40,6 +42,7 @@ public class BirdCheckinControllerTest {
         request.setRequestURI("/homesuccess");
         request.setMethod("POST");
         request.setParameter("birdName","Lerwa lerwa");
+        request.setCookies(new Cookie("fbuid", "fbUserId"));
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "home/home");
@@ -57,7 +60,7 @@ public class BirdCheckinControllerTest {
     public void verifyThatBirdInformationGetsSavedOnCheckIn() throws Exception {
         Checkin checkin = new Checkin();
 
-        controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap(), "Lerwa lerwa");
+        controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap(), "Lerwa lerwa", "fbuid");
         Mockito.verify(birdSquareSession, times(1)).save(checkin);
     }
 
@@ -65,7 +68,7 @@ public class BirdCheckinControllerTest {
     public void verifyThatBirdIDIsBeingRetrievedOnCheckIn() throws Exception {
         Checkin checkin = new Checkin();
 
-        controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap(), "Lerwa lerwa");
+        controller.retrieveBirdNameFromUserAndRedirectToProfilePage(checkin, new ExtendedModelMap(), "Lerwa lerwa","fbuid");
         Mockito.verify(birdSquareSession, times(1)).getCorrespondingRowAccordingToFilterSet(Bird.class, "Lerwa lerwa", "scientific_name");
     }
 }

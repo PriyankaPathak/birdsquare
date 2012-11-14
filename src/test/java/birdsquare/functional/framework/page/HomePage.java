@@ -16,6 +16,9 @@ public class HomePage extends Page {
     @FindBy(how = How.ID, using = "sighting")
     private WebElement sighting;
 
+    @FindBy(how = How.ID, using = "userpoints-number")
+    private WebElement userPoints;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -32,5 +35,13 @@ public class HomePage extends Page {
 
     public boolean isLogoutButtonVisible() {
         return logoutBtn != null;
+    }
+
+    public boolean userPointsIsShown() {
+        return userPoints.isDisplayed();
+    }
+
+    public int getCurrentUserPoints(){
+        return Integer.parseInt(userPoints.getText());
     }
 }

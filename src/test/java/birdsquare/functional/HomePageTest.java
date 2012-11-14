@@ -5,6 +5,7 @@ import birdsquare.functional.framework.page.HomePage;
 import birdsquare.functional.framework.page.LoginPage;
 import org.junit.Test;
 
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class HomePageTest extends BaseTest {
@@ -16,5 +17,12 @@ public class HomePageTest extends BaseTest {
 
         HomePage homePage = loginPage.redirectToFBLogin().login();
         assertTrue(homePage.isLogoutButtonVisible());
+    }
+
+    @Test
+    public void shouldDisplayUserPointsOnHomePage() {
+        HomePage homePage = new LoginPage(webDriver).redirectToFBLogin().login();
+
+        assertTrue(homePage.userPointsIsShown());
     }
 }

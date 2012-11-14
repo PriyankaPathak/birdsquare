@@ -1,7 +1,9 @@
 package birdsquare.controller;
 
+import birdsquare.helper.BirdSquareSession;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,13 +21,16 @@ public class HomeControllerTest {
     private AnnotationMethodHandlerAdapter handlerAdapter;
     private HomeController controller;
 
+    @Mock
+    private BirdSquareSession mockBirdSquareSession;
+
     @Before
     public void setUp() {
         initMocks(this);
         request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
         handlerAdapter = new AnnotationMethodHandlerAdapter();
-        controller = new HomeController();
+        controller = new HomeController(mockBirdSquareSession);
     }
 
     @Test
@@ -43,6 +48,7 @@ public class HomeControllerTest {
     public void shouldRenderHomePageAfterClickingHomeButton() throws Exception {
         request.setRequestURI("/home");
         request.setCookies(new Cookie("fbuid", "fbUserId"));
+        request.setMethod("GET");
 
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "home/home");

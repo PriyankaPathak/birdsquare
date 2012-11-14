@@ -14,6 +14,7 @@
         <div id="fbpic"></div>
         <div id="userpoints">
             POINTS (LAST 7 DAYS)
+            <p id="userpoints-number">${points}</p>
         </div>
         <div id="fb-logout-btn"><a onclick="logOutUser();" data-role="button" rel="external" data-theme="b" class="ui-btn-middle">Log out</a></div>
 

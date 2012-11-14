@@ -13,7 +13,7 @@
 
 <div data-role="page" id="checkinform">
 
-    <form id="checkinform_form" name="birdinformation" onsubmit="return validateForm()" action="home" method="post" data-ajax="false">
+    <form id="checkinform_form" name="birdinformation" onsubmit="return validateForm()" action="homesuccess" method="post" data-ajax="false">
     <#include "../headers/header-without-button.ftl">
 
         <div data-role="content" id="checkinform-content">
