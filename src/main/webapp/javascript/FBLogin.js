@@ -15,8 +15,8 @@ window.fbAsyncInit = function () {
     });
 
     FB.Event.subscribe('auth.logout', function (response) {
-        redirectToLogin();
         document.cookie = '';
+        redirectToLogin();
     });
 
     FB.getLoginStatus(function (response) {
@@ -35,9 +35,9 @@ window.fbAsyncInit = function () {
 //                // the user is logged in to Facebook,
 //                // but has not authenticated your app
         } else {
+            document.cookie = '';
             // the user isn't logged in to Facebook.
             redirectToLogin();
-            document.cookie = '';
         }
     });
 
@@ -65,10 +65,9 @@ window.fbAsyncInit = function () {
     }
 
     function fetchUserData(response) {
-        if (document.URL === fetchUrl('/home')) {
+        if (document.URL === fetchUrl('/home') | document.URL === fetchUrl('/') ) {
             FB.api('/me', function (response) {
                 $("#username").append(response.name);
-                document.cookie = "fbusername=" + response.name;
                 if (response.location != null)
                     $('#city').append(response.location.name);
                 $('#fbpic').append("<img style='width:100px; height:100px' src='http://graph.facebook.com/" + response.id + "/picture'/>")

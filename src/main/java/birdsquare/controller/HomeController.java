@@ -29,10 +29,13 @@ public class HomeController {
 
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
-    public String index(Model model, @CookieValue("fbuid") String uid) throws IOException, JSONException {//, @CookieValue("fbusername") String username) {
+    public String index(Model model, @CookieValue(value= "fbuid", required = false, defaultValue = "") String uid) throws IOException, JSONException {//, @CookieValue("fbusername") String username) {
+
+        if (uid.equals("")){
+            return "home/login";
+        }
 
         User user = (User) birdSquareSession.get(User.class, uid);
-
         if (user == null) {
             JSONObject userDetails = new JsonReader().readJsonFromUrl("http://graph.facebook.com/" + uid);
             String username = (String) userDetails.get("name");
@@ -40,12 +43,9 @@ public class HomeController {
             birdSquareSession.save(user);
         }
 
-
-        List leaderboardList = birdSquareSession.getSortedDescendingList(User.class, "points", 5);
-
-        model.addAttribute("leaderboardlist", leaderboardList);
         model.addAttribute("points", user.getPoints());
-
+        List leaderboardList = birdSquareSession.getSortedDescendingList(User.class, "points", 5);
+        model.addAttribute("leaderboardlist", leaderboardList);
         return "home/home";
     }
 
