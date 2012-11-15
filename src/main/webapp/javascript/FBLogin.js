@@ -15,8 +15,8 @@ window.fbAsyncInit = function () {
     });
 
     FB.Event.subscribe('auth.logout', function (response) {
-        document.cookie = '';
         redirectToLogin();
+        document.cookie = '';
     });
 
     FB.getLoginStatus(function (response) {
@@ -28,10 +28,7 @@ window.fbAsyncInit = function () {
             // and signed request each expire
 
             var uid = response.authResponse.userID;
-
-//            setFbuidInPage(uid);
             fetchUserData(response);
-            console.log(response);
             document.cookie = 'fbuid=' + uid;
 
 //            } else if (response.status === 'not_authorized') {
@@ -40,6 +37,7 @@ window.fbAsyncInit = function () {
         } else {
             // the user isn't logged in to Facebook.
             redirectToLogin();
+            document.cookie = '';
         }
     });
 

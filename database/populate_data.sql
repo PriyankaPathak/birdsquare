@@ -1,6 +1,5 @@
 use birdsquare;
 
-
 load data local infile 'data.csv'
 into table bird
 fields terminated by ','

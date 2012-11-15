@@ -1,8 +1,11 @@
 package birdsquare.controller;
 
 import birdsquare.helper.BirdSquareSession;
+import birdsquare.helper.JsonReader;
 import birdsquare.model.Location;
 import birdsquare.model.User;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sun.net.www.http.HttpClient;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -24,14 +28,18 @@ public class HomeController {
     }
 
 
-    @RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
-    public String index(Model model, @CookieValue("fbuid") String uid){//, @CookieValue("fbusername") String username) {
+    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
+    public String index(Model model, @CookieValue("fbuid") String uid) throws IOException, JSONException {//, @CookieValue("fbusername") String username) {
+
         User user = (User) birdSquareSession.get(User.class, uid);
+
         if (user == null) {
-            user = new User(uid);
-//             json new HttpClient.New();
+            JSONObject userDetails = new JsonReader().readJsonFromUrl("http://graph.facebook.com/" + uid);
+            String username = (String) userDetails.get("name");
+            user = new User(uid, username);
             birdSquareSession.save(user);
         }
+
 
         List leaderboardList = birdSquareSession.getSortedDescendingList(User.class, "points", 5);
 

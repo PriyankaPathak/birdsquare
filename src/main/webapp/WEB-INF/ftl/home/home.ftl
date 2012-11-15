@@ -14,6 +14,7 @@
 
         <div id="fbpic"></div>
         <div id="username"></div>
+        <div id="city"></div>
         <div id="userpoints">
             POINTS (LAST 7 DAYS)
             <p id="userpoints-number">${points}</p>
@@ -23,7 +24,7 @@
             <h3>Leaderboard</h3>
             <ul data-role='listview'>
                 <#list leaderboardlist as user>
-                    <li id="${user.id}">${user.points})</li>
+                    <li id="${user.id}">${user.username},  ${user.points}</li>
                 </#list>
             </ul>
         </div>
