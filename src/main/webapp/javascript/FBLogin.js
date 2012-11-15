@@ -10,6 +10,7 @@ window.fbAsyncInit = function () {
         var uid = response.authResponse.userID;
         document.cookie = 'fbuid=' + uid;
 
+        setFbuidInCheckinFormPage(uid)
         fetchUserData(response);
         redirectToReferrerPage();
     });
@@ -30,6 +31,7 @@ window.fbAsyncInit = function () {
             var uid = response.authResponse.userID;
             fetchUserData(response);
             document.cookie = 'fbuid=' + uid;
+            setFbuidInCheckinFormPage(uid);
 
 //            } else if (response.status === 'not_authorized') {
 //                // the user is logged in to Facebook,
@@ -53,11 +55,11 @@ window.fbAsyncInit = function () {
         }
     }
 
-//    function setFbuidInPage(uid) {
-//        if (document.URL === fetchUrl('/checkinform')) {
-//            document.getElementById('fbuid').value = uid;
-//        }
-//    }
+    function setFbuidInCheckinFormPage(uid) {
+        if (document.URL === fetchUrl('/checkinform')) {
+            document.getElementById('fbuid').value = uid;
+        }
+    }
 
     function fetchUrl(thePage) {
         var loginUrl = document.URL.replace(/\/[^\/]+$/, '') + thePage;

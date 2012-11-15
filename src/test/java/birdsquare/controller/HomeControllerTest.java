@@ -58,6 +58,16 @@ public class HomeControllerTest {
     }
 
     @Test
+    public void shouldRedirectToLoginPageIfNoCookieIsObtained() throws Exception {
+        request.setRequestURI("/home");
+        request.setCookies(new Cookie("fbuid", ""));
+        request.setMethod("GET");
+
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "redirect:/login");
+    }
+
+    @Test
     public void shouldRenderCheckInPageAfterClickingCheckInButtonFromHomePage() throws Exception {
         request.setRequestURI("/checkinlocations");
 
