@@ -13,23 +13,29 @@
     <div data-role="content" id="home-content">
 
         <div id="fbpic"></div>
-        <div id="username"></div>
-        <div id="city"></div>
+
+        <div id="userdetails">
+            <div id="username"></div>
+            <div id="city"></div>
+        </div>
+
         <div id="userpoints">
-            POINTS (LAST 7 DAYS)
+            <div class="subheading-a">LIFETIME POINTS</div>
             <p id="userpoints-number">${points}</p>
         </div>
 
         <div id="leaderboard">
-            <h3>Leaderboard</h3>
-            <ul data-role='listview'>
+            <div class="subheading-b">LEADERBOARD</div>
+            <ol data-role='listview'>
                 <#list leaderboardlist as user>
-                    <li id="${user.id}">${user.username},  ${user.points}</li>
+                    <li id="${user.id}"> ${user.username} <div class="leaderboard-points">${user.points}</div></li>
                 </#list>
-            </ul>
+            </ol>
         </div>
 
+
         <div id="fb-logout-btn"><a onclick="logOutUser();" data-role="button" rel="external" data-theme="b" class="ui-btn-middle">Log out</a></div>
+
 
     </div>
 <#include "../footer.ftl">
