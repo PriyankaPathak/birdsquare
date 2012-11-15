@@ -10,12 +10,13 @@ For Mac:
 2. Install HomeBrew
 3. Run "brew install gradle"
 4. Run “brew install mysql” (Username: root, Password: empty)
-4. Run "gradle”
+5. Run "gradle”
 
 (The default tasks are clean, setupDB , build and idea)
-5. The task “gradle setupDB" will setup the birdsquare database.
-5. The task “gradle build" will compile and run all tests (unit, IT and functional) and then build a WAR.
-6. Run "gradle jettyRun" to deploy using jetty.
+6. The task “gradle setupDB" will setup the birdsquare database. For now it deletes the current database and creates a new one each time we run the command.
+   There is a data.csv file that has a list of birds(common-name,scientific-name,family-name,order).The data from the data.csv file is being imported to the bird table everytime setupDB is run.
+7. The task “gradle build" will compile and run all tests (unit, IT and functional) and then build a WAR.
+8. Run "gradle jettyRun" to deploy using jetty.
 
 
 For CentOS:
@@ -35,6 +36,8 @@ Setting Up Jasmine
 
 1. Run "gradle jasmineGenerate" to help you generate the SampleSpec and SampleRunnerFile
 2. Run “gradle jasmineRun”
+
+
 
 Test Coverage Report:
 
