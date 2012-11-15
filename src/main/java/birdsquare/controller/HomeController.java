@@ -32,7 +32,7 @@ public class HomeController {
     public String index(Model model, @CookieValue(value= "fbuid", required = false, defaultValue = "") String uid) throws IOException, JSONException {//, @CookieValue("fbusername") String username) {
 
         if (uid.equals("")){
-            return "home/login";
+            return "redirect:/login";
         }
 
         User user = (User) birdSquareSession.get(User.class, uid);
