@@ -25,4 +25,11 @@ public class HomePageTest extends BaseTest {
 
         assertTrue(homePage.userPointsIsShown());
     }
+
+    @Test
+    public void shouldDisplayLeaderboardOnHomePage() {
+        HomePage homePage = new LoginPage(webDriver).redirectToFBLogin().login();
+
+        assertTrue(homePage.leaderboardIsShown());
+    }
 }

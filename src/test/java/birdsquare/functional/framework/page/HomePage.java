@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 
 public class HomePage extends Page {
 
-    public static final String HOME_CONTENT_ID = "home-content";
+    public static final String LAST_ID_ON_PAGE = "fb-logout-btn";
 
     @FindBy(how = How.ID, using = "fb-logout-btn")
     private WebElement logoutBtn;
@@ -19,13 +19,16 @@ public class HomePage extends Page {
     @FindBy(how = How.ID, using = "userpoints-number")
     private WebElement userPoints;
 
+    @FindBy(how = How.ID, using = "leaderboard")
+    private WebElement leaderBoard;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
 
     @Override
     public void waitForThePageToLoad() {
-        waitForElementToLoad(By.id(HOME_CONTENT_ID));
+        waitForElementToLoad(By.id(LAST_ID_ON_PAGE));
     }
 
     public CheckinLocationPage checkIn() {
@@ -43,5 +46,9 @@ public class HomePage extends Page {
 
     public int getCurrentUserPoints(){
         return Integer.parseInt(userPoints.getText());
+    }
+
+    public boolean leaderboardIsShown() {
+        return leaderBoard.isDisplayed();
     }
 }
