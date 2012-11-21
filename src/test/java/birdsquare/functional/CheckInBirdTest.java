@@ -29,11 +29,15 @@ public class CheckInBirdTest extends BaseTest {
 
         HomePage homePage = new LoginPage(webDriver).redirectToFBLogin().login();
         int prevUserPoints = homePage.getCurrentUserPoints();
-        CheckinFormPage checkinFormPage = homePage.checkIn().selectLocation();
+        CheckinLocationPage checkinLocationPage = homePage.checkIn();
+        String location = checkinLocationPage.getFirstLocationId();
+        CheckinFormPage checkinFormPage = checkinLocationPage.selectLocation();
 
         checkinFormPage.submitForm(TestData.VALID_BIRD_NAME, numberOfBirds, comments);
 
-        String expectedMessage = String.format("You have checked in %s %s(s) successfully", numberOfBirds, TestData.VALID_BIRD_NAME);
+        System.out.println(location);
+
+        String expectedMessage = String.format("You have checked in %s %s(s) successfully in %s.", numberOfBirds, TestData.VALID_BIRD_NAME,location);
 
         Alert alertBox = webDriver.switchTo().alert();
         assertTrue(alertBox.getText().contains(expectedMessage));

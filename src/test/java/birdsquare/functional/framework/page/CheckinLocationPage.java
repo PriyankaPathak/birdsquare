@@ -26,4 +26,8 @@ public class CheckinLocationPage extends Page {
         firstLocation.click();
         return new CheckinFormPage(webDriver);
     }
+
+    public String getFirstLocationId(){
+        return firstLocation.getText();
+    }
 }
