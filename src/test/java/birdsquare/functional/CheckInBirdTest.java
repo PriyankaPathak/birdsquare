@@ -8,6 +8,7 @@ import birdsquare.functional.framework.page.CheckinLocationPage;
 import birdsquare.functional.framework.page.HomePage;
 import birdsquare.functional.framework.page.LoginPage;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 public class CheckInBirdTest extends BaseTest {
+    @Ignore
 
     @Test
     public void checkInABirdSuccessfullyWithoutCommentsAndIncrementUserPointsByOne() {
@@ -35,8 +37,6 @@ public class CheckInBirdTest extends BaseTest {
 
         checkinFormPage.submitForm(TestData.VALID_BIRD_NAME, numberOfBirds, comments);
 
-        System.out.println(location);
-
         String expectedMessage = String.format("You have checked in %s %s(s) successfully in %s.", numberOfBirds, TestData.VALID_BIRD_NAME,location);
 
         Alert alertBox = webDriver.switchTo().alert();
@@ -47,6 +47,7 @@ public class CheckInBirdTest extends BaseTest {
         Assert.assertThat(homePage.getCurrentUserPoints(), is(prevUserPoints+1));
 
     }
+    @Ignore
 
     @Test
     public void checkInAnInvalidBird() {
@@ -56,6 +57,7 @@ public class CheckInBirdTest extends BaseTest {
         assertTrue(webDriver.switchTo().alert().getText().contains("[Bird Name] Please select bird name from given list."));
         assertTrue(webDriver.switchTo().alert().getText().contains("[Number of birds] Please enter valid integer greater than zero."));
     }
+    @Ignore
 
     @Test
     public void checkInAnInvalidBirdNumber() {
@@ -64,6 +66,7 @@ public class CheckInBirdTest extends BaseTest {
 
         assertTrue(webDriver.switchTo().alert().getText().contains("[Number of birds] Please enter valid integer greater than zero."));
     }
+    @Ignore
 
     @Test
     public void checkThatWeCanCountBirdList() {

@@ -60,3 +60,11 @@ Extra Notes (Regarding pushing to repository)
 Please do "gradle build" before COMMITTING to the git repository.
 If the build failed, please DO NOT push your code to the repository as it can break the build in the CI server.
 
+//
+sql language;
+select * from checkin
+join user
+on checkin.fbuid=user.id
+var user.username = 'ashwin'
+  and checkin.date='%2012%';
+//
