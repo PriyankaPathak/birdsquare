@@ -1,0 +1,2 @@
+select count(*) from checkin where fbuid=100000184580271
+and date<'2012-11-22 12:50:50' and date>'2012-11-22 12:41:00';

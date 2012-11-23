@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 @Controller
@@ -28,7 +29,7 @@ public class HomeController {
 
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
-    public String index(Model model, @CookieValue(value= "fbuid", required = false, defaultValue = "") String uid) throws IOException, JSONException {//, @CookieValue("fbusername") String username) {
+    public String index(Model model, @CookieValue(value= "fbuid", required = false, defaultValue = "") String uid) throws IOException, JSONException, ParseException {//, @CookieValue("fbusername") String username) {
 
         if (uid.equals("")){
             return "redirect:/login";
@@ -43,8 +44,8 @@ public class HomeController {
         }
 
         model.addAttribute("points", user.getPoints());
-//        int pointsForLast7Days = birdSquareSession.getPointsForLastSevenDays(checkin1.getFbuid());
-//        model.addAttribute("temppoints",pointsForLast7Days);
+        int pointsForLast7Days = birdSquareSession.getPointsForLastSevenDays(uid);
+        model.addAttribute("temppoints",pointsForLast7Days);
         List leaderboardList = birdSquareSession.getSortedDescendingList(User.class, "points", 5);
         model.addAttribute("leaderboardlist", leaderboardList);
         return "home/home";

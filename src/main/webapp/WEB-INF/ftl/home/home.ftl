@@ -25,7 +25,7 @@
         </div>
         <div id="temppoints">
             <div class="subheading-a">POINTS FOR LAST 7 DAYS</div>
-            <p id="temppoints-number">${temp_points}</p>
+            <p id="temppoints-number">${temppoints}</p>
         </div>
 
         <div id="leaderboard">
