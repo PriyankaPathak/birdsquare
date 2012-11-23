@@ -1,6 +1,5 @@
 package birdsquare.helper;
 
-import birdsquare.model.Checkin;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -81,23 +80,27 @@ public class BirdSquareSession {
     }
 
     public int getPointsForLastSevenDays(String id) throws ParseException {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date1= new Date();
-        Date date2= dateFormat.parse("2012-11-20");
-        Calendar now = Calendar.getInstance();
-        now.add(Calendar.MINUTE,1);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar now = new GregorianCalendar();
+
+        now.add(Calendar.DATE,1);
         Date today = now.getTime();
-        dateFormat.format(today);
-        System.out.println(date1);
-        Calendar calendar=new GregorianCalendar();
-        calendar.add(Calendar.DATE,-7);
-        Date endDay= calendar.getTime();
-        dateFormat.format(endDay);
-        System.out.println(date2);
-        Criteria criteria = session.createCriteria(Checkin.class).add(Restrictions.like("fbuid",id))
-                .add(Restrictions.between("date", date1, date2));
-        List<Checkin> checkinList = criteria.list();
-        int count=checkinList.size();
-        return count;
+        String startingDate = dateFormat.format(today);
+
+        now.add(Calendar.DATE, -7);
+        Date endDay= now.getTime();
+        String endingDate = dateFormat.format(endDay);
+
+        System.out.println(endingDate);
+
+        String query = "select * from checkin where fbuid='"+id+"' and date<='"+startingDate+"' and date>='"+endingDate+"';";
+
+        SQLQuery sqlQuery = session.createSQLQuery(query);
+        List someList = sqlQuery.list();
+
+//        Criteria criteria = session.createCriteria(Checkin.class).add(Restrictions.like("fbuid", id))
+//                .add(Restrictions.between("date", today, endDay));
+//        List<Checkin> checkinList = criteria.list();
+        return someList.size();
     }
 }
