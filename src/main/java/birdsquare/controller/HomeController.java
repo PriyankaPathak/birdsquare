@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import sun.net.www.http.HttpClient;
 
 import java.io.IOException;
 import java.util.List;
@@ -44,6 +43,8 @@ public class HomeController {
         }
 
         model.addAttribute("points", user.getPoints());
+//        int pointsForLast7Days = birdSquareSession.getPointsForLastSevenDays(checkin1.getFbuid());
+//        model.addAttribute("temppoints",pointsForLast7Days);
         List leaderboardList = birdSquareSession.getSortedDescendingList(User.class, "points", 5);
         model.addAttribute("leaderboardlist", leaderboardList);
         return "home/home";

@@ -1,6 +1,6 @@
 package birdsquare.helper;
 
-import birdsquare.model.User;
+import birdsquare.model.Checkin;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -9,6 +9,12 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @Component
@@ -74,4 +80,24 @@ public class BirdSquareSession {
         return criteria.list();
     }
 
+    public int getPointsForLastSevenDays(String id) throws ParseException {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date1= new Date();
+        Date date2= dateFormat.parse("2012-11-20");
+        Calendar now = Calendar.getInstance();
+        now.add(Calendar.MINUTE,1);
+        Date today = now.getTime();
+        dateFormat.format(today);
+        System.out.println(date1);
+        Calendar calendar=new GregorianCalendar();
+        calendar.add(Calendar.DATE,-7);
+        Date endDay= calendar.getTime();
+        dateFormat.format(endDay);
+        System.out.println(date2);
+        Criteria criteria = session.createCriteria(Checkin.class).add(Restrictions.like("fbuid",id))
+                .add(Restrictions.between("date", date1, date2));
+        List<Checkin> checkinList = criteria.list();
+        int count=checkinList.size();
+        return count;
+    }
 }

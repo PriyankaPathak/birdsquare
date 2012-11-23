@@ -65,6 +65,6 @@ sql language;
 select * from checkin
 join user
 on checkin.fbuid=user.id
-var user.username = 'ashwin'
+where user.username = 'ashwin'
   and checkin.date='%2012%';
 //

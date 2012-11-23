@@ -23,13 +23,17 @@
             <div class="subheading-a">LIFETIME POINTS</div>
             <p id="userpoints-number">${points}</p>
         </div>
+        <div id="temppoints">
+            <div class="subheading-a">POINTS FOR LAST 7 DAYS</div>
+            <p id="temppoints-number">${temp_points}</p>
+        </div>
 
         <div id="leaderboard">
             <div class="subheading-b">LEADERBOARD</div>
             <ol data-role='listview'>
-                <#list leaderboardlist as user>
-                    <li id="${user.id}"> ${user.username} <div class="leaderboard-points">${user.points}</div></li>
-                </#list>
+            <#list leaderboardlist as user>
+                <li id="${user.id}"> ${user.username} <div class="leaderboard-points">${user.points}</div></li>
+            </#list>
             </ol>
         </div>
 
