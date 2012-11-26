@@ -26,11 +26,6 @@
             </div>
         </div>
 
-        <div id="temppoints">
-            <div class="subheading-a">POINTS FOR LAST 7 DAYS</div>
-            <p id="temppoints-number">${temppoints}</p>
-        </div>
-
 
         <label for="slider-fill">Points for last 7 days:</label>
         <input type="range" name="slider-fill" id="slider-fill" value="${temppoints}" min="0" max="${maxpoints}" data-highlight="true" />
