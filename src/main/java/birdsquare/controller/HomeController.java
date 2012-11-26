@@ -44,8 +44,13 @@ public class HomeController {
         }
 
         model.addAttribute("points", user.getPoints());
+
+        int maxPoints=birdSquareSession.maximumPointsAmongUsers();
+        model.addAttribute("maxpoints",maxPoints);
+
         int pointsForLast7Days = birdSquareSession.getPointsForLastSevenDays(uid);
         model.addAttribute("temppoints",pointsForLast7Days);
+
         List leaderboardList = birdSquareSession.getSortedDescendingList(User.class, "points", 5);
         model.addAttribute("leaderboardlist", leaderboardList);
         return "home/home";

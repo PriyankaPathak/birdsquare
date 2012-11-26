@@ -1,9 +1,13 @@
 package birdsquare.helper;
 
+import birdsquare.model.Checkin;
+import birdsquare.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
@@ -71,7 +75,7 @@ public class BirdSquareSession {
     }
 
     private void initSession() {
-        this.session = BirdSquareSessionFactory.getInstance().createSession();
+    this.session = BirdSquareSessionFactory.getInstance().createSession();
     }
 
     public List getSortedDescendingList(Class clazz, String variableToSortBy, int lengthOfList) {
@@ -81,26 +85,28 @@ public class BirdSquareSession {
 
     public int getPointsForLastSevenDays(String id) throws ParseException {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Calendar now = new GregorianCalendar();
+        Calendar calendar = new GregorianCalendar();
+        Date today = calendar.getTime();
+        String dateToday = dateFormat.format(today);
 
-        now.add(Calendar.DATE,1);
-        Date today = now.getTime();
-        String startingDate = dateFormat.format(today);
+        calendar.add(Calendar.DATE, -7);
+        Date endDay= calendar.getTime();
+        String dateBefore7Days = dateFormat.format(endDay);
 
-        now.add(Calendar.DATE, -7);
-        Date endDay= now.getTime();
-        String endingDate = dateFormat.format(endDay);
-
-        System.out.println(endingDate);
-
-        String query = "select * from checkin where fbuid='"+id+"' and date<='"+startingDate+"' and date>='"+endingDate+"';";
-
+        String query = "select * from checkin where fbuid='"+id+"' and date<='"+dateToday+"' and date>='"+dateBefore7Days+"';";
         SQLQuery sqlQuery = session.createSQLQuery(query);
         List someList = sqlQuery.list();
 
-//        Criteria criteria = session.createCriteria(Checkin.class).add(Restrictions.like("fbuid", id))
+//        Criteria criteria = session.createCriteria(Checkin.class)
+//                .add(Restrictions.like("fbuid", id))
 //                .add(Restrictions.between("date", today, endDay));
 //        List<Checkin> checkinList = criteria.list();
+
         return someList.size();
+    }
+    public int maximumPointsAmongUsers(){
+        Criteria criteria=session.createCriteria(User.class).setProjection(Projections.max("points"));
+        int max=(Integer)criteria.uniqueResult();
+        return max;
     }
 }

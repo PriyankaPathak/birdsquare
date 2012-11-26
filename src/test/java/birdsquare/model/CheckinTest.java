@@ -25,6 +25,7 @@ public class CheckinTest {
     public void shouldSetTodayAsTheDateOfCheckIn() throws Exception {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         assertEquals(dateFormat.format(new Date()), dateFormat.format(checkin.getDate()));
+        System.out.println(checkin.getDate());
     }
 
     @Test

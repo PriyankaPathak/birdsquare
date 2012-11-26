@@ -11,22 +11,36 @@
 <#include "../headers/header-with-checkin.ftl">
 
     <div data-role="content" id="home-content">
+        <div class="ui-grid-b" id="picnamelocation">
+            <div id="fbpic" class="ui-block-a"></div>
 
-        <div id="fbpic"></div>
-
-        <div id="userdetails">
-            <div id="username"></div>
-            <div id="city"></div>
+            <div id="userdetails" class="ui-block-b">
+                <div  class="ui-bar ui-bar-e">
+                    <div id="username"></div>
+                    <div id="city"></div>
+                </div>
+                <div id="userpoints" class="ui-bar ui-bar-e">
+                    <div class="subheading-a">LIFETIME POINTS</div>
+                    <div id="userpoints-number">${points}</div>
+                </div>
+            </div>
         </div>
 
-        <div id="userpoints">
-            <div class="subheading-a">LIFETIME POINTS</div>
-            <p id="userpoints-number">${points}</p>
-        </div>
         <div id="temppoints">
             <div class="subheading-a">POINTS FOR LAST 7 DAYS</div>
             <p id="temppoints-number">${temppoints}</p>
         </div>
+
+
+        <label for="slider-fill">Points for last 7 days:</label>
+        <input type="range" name="slider-fill" id="slider-fill" value="${temppoints}" min="0" max="${maxpoints}" data-highlight="true" />
+
+        <script>
+            $(document).ready(function()
+            {
+                $('#slider-fill').slider({ disabled: true});
+            })
+        </script>
 
         <div id="leaderboard">
             <div class="subheading-b">LEADERBOARD</div>
