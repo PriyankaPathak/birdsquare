@@ -2,6 +2,7 @@
 <html>
 <head>
 <#include "../includes.ftl">
+    <script src="javascript/JQMsliderHelper.js"></script>
 
     <title> BirdSquare: Home</title>
 </head>
@@ -26,16 +27,10 @@
             </div>
         </div>
 
-
-        <label for="slider-fill">Points for last 7 days:</label>
-        <input type="range" name="slider-fill" id="slider-fill" value="${temppoints}" min="0" max="${maxpoints}" data-highlight="true" />
-
-        <script>
-            $(document).ready(function()
-            {
-                $('#slider-fill').slider({ disabled: true});
-            })
-        </script>
+        <div id="progressbar">
+            <label for="slider-fill">Points for last 7 days:</label>
+            <input type="range" name="slider-fill" id="slider-fill" value="${temppoints}" min="0" max="${maxpoints}" data-highlight="true" />
+        </div>
 
         <div id="leaderboard">
             <div class="subheading-b">LEADERBOARD</div>

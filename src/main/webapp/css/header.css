@@ -69,6 +69,19 @@
 
 }
 
+.slider{
+    visibility: hidden;
+    display: block;
+}
+.ui-slider-handle{
+    visibility: hidden;
+}
+
+#progressbar{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
 /*#fbpic{*/
     /*float: left;*/
     /*margin-left: 3%;*/
