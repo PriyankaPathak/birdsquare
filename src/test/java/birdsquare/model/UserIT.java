@@ -1,11 +1,17 @@
 package birdsquare.model;
 
 import birdsquare.helper.BirdSquareSession;
+import org.hibernate.Criteria;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class UserIT {
 
@@ -33,6 +39,24 @@ public class UserIT {
         loadedUser.incrementPointsByOne();
         birdSquareSession.save(loadedUser);
         assertEquals(8, persistedUser.getPoints());
+    }
+
+    @Test
+    public void shouldReturnMaximumPointsAmongUsers(){
+        int maxPoints = birdSquareSession.maximumPointsAmongUsers();
+        List userList = birdSquareSession.getCorrespondingColumnAccordingToFilter(User.class, "points");
+        int maxPointsInDB = getMaxUserPointsFromDB(userList);
+        assertThat(maxPointsInDB,is(maxPoints));
+    }
+
+    private int getMaxUserPointsFromDB(List userList) {
+        int maxPointsInDB = 0;
+        for(Object userPoints:userList){
+            if((Integer)userPoints>maxPointsInDB){
+                maxPointsInDB=(Integer)userPoints;
+            }
+        }
+        return maxPointsInDB;
     }
 
     @After

@@ -3,7 +3,6 @@
 <head>
 <#include "../includes.ftl">
     <script src="javascript/JQMsliderHelper.js"></script>
-
     <title> BirdSquare: Home</title>
 </head>
 
@@ -12,18 +11,23 @@
 <#include "../headers/header-with-checkin.ftl">
 
     <div data-role="content" id="home-content">
-        <div class="ui-grid-b" id="picnamelocation">
-            <div id="fbpic" class="ui-block-a"></div>
+        <div class="ui-grid-a" id="picnamelocation">
+            <div class="ui-block-a">
+                <div id="fbpic"></div>
+            </div>
 
             <div id="userdetails" class="ui-block-b">
-                <div  class="ui-bar ui-bar-e">
+
+                <div class="ui-bar ui-bar-e">
                     <div id="username"></div>
                     <div id="city"></div>
                 </div>
+
                 <div id="userpoints" class="ui-bar ui-bar-e">
                     <div class="subheading-a">LIFETIME POINTS</div>
                     <div id="userpoints-number">${points}</div>
                 </div>
+
             </div>
         </div>
 
@@ -40,7 +44,6 @@
             </#list>
             </ol>
         </div>
-
 
         <div id="fb-logout-btn"><a onclick="logOutUser();" data-role="button" rel="external" data-theme="b" class="ui-btn-middle">Log out</a></div>
 

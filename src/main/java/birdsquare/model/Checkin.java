@@ -85,6 +85,10 @@ public class Checkin {
         return date;
     }
 
+    public void setDate(Date date){
+        this.date=date;
+    }
+
     public List<String> getBirdNameList(BirdSquareSession birdSquareSession) {
         List<String> birdNameList = new ArrayList();
         List allBirds = birdSquareSession.getAll(Bird.class);

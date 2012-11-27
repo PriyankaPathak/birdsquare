@@ -17,25 +17,23 @@ public class CheckinIT {
 
     private BirdSquareSession birdSquareSession;
     private Checkin checkin;
-    private Checkin checkin2;
+    private Checkin checkinBefor7Days;
 
     @Before
     public void setUp() {
         birdSquareSession = new BirdSquareSession();
         checkin = createCheckin();
-        checkin2=createCheckin1();
+        birdSquareSession.saveOrUpdate(checkin);
     }
 
     @After
     public void tearDown() {
         birdSquareSession.delete(checkin);
-        birdSquareSession.delete(checkin2);
         birdSquareSession.close();
     }
 
     @Test
     public void shouldSaveCheckInModelToTheDB() throws Exception {
-        birdSquareSession.saveOrUpdate(checkin);
 
         Checkin loadedCheckIn = (Checkin) birdSquareSession.get(Checkin.class, checkin.getId());
         assertEquals(checkin.getBirdID(), loadedCheckIn.getBirdID());
@@ -45,27 +43,34 @@ public class CheckinIT {
     }
 
     @Test
-    public void shouldReturnPointsForAParticularUser() throws ParseException {
-        birdSquareSession.saveOrUpdate(checkin);
-        birdSquareSession.saveOrUpdate(checkin2);
+    public void shouldReturnPointsForAParticularUserOfLast7Days() throws ParseException {
+        checkinBefor7Days = createCheckinInstance7DaysBefore();
+        birdSquareSession.saveOrUpdate(checkinBefor7Days);
         String id = "1111";
         int count = birdSquareSession.getPointsForLastSevenDays(id);
-        assertEquals(2,count);
+        System.out.println(checkin.getDate());
+        System.out.println(checkinBefor7Days.getDate());
+        assertEquals(1,count);
+        birdSquareSession.delete(checkinBefor7Days);
     }
 
-    private Checkin createCheckin1() {
+    private Checkin createCheckinInstance7DaysBefore() {
+        Checkin checkin = new Checkin();
+        checkin.setBirdId(1);
+        checkin.setNumber(16);
+        Calendar calendar = new GregorianCalendar();
+        calendar.add(Calendar.DATE,-8);
+        Date date = calendar.getTime();
+        checkin.setDate(date);
+        checkin.setFbuid("1111");
+        return checkin;
+    }
+
+    private Checkin createCheckin() {
         Checkin checkin1=new Checkin();
         checkin1.setBirdId(2);
         checkin1.setNumber(2);
         checkin1.setFbuid("1111");
         return checkin1;
-    }
-
-    private Checkin createCheckin() {
-        Checkin checkin = new Checkin();
-        checkin.setBirdId(1);
-        checkin.setNumber(16);
-        checkin.setFbuid("1111");
-        return checkin;
     }
 }

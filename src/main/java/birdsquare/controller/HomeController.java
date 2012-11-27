@@ -2,6 +2,8 @@ package birdsquare.controller;
 
 import birdsquare.helper.BirdSquareSession;
 import birdsquare.helper.JsonReader;
+import birdsquare.model.Bird;
+import birdsquare.model.Checkin;
 import birdsquare.model.Location;
 import birdsquare.model.User;
 import org.json.JSONException;
@@ -63,5 +65,20 @@ public class HomeController {
         model.addAttribute("longitude", location.getLongitude());
         return "checkin/checkinlocations";
     }
+
+    @RequestMapping(value = "/search")
+    public String searchBirds(Model model){
+        Checkin checkin = new Checkin();
+        List<String> birdNameList = checkin.getBirdNameList(birdSquareSession);
+        model.addAttribute("allbirds", birdNameList);
+        return "search/search";
+
+    }
+
+    @RequestMapping(value = "/birdprofile")
+    public String birdProfile(Model model){
+        return "birdprofile/birdprofile";
+    }
+
 }
 

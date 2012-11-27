@@ -48,7 +48,6 @@
 
 #userdetails {
     float: right;
-    margin-left: 3%;
     text-align: left;
 }
 
@@ -68,35 +67,26 @@
     margin-right: 3%;
 
 }
-
-.slider{
-    visibility: hidden;
-    display: block;
-}
 .ui-slider-handle{
     visibility: hidden;
+}
+
+#birdprofile-content{
+    margin-left: 3%;
+    margin-right: 3%
+}
+
+#birdimage{
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 20%;
+    width: 20%;
 }
 
 #progressbar{
     margin-left: 3%;
     margin-right: 3%;
 }
-
-/*#fbpic{*/
-    /*float: left;*/
-    /*margin-left: 3%;*/
-/*}*/
-
-/*.fbuserdetails {*/
-    /*float: left;*/
-    /*margin-left: 5%;*/
-/*}*/
-
-/*#userpoints{*/
-    /*margin-left: 3%;*/
-    /*padding-top: 15px;*/
-    /*clear: both;*/
-/*}*/
 
 .subheading-a {
     font-size: 15px;

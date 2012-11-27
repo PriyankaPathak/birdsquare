@@ -21,8 +21,9 @@
         <ul id="location-container" data-filter-placeholder="Filter items" data-role='listview' data-inset='true' data-filter='true'>
         </ul>
         <ul data-role='listview' data-inset='true'>
-                <li><a onclick="document.getElementById('form-addlocation').submit()" rel="external">Create new location</a></li>
-            </ul>
+            <#--<li><a onclick="document.getElementById('form-addlocation').submit()" rel="external">Create new location</a></li>-->
+            <li></li>
+        </ul>
     </div>
 
 <#include "../footer.ftl" />

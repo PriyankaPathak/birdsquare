@@ -32,9 +32,13 @@ public class BirdSquareSession {
     public Object get(Class clazz, Serializable id) {
         return session.get(clazz, id);
     }
-
+                //TODO can v make this function return bird ID itself?
     public List getCorrespondingRowAccordingToFilterSet(Class clazz, String value, String filter) {
         return session.createCriteria(clazz).add(Restrictions.like(filter, value)).list();
+    }
+
+    public List getCorrespondingColumnAccordingToFilter(Class clazz,String filter){
+        return session.createCriteria(clazz).setProjection(Projections.property(filter)).list();
     }
 
     public List getAll(Class clazz) {

@@ -84,4 +84,12 @@ public class HomeControllerTest {
         controller.checkin(location, model);
         assertEquals("TW", model.get("locationName"));
     }
+
+    @Test
+    public void shouldRedirectToSearchPageUponClickingSearch() throws Exception {
+        request.setRequestURI("/search");
+        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+        assertViewName(mav, "search/search");
+
+    }
 }
