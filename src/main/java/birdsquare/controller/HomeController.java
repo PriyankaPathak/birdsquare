@@ -3,7 +3,6 @@ package birdsquare.controller;
 import birdsquare.helper.BirdSquareSession;
 import birdsquare.helper.JsonReader;
 import birdsquare.model.Bird;
-import birdsquare.model.Checkin;
 import birdsquare.model.Location;
 import birdsquare.model.User;
 import org.json.JSONException;
@@ -11,10 +10,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -68,15 +64,20 @@ public class HomeController {
 
     @RequestMapping(value = "/search")
     public String searchBirds(Model model){
-        Checkin checkin = new Checkin();
-        List<String> birdNameList = checkin.getBirdNameList(birdSquareSession);
-        model.addAttribute("allbirds", birdNameList);
+        List<Bird> birdList = birdSquareSession.getAll(Bird.class);
+        model.addAttribute("allbirds", birdList);
         return "search/search";
 
     }
 
-    @RequestMapping(value = "/birdprofile")
-    public String birdProfile(Model model){
+    @RequestMapping(value = "/birdprofile/{birdID}", method = RequestMethod.GET)
+    public String birdProfile(@PathVariable("birdID") String birdId, Model model){
+        long id = (long)Integer.parseInt(birdId);
+        Bird bird = (Bird) birdSquareSession.get(Bird.class,id);
+        model.addAttribute("birdname",bird.getCommon_name());
+        model.addAttribute("scientificname",bird.getScientific_name());
+        model.addAttribute("familyname",bird.getFamily_name());
+        model.addAttribute("ordername",bird.getOrder_name());
         return "birdprofile/birdprofile";
     }
 

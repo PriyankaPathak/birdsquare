@@ -1,11 +1,9 @@
 package birdsquare.helper;
 
-import birdsquare.model.Checkin;
 import birdsquare.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;

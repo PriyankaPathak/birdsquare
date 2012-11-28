@@ -7,7 +7,7 @@
             </a>
             </li>
             <li>
-                <a href="birdprofile" rel="external" data-theme="b" data-icon="star">
+                <a href="home" rel="external" data-theme="b" data-icon="star">
                     Profile
                 </a>
             </li>

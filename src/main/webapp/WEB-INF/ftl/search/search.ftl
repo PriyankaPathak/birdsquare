@@ -12,11 +12,11 @@
 <#include "../headers/header-with-checkin.ftl">
     <div data-role="content">
         <ul data-role='listview' data-inset='true' data-filter='true'>
-            <#list allbirds as item><li>${item}</li></#list>"
+            <#list allbirds as item><li><a href="birdprofile/${item.id}" rel="external">${item.common_name+"("+item.scientific_name+")"}</a></li></#list>"
         </ul>
         <#--<label for="birdname-field" class="ui-hidden-accessible"></label>-->
         <#--<input type="text" name="birdName" id="birdname-field" placeholder="Bird name"/>-->
-
+<#---->
         <#--<input type="hidden" name="birdNameList" id="birdNameList" value="<#list allbirds as item>${item},</#list>"/>-->
     </div>
 

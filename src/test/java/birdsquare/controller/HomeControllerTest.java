@@ -1,10 +1,12 @@
 package birdsquare.controller;
 
 import birdsquare.helper.BirdSquareSession;
+import birdsquare.model.Bird;
 import birdsquare.model.Location;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.ui.ExtendedModelMap;
@@ -90,6 +92,12 @@ public class HomeControllerTest {
         request.setRequestURI("/search");
         final ModelAndView mav = handlerAdapter.handle(request, response, controller);
         assertViewName(mav, "search/search");
-
     }
+//    @Test
+//    public void shouldRedirectToBirdProfilePageUponClickingBirdList() throws Exception {
+//        request.setRequestURI("/birdprofile");
+//        final ModelAndView mav = handlerAdapter.handle(request, response, controller);
+//        assertViewName(mav, "birdprofile/birdprofile");
+//    }
+
 }

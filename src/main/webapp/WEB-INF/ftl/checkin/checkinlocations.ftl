@@ -16,12 +16,11 @@
 <#include "../headers/header-without-button.ftl" />
 
     <div data-role="content" id="checkinlocations-content">
-        <p>
-            Select a location </p>
+        <p>Select a location </p>
         <ul id="location-container" data-filter-placeholder="Filter items" data-role='listview' data-inset='true' data-filter='true'>
         </ul>
         <ul data-role='listview' data-inset='true'>
-            <#--<li><a onclick="document.getElementById('form-addlocation').submit()" rel="external">Create new location</a></li>-->
+            <li><a onclick="document.getElementById('form-addlocation').submit()" rel="external">Create new location</a></li>
             <li></li>
         </ul>
     </div>
