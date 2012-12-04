@@ -18,6 +18,9 @@ public abstract class Page {
         PageFactory.initElements(webDriver, this);
     }
 
+    protected Page() {
+    }
+
     public abstract void waitForThePageToLoad();
 
     protected void waitForElementToLoad(final By by) {

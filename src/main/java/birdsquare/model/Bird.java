@@ -19,6 +19,8 @@ public class Bird {
     private String scientific_name;
     private String family_name;
     private String order_name;
+    private String image_url;
+
 
     public String getCommon_name() {
         return common_name;
@@ -38,5 +40,9 @@ public class Bird {
 
     public long getId() {
         return id;
+    }
+
+    public String getImage_url() {
+        return image_url;
     }
 }

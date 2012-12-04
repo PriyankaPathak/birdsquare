@@ -11,6 +11,7 @@ common_name varchar(200) not null,
 scientific_name varchar(200) not null,
 family_name varchar(200) not null,
 order_name varchar(200) not null,
+image_url varchar(200) not null ,
 
 PRIMARY KEY ( id )
 );

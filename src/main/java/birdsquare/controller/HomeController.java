@@ -67,19 +67,6 @@ public class HomeController {
         List<Bird> birdList = birdSquareSession.getAll(Bird.class);
         model.addAttribute("allbirds", birdList);
         return "search/search";
-
     }
-
-    @RequestMapping(value = "/birdprofile/{birdID}", method = RequestMethod.GET)
-    public String birdProfile(@PathVariable("birdID") String birdId, Model model){
-        long id = (long)Integer.parseInt(birdId);
-        Bird bird = (Bird) birdSquareSession.get(Bird.class,id);
-        model.addAttribute("birdname",bird.getCommon_name());
-        model.addAttribute("scientificname",bird.getScientific_name());
-        model.addAttribute("familyname",bird.getFamily_name());
-        model.addAttribute("ordername",bird.getOrder_name());
-        return "birdprofile/birdprofile";
-    }
-
 }
 

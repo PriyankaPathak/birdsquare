@@ -31,4 +31,10 @@ public class BirdIT {
             assertEquals(((Bird)bird).getId(),1);
         }
     }
+    @Test
+    public void testImageUrl(){
+        long id =4;
+        Bird bird = (Bird) birdSquareSession.get(Bird.class,id);
+        System.out.println(bird.getImage_url());
+    }
 }

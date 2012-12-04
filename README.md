@@ -60,11 +60,15 @@ Extra Notes (Regarding pushing to repository)
 Please do "gradle build" before COMMITTING to the git repository.
 If the build failed, please DO NOT push your code to the repository as it can break the build in the CI server.
 
-//
-sql language;
-select * from checkin
-join user
-on checkin.fbuid=user.id
-where user.username = 'ashwin'
-  and checkin.date='%2012%';
-//
+Getting Images from wikipedia
+* Wikipedia API : http://en.wikipedia.org/w/api.php
+* Steps to get images from wiki : http://techslides.com/grab-wikipedia-pictures-by-api-with-php/
+* Media wiki support : http://code.google.com/p/gwtwiki/wiki/MediaWikiAPISupport
+
+Concatinating two files:
+* Data.csv had bird informations, and another file with image urls was created. So to combine those two in single data.csv,
+-->$paste -d, one.csv two.csv > three.csv
+when two files are merged, it will have ^M at the end of line to show end line. So to remove this,
+do $vim three.csv
+and do :%s/^M//g
+

@@ -5,7 +5,9 @@ into table bird
 fields terminated by ','
 enclosed by '"'
 lines terminated by '\n'
-(common_name, scientific_name, family_name, order_name);
+(common_name, scientific_name, family_name, order_name,image_url);
+
+
 
 
 

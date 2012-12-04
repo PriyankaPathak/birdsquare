@@ -20,7 +20,6 @@
         <property name="cache" value="true"/>
         <property name="prefix" value=""/>
         <property name="suffix" value=".ftl"/>
-
     </bean>
 
     <!--Do not delete the line below. Everything will break.-->

@@ -16,11 +16,18 @@ public class HomePage extends Page {
     @FindBy(how = How.ID, using = "sighting")
     private WebElement sighting;
 
+    @FindBy(how = How.ID, using = "search")
+        private WebElement search;
+
     @FindBy(how = How.ID, using = "userpoints-number")
     private WebElement userPoints;
 
     @FindBy(how = How.ID, using = "leaderboard")
     private WebElement leaderBoard;
+
+    @FindBy(how = How.ID, using = "progressbar")
+    private WebElement progressbar;
+
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
@@ -50,5 +57,15 @@ public class HomePage extends Page {
 
     public boolean leaderboardIsShown() {
         return leaderBoard.isDisplayed();
+    }
+
+
+    public boolean ProgressBarIsShown() {
+        return progressbar.isDisplayed();
+    }
+
+    public SearchPage search() {
+        search.click();
+        return new SearchPage(webDriver);
     }
 }

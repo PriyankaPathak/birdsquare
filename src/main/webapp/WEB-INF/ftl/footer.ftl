@@ -2,17 +2,17 @@
     <div data-role="navbar" data-iconpos="right">
         <ul>
             <li>
-            <a href="home" rel="external" data-theme="b" data-icon="home" >
+            <a href="/home" rel="external" data-theme="b" data-icon="home" >
                 Home
             </a>
             </li>
             <li>
-                <a href="home" rel="external" data-theme="b" data-icon="star">
+                <a href="/home" rel="external" data-theme="b" data-icon="star">
                     Profile
                 </a>
             </li>
             <li>
-                <a href="search" rel="external" data-theme="b" data-icon="search">
+                <a href="/search" rel="external" data-theme="b" data-icon="search" id="search">
                     Search
                 </a>
             </li>
