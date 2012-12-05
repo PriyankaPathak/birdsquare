@@ -21,7 +21,6 @@
         </ul>
         <ul data-role='listview' data-inset='true'>
             <li><a onclick="document.getElementById('form-addlocation').submit()" rel="external">Create new location</a></li>
-            <li></li>
         </ul>
     </div>
 
