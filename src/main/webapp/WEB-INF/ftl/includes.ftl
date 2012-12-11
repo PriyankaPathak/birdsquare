@@ -13,6 +13,9 @@
 <#--facebook js libraries-->
 <script type="text/javascript" src="javascript/FBLogin.js"></script>
 
+<#--To leverage iOS5′s support for a touch-targeted version of overflow:auto-->
+<script type="text/javascript" src="javascript/touchverflow.js"></script>
+
 <#--css stylesheets-->
 <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />

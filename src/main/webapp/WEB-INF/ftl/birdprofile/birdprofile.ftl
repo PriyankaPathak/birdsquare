@@ -9,7 +9,7 @@
 <#include "../includes.ftl">
 <div data-role="page" id="birdprofile">
 <#include "../headers/header-with-checkin.ftl">
-    <div data-role="content" id="birdprofile-content" >
+    <div data-role="content" id="birdprofile-content">
         <p><b>Common Name</b> : ${birdname}</p>
         <p><b>Scientific Name</b> : ${scientificname}</p>
         <p><b>Family Name </b>: ${familyname}</p>

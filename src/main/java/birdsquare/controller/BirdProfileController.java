@@ -4,7 +4,6 @@ import birdsquare.helper.BirdSquareSession;
 import birdsquare.model.Bird;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +22,6 @@ public class BirdProfileController {
 
     @RequestMapping(value = "/birdprofile/{birdID}", method = RequestMethod.GET)
     public ModelAndView birdProfile(@PathVariable("birdID") String birdId){
-
         ModelAndView mv = new ModelAndView("birdprofile/birdprofile");
         ModelMap model = mv.getModelMap();
         long id = (long)Integer.parseInt(birdId);
