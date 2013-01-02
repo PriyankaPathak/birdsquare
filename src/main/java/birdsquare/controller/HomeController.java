@@ -33,6 +33,11 @@ public class HomeController {
             return "redirect:/login";
         }
 
+        setProfile(model, uid);
+        return "home/home";
+    }
+
+    private void setProfile(Model model, String uid) throws IOException, JSONException, ParseException {
         User user = (User) birdSquareSession.get(User.class, uid);
         if (user == null) {
             JSONObject userDetails = new JsonReader().readJsonFromUrl("http://graph.facebook.com/" + uid);
@@ -42,16 +47,9 @@ public class HomeController {
         }
 
         model.addAttribute("points", user.getPoints());
-
-        int maxPoints=birdSquareSession.maximumPointsAmongUsers();
-        model.addAttribute("maxpoints",maxPoints);
-
-        int pointsForLast7Days = birdSquareSession.getPointsForLastSevenDays(uid);
-        model.addAttribute("temppoints",pointsForLast7Days);
-
-        List leaderboardList = birdSquareSession.getSortedDescendingList(User.class, "points", 5);
-        model.addAttribute("leaderboardlist", leaderboardList);
-        return "home/home";
+        model.addAttribute("maxpoints",birdSquareSession.maximumPointsAmongUsers());
+        model.addAttribute("temppoints",birdSquareSession.getPointsForLastSevenDays(uid));
+        model.addAttribute("leaderboardlist", birdSquareSession.getSortedDescendingList(User.class, "points", 5));
     }
 
     @RequestMapping(value = "/checkinlocations")
